@@ -9,7 +9,7 @@ function HeroSection() {
       { /*<video src='/Videos/video-2.mp4' autoPlay loop muted /> */}
       <h1>MAGIC AWAITS</h1>
       <p>What are you waiting for?</p>
-      <div className='heto-btns'>
+      <div className='hero-btns'>
         <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>Get Started</Button>
       </div>
     </div>

@@ -1,14 +1,14 @@
 import '../../App.css';
-import Cards from '../Cards';
 import HeroSection from '../HeroSection';
 import React from 'react';
+import Tournament from '../Tournament';
 
 
 function Home() {
   return (
     <>
     <HeroSection />
-    <Cards />
+    <Tournament />
     </>
   );
 }
