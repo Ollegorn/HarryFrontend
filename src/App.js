@@ -4,9 +4,9 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import SignUp from './components/pages/SignUp';
-import Products from './components/pages/Products';
 import Footer from './components/Footer';
 import Tournaments from './components/pages/Tournaments';
+import Admins from './components/pages/Admins';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path='/' exact Component={Home}/>
           <Route path='/tournaments' Component={Tournaments} />
           <Route path='/sign-up' Component={SignUp} />
-          <Route path='/products' Component={Products} />
+          <Route path='/admins' Component={Admins} />
         </Routes>
         <Footer />
       </Router>

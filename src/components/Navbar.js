@@ -53,7 +53,7 @@ function Navbar() {
             <Link to='/tournaments' className='nav-links' onClick={closeMobileMenuAndScrollToTop}>Tournaments</Link>
           </li>
           <li className='nav-item'>
-            <Link to='/products' className='nav-links' onClick={closeMobileMenuAndScrollToTop}>Products</Link>
+            <Link to='/admins' className='nav-links' onClick={closeMobileMenuAndScrollToTop}>Admins</Link>
           </li>
           <li className='nav-item'>
             <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenuAndScrollToTop}>Sign Up</Link>
