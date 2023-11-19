@@ -1,4 +1,3 @@
-// Navbar.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
@@ -11,6 +10,7 @@ function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenuAndScrollToTop = () => {
@@ -35,12 +35,24 @@ function Navbar() {
     setShowLogin(true);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('refreshToken');
+    setIsLoggedIn(false);
+  };
+
   const handleCloseModal = () => {
     setShowLogin(false);
   };
 
   useEffect(() => {
     showButton();
+
+    // Check for an existing token in local storage
+    const storedToken = localStorage.getItem('jwtToken');
+    if (storedToken) {
+      setIsLoggedIn(true);
+    }
   }, []);
 
   window.addEventListener('resize', showButton);
@@ -72,9 +84,15 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <button className="nav-links" onClick={handleLoginClick}>
-                Login
-              </button>
+              {isLoggedIn ? (
+                <button className="nav-links" onClick={handleLogout}>
+                  Logout
+                </button>
+              ) : (
+                <button className="nav-links" onClick={handleLoginClick}>
+                  Login
+                </button>
+              )}
             </li>
           </ul>
         </div>

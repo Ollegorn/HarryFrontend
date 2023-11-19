@@ -1,14 +1,14 @@
-// SignUp.js
 import React, { useState } from 'react';
 import './SignUp.css';
 
 function SignUp({ onClose }) {
-  const [username, setUsername] = useState('');
+  const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [signupMessage, setSignupMessage] = useState('');
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleUserNameChange = (e) => {
+    setUserName(e.target.value);
   };
 
   const handleEmailChange = (e) => {
@@ -19,49 +19,74 @@ function SignUp({ onClose }) {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSignupSubmit = async (e) => {
     e.preventDefault();
-    // Add your sign-up logic here, such as making an API call
-    console.log('Sign Up submitted:', { username, email, password });
-    // Clear the form fields after submission
-    setUsername('');
-    setEmail('');
-    setPassword('');
-    // Close the modal after sign-up
-    onClose();
+
+    try {
+      const response = await fetch('https://localhost:7099/api/Auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userName: userName,
+          email: email,
+          password: password,
+        }),
+      });
+
+      if (response.ok) {
+        setSignupMessage('Sign Up successful! Please close the window and Login');
+      } else {
+        setSignupMessage('Sign Up failed. Please try again.');
+        console.error('Sign Up failed');
+      }
+    } catch (error) {
+      setSignupMessage('Error during Sign Up. Please try again.');
+      console.error('Error during Sign Up:', error);
+    }
+  };
+
+  const handleClose = (e) => {
+    if (e.target.classList.contains('modal-overlay')) {
+      onClose();
+    }
   };
 
   return (
-    <>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={handleUsernameChange}
-          required
-        />
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-          required
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
-    </>
+    <div className="modal-overlay" onClick={handleClose}>
+      <div className="signup-container">
+        <h2>Sign Up</h2>
+        <form onSubmit={handleSignupSubmit}>
+          <label htmlFor="userName">Username:</label>
+          <input
+            type="text"
+            id="userName"
+            value={userName}
+            onChange={handleUserNameChange}
+            required
+          />
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            required
+          />
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+            required
+          />
+          <button type="submit">Sign Up</button>
+        </form>
+        <div className="signup-message">{signupMessage}</div>
+      </div>
+    </div>
   );
 }
 

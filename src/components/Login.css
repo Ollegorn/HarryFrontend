@@ -1,8 +1,8 @@
 /* Login.css */
 .login-container {
-  max-width: 400px;
+  max-width: 600px;
   margin: 200px auto;
-  padding: 20px;
+  padding: 100px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
