@@ -1,8 +1,10 @@
+// Navbar.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import './Navbar.css';
 import Login from './Login';
+import { useUser } from './UserContext'; // Import useUser hook
 
 Modal.setAppElement('#root');
 
@@ -11,6 +13,9 @@ function Navbar() {
   const [button, setButton] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Use the useUser hook to get the user context
+  const userContext = useUser();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenuAndScrollToTop = () => {
@@ -39,6 +44,8 @@ function Navbar() {
     localStorage.removeItem('jwtToken');
     localStorage.removeItem('refreshToken');
     setIsLoggedIn(false);
+    // Update the user context when logging out
+    userContext.updateUser({ roles: [] });
   };
 
   const handleCloseModal = () => {
@@ -52,6 +59,22 @@ function Navbar() {
     const storedToken = localStorage.getItem('jwtToken');
     if (storedToken) {
       setIsLoggedIn(true);
+      // Fetch user roles after successful login
+      const fetchUserRoles = async () => {
+        const rolesResponse = await fetch(`https://localhost:7099/api/Setup/GetUserRoles`, {
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
+        });
+
+        if (rolesResponse.ok) {
+          const rolesData = await rolesResponse.json();
+          // Update the user context with roles
+          userContext.updateUser({ roles: rolesData });
+        }
+      };
+
+      fetchUserRoles();
     }
   }, []);
 
@@ -79,9 +102,11 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/admins" className="nav-links" onClick={closeMobileMenuAndScrollToTop}>
-                Admins
-              </Link>
+              {userContext.user && userContext.user.roles.includes('Admin') && (
+                <Link to="/admins" className="nav-links" onClick={closeMobileMenuAndScrollToTop}>
+                  Admins
+                </Link>
+              )}
             </li>
             <li className="nav-item">
               {isLoggedIn ? (

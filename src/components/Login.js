@@ -1,6 +1,7 @@
 // Login.js
 import React, { useState } from 'react';
 import SignUp from './SignUp';
+import { useUser } from './UserContext'; // Import useUser hook
 import './Login.css';
 
 function Login({ onClose }) {
@@ -8,6 +9,9 @@ function Login({ onClose }) {
   const [password, setPassword] = useState('');
   const [isSignUp, setIsSignUp] = useState(false);
   const [loginMessage, setLoginMessage] = useState('');
+
+  // Use the useUser hook to get the user context
+  const userContext = useUser();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -19,7 +23,7 @@ function Login({ onClose }) {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-
+    
     try {
       const response = await fetch('https://localhost:7099/api/Auth/Login', {
         method: 'POST',
@@ -31,12 +35,27 @@ function Login({ onClose }) {
           password: password,
         }),
       });
-
+  
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('jwtToken', data.token);
         localStorage.setItem('refreshToken', data.refreshToken);
-
+  
+        // Fetch user roles after successful login
+        const rolesResponse = await fetch(`https://localhost:7099/api/Setup/GetUserRoles?name=${username}`, {
+          headers: {
+            Authorization: `Bearer ${data.token}`,
+          },
+        });
+  
+        if (rolesResponse.ok) {
+          const rolesData = await rolesResponse.json();
+          // Store user roles in localStorage
+          localStorage.setItem('userRoles', JSON.stringify(rolesData));
+          // Update the user context with roles
+          userContext.updateUser({ roles: rolesData });
+        }
+  
         setLoginMessage('Login successful! Redirecting...');
         setTimeout(() => {
           setLoginMessage('');
@@ -51,7 +70,8 @@ function Login({ onClose }) {
       setLoginMessage('Error during login. Please try again.');
       console.error('Error during login:', error);
     }
-  };
+  }
+  
 
   const handleToggleMode = () => {
     setIsSignUp(!isSignUp);
