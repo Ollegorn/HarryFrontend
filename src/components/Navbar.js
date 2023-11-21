@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import './Navbar.css';
 import Login from './Login';
+import { useUser } from './UserContext'; // Import useUser hook
 
 Modal.setAppElement('#root');
 
@@ -11,6 +12,10 @@ function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Use the useUser hook to get the user context
+  const userContext = useUser();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenuAndScrollToTop = () => {
@@ -35,12 +40,26 @@ function Navbar() {
     setShowLogin(true);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('userRoles');
+    setIsLoggedIn(false);
+    // Update the user context when logging out
+    userContext.updateUser({ roles: [] });
+  };
+
   const handleCloseModal = () => {
     setShowLogin(false);
   };
 
   useEffect(() => {
     showButton();
+
+    const storedToken = localStorage.getItem('jwtToken');
+    if (storedToken) {
+      setIsLoggedIn(true);
+    }
   }, []);
 
   window.addEventListener('resize', showButton);
@@ -67,14 +86,22 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/admins" className="nav-links" onClick={closeMobileMenuAndScrollToTop}>
-                Admins
-              </Link>
+              {userContext.user && userContext.user.roles.includes('Admin') && (
+                <Link to="/admins" className="nav-links" onClick={closeMobileMenuAndScrollToTop}>
+                  Admins
+                </Link>
+              )}
             </li>
             <li className="nav-item">
-              <button className="nav-links" onClick={handleLoginClick}>
-                Login
-              </button>
+              {isLoggedIn ? (
+                <Link className="nav-links" onClick={handleLogout}>
+                  Logout
+                </Link>
+              ) : (
+                <Link className="nav-links" onClick={handleLoginClick}>
+                  Login
+                </Link>
+              )}
             </li>
           </ul>
         </div>

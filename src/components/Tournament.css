@@ -3,11 +3,11 @@
   background: #fff;
 }
 
-h1 {
+h2 {
   text-align: center;
 }
 
-h3, h4, p, .register-btn{
+h3, h4, p, .details-btn{
   margin: 10px auto;
 }
 
@@ -23,7 +23,7 @@ h3, h4, p, .register-btn{
   padding: 20px;
 }
 
-.register-btn{
+.details-btn{
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
@@ -33,7 +33,7 @@ h3, h4, p, .register-btn{
   font-weight: 600;
 }
 
-.register-btn:hover{
+.details-btn:hover{
   background-color: brown;
 }
 
