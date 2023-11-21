@@ -82,7 +82,7 @@ function SignUp({ onClose }) {
             onChange={handlePasswordChange}
             required
           />
-          <button type="submit">Sign Up</button>
+          <button type="submit" className='signup-btn'>Sign Up</button>
         </form>
         <div className="signup-message">{signupMessage}</div>
       </div>

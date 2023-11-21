@@ -61,7 +61,7 @@ function Login({ onClose }) {
           setLoginMessage('');
           onClose();
           window.location.href = '/';
-        }, 2000);
+        }, 1000);
       } else {
         setLoginMessage('Login failed. Please check your credentials.');
         console.error('Login failed');

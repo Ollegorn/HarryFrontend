@@ -6,9 +6,7 @@
 }
 
 .home,
-.tournaments,
-.admins,
-.sign-up {
+.tournaments {
   display: flex;
   height: 90vh;
   align-items: center;
@@ -18,24 +16,6 @@
 
 .tournaments {
   background-image: url('/public/Images/img-2.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.admins {
-  background-image: url('/public/Images/img-1.jpg');
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.sign-up {
-  background-image: url('/public/Images/img-8.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

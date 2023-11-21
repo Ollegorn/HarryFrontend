@@ -1,5 +1,4 @@
-// App.js
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Footer from './components/Footer';
@@ -9,6 +8,7 @@ import Navbar from './components/Navbar';
 import { UserProvider } from './components/UserContext';
 
 function App() {
+ 
   return (
     <UserProvider>
       <Router>

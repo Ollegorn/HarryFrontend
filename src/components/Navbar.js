@@ -43,6 +43,7 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem('jwtToken');
     localStorage.removeItem('refreshToken');
+    localStorage.removeItem('userRoles');
     setIsLoggedIn(false);
     // Update the user context when logging out
     userContext.updateUser({ roles: [] });
@@ -55,26 +56,9 @@ function Navbar() {
   useEffect(() => {
     showButton();
 
-    // Check for an existing token in local storage
     const storedToken = localStorage.getItem('jwtToken');
     if (storedToken) {
       setIsLoggedIn(true);
-      // Fetch user roles after successful login
-      const fetchUserRoles = async () => {
-        const rolesResponse = await fetch(`https://localhost:7099/api/Setup/GetUserRoles`, {
-          headers: {
-            Authorization: `Bearer ${storedToken}`,
-          },
-        });
-
-        if (rolesResponse.ok) {
-          const rolesData = await rolesResponse.json();
-          // Update the user context with roles
-          userContext.updateUser({ roles: rolesData });
-        }
-      };
-
-      fetchUserRoles();
     }
   }, []);
 
@@ -110,13 +94,13 @@ function Navbar() {
             </li>
             <li className="nav-item">
               {isLoggedIn ? (
-                <button className="nav-links" onClick={handleLogout}>
+                <Link className="nav-links" onClick={handleLogout}>
                   Logout
-                </button>
+                </Link>
               ) : (
-                <button className="nav-links" onClick={handleLoginClick}>
+                <Link className="nav-links" onClick={handleLoginClick}>
                   Login
-                </button>
+                </Link>
               )}
             </li>
           </ul>

@@ -1,0 +1,18 @@
+.admins{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.admins h2{
+  margin: 20px auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  user-select: none;
+}
+.admins h2:hover{
+  background-color: blueviolet;
+  color: aliceblue;
+  cursor: pointer;
+}

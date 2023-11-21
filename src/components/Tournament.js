@@ -1,72 +1,108 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Tournament.css';
-import { Link } from 'react-router-dom';
+import { useUser } from './UserContext';
 
-function Tournament() {
-  const [tournamentData, setTournamentData] = useState([]);
+function Tournament(props) {
   const [expandedTournamentId, setExpandedTournamentId] = useState(null);
   const [topWizards, setTopWizards] = useState([]);
+  const [isDeleted, setIsDeleted] = useState(false); // New state variable
 
-  useEffect(() => {
-    const apiUrl = 'https://localhost:7099/api/Tournament/AllTournamnets';
-
-    fetch(apiUrl)
-      .then(res => res.json())
-      .then(data => setTournamentData(data))
-      .catch(error => console.error('Error:', error));
-  }, []);
+  const userContext = useUser();
+  const isAdmin = userContext.user.roles.includes('Admin');
 
   const handleDetailsToggle = async (tournamentId) => {
-    setExpandedTournamentId(expandedTournamentId === tournamentId ? null : tournamentId);
+    setExpandedTournamentId(
+      expandedTournamentId === tournamentId ? null : tournamentId
+    );
 
-    // Fetch top 3 wizards when "Details" button is clicked
     if (expandedTournamentId !== tournamentId) {
-      const selectedTournament = tournamentData.find(tournament => tournament.tournamentId === tournamentId);
-      const topWizardsData = selectedTournament.registeredUsers.slice(0, 3);
+      const topWizardsData = props.registeredUsers.slice(0, 3);
       setTopWizards(topWizardsData);
     } else {
       setTopWizards([]);
     }
   };
 
+    const startTournament = async () => {
+      const apiStartUrl = `https://localhost:7099/api/Tournament/StartTournament?tournamentId=${props.tournamentId}`;
+      try {
+        const response = await fetch(apiStartUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        });
+    
+        if (response.ok) {
+          console.log('Tournament started successfully');
+        } else {
+          console.error('Failed to start tournament');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+  
+
+  const deleteTournament = async () => {
+    const apiDeleteUrl = `https://localhost:7099/api/Tournament/DeleteTournament?id=${props.tournamentId}`;
+  
+    try {
+      const response = await fetch(apiDeleteUrl, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+
+      if (response.ok) {
+        console.log('Tournament deleted successfully');
+        setIsDeleted(true);
+      } else {
+        console.error('Failed to delete tournament');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  if (isDeleted) {
+    return null;
+  }
+
   return (
-    <div className='tournament'>
-      {tournamentData.length === 0 ? (
-        <h1>No Ongoing Tournaments</h1>
-      ) : (
-        <>
-          <h1>Ongoing Tournaments!</h1>
-          {tournamentData.map(tournament => (
-            <div key={tournament.tournamentId} className='tournament-box'>
-              <h3>Name: {tournament.tournamentName}</h3>
-              <h4>Rules: {tournament.rules}</h4>
-              <p>Prize: {tournament.prize}</p>
-              <p>Number of Wizards: {(tournament.registeredUsers).length}</p>
+    <div className="tournament">
+      <div key={props.tournamentId} className="tournament-box">
+        <h3>Name: {props.tournamentName}</h3>
+        <h4>Rules: {props.rules}</h4>
+        <p>Prize: {props.prize}</p>
+        <p>Number of Wizards: {props.registeredUsers.length}</p>
 
-              {expandedTournamentId === tournament.tournamentId && (
-                <div className='expanded-details'>
-                  <h2>Top 3 Wizards:</h2>
-                  <ul>
-                    {topWizards.map(wizard => (
-                      <li key={wizard.userName}>
-                        {wizard.userName} - Wins: {wizard.wins}, Defeats: {wizard.defeats}
-                      </li>
-                    ))}
-                  </ul>
-                  {/* Add more details as needed */}
-                </div>
-              )}
+        {expandedTournamentId === props.tournamentId && (
+          <div className="expanded-details">
+            <h3>Top 3 Wizards:</h3>
+            <ul>
+              {topWizards.map((wizard) => (
+                <li key={wizard.userName}>
+                  {wizard.userName} - Wins: {wizard.wins}, Defeats: {wizard.defeats}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-              <div className='btn-container'>
-                <Link to='sign-up' className='register-btn'>Register</Link>
-                <button className='register-btn' onClick={() => handleDetailsToggle(tournament.tournamentId)}>
-                  {expandedTournamentId === tournament.tournamentId ? 'Hide Details' : 'Show Details'}
-                </button>
-              </div>
-            </div>
-          ))}
-        </>
-      )}
+        <div className="btn-container">
+          <button className="details-btn" onClick={() => handleDetailsToggle(props.tournamentId)}>
+            {expandedTournamentId === props.tournamentId ? 'Hide Details' : 'Show Details'}
+          </button>
+          {isAdmin && <button className='delete-btn' onClick={deleteTournament}>Delete</button>}
+          {isAdmin && props.duels.length ===0 && (
+            <button className='details-btn' onClick={startTournament}>
+              Start Tournament
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
