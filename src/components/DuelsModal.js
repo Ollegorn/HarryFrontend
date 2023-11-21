@@ -1,16 +1,12 @@
-import React, { useContext } from 'react';
-import Duel from './Duel';
+import React from 'react';
+import Duel from './Duel'; // Assuming you have a Duel component
 import { useUser } from './UserContext';
 
-
 function DuelsModal({ duelsData, onClose }) {
-  // Use the useUser hook to get the user information
-  const { user } = useUser();
+  const userContext = useUser();
+  const userId = localStorage.getItem('userId'); // Get the user ID from local storage
 
-  // Ensure user and user.id exist before using it
-  const userId = user && user.id;
-
-  // Filter duels based on the user id
+  // Filter duels where the user is one of the participants
   const userDuels = duelsData.filter(
     (duel) => duel.userOne.id === userId || duel.userTwo.id === userId
   );

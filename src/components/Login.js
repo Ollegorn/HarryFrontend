@@ -23,7 +23,7 @@ function Login({ onClose }) {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    
+  
     try {
       const response = await fetch('https://localhost:7099/api/Auth/Login', {
         method: 'POST',
@@ -40,17 +40,21 @@ function Login({ onClose }) {
         const data = await response.json();
         localStorage.setItem('jwtToken', data.token);
         localStorage.setItem('refreshToken', data.refreshToken);
+        localStorage.setItem('userId', data.userId);
   
         // Fetch user roles after successful login
-        const rolesResponse = await fetch(`https://localhost:7099/api/Setup/GetUserRoles?name=${username}`, {
-          headers: {
-            Authorization: `Bearer ${data.token}`,
-          },
-        });
+        const rolesResponse = await fetch(
+          `https://localhost:7099/api/Setup/GetUserRoles?name=${username}`,
+          {
+            headers: {
+              Authorization: `Bearer ${data.token}`,
+            },
+          }
+        );
   
         if (rolesResponse.ok) {
           const rolesData = await rolesResponse.json();
-          // Store user roles in localStorage
+          // Store user roles and ID in localStorage
           localStorage.setItem('userRoles', JSON.stringify(rolesData));
           // Update the user context with roles
           userContext.updateUser({ roles: rolesData });
@@ -70,7 +74,8 @@ function Login({ onClose }) {
       setLoginMessage('Error during login. Please try again.');
       console.error('Error during login:', error);
     }
-  }
+  };
+  
   
 
   const handleToggleMode = () => {
