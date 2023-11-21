@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './Tournament.css';
 import { useUser } from './UserContext';
+import DuelsModal from './DuelsModal';
 
 function Tournament(props) {
   const [expandedTournamentId, setExpandedTournamentId] = useState(null);
   const [topWizards, setTopWizards] = useState([]);
-  const [isDeleted, setIsDeleted] = useState(false); // New state variable
+  const [isDeleted, setIsDeleted] = useState(false);
+  const [showDuelsModal, setShowDuelsModal] = useState(false);
+  const [duelsData, setDuelsData] = useState([]);
 
   const userContext = useUser();
   const isAdmin = userContext.user.roles.includes('Admin');
@@ -23,25 +26,50 @@ function Tournament(props) {
     }
   };
 
-    const startTournament = async () => {
-      const apiStartUrl = `https://localhost:7099/api/Tournament/StartTournament?tournamentId=${props.tournamentId}`;
-      try {
-        const response = await fetch(apiStartUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        });
-    
-        if (response.ok) {
-          console.log('Tournament started successfully');
-        } else {
-          console.error('Failed to start tournament');
-        }
-      } catch (error) {
-        console.error('Error:', error);
+  const handleShowDuels = () => {
+    // Call the getDuelsDetails function to fetch duelsData
+    getDuelsDetails();
+    // Show the DuelsModal
+    setShowDuelsModal(true);
+  };
+
+  const startTournament = async () => {
+    const apiStartUrl = `https://localhost:7099/api/Tournament/StartTournament?tournamentId=${props.tournamentId}`;
+    try {
+      const response = await fetch(apiStartUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+  
+      if (response.ok) {
+        console.log('Tournament started successfully');
+      } else {
+        console.error('Failed to start tournament');
       }
-    };
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const getDuelsDetails = async () => {
+    const duelsUrl = 'https://localhost:7099/api/Duel/AllDuels';
+  
+    try {
+      const response = await fetch(duelsUrl);
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Duel Details:', data);
+        setDuelsData(data);
+      } else {
+        console.error('Failed to fetch duels details');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
   
 
   const deleteTournament = async () => {
@@ -70,6 +98,7 @@ function Tournament(props) {
     return null;
   }
 
+  const isStarted = props.duels.length === 0
   return (
     <div className="tournament">
       <div key={props.tournamentId} className="tournament-box">
@@ -96,12 +125,17 @@ function Tournament(props) {
             {expandedTournamentId === props.tournamentId ? 'Hide Details' : 'Show Details'}
           </button>
           {isAdmin && <button className='delete-btn' onClick={deleteTournament}>Delete</button>}
-          {isAdmin && props.duels.length ===0 && (
+          {isAdmin && isStarted && (
             <button className='details-btn' onClick={startTournament}>
               Start Tournament
             </button>
           )}
+          {isStarted && (<button>Register</button>)}
+          {!isStarted && <button onClick={handleShowDuels}>Show My duels</button>}
         </div>
+        {showDuelsModal && (
+        <DuelsModal duelsData={duelsData} onClose={() => setShowDuelsModal(false)} />
+      )}
       </div>
     </div>
   );

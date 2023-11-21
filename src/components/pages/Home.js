@@ -17,27 +17,25 @@ function Home() {
       .catch(error => console.log('Error:', error));
   }, []);
 
-  const hasOngoingTournaments = tournamentsData.some(tournament => tournament.tournamentDuels.length !== 0);
+  // Filter tournaments with ongoing duels
+  const ongoingTournaments = tournamentsData.filter(tournament => tournament.tournamentDuels.length !== 0);
 
   return (
     <>
       <HeroSection />
-      {hasOngoingTournaments && <h2>Ongoing Tournaments!</h2>}
-      {hasOngoingTournaments && tournamentsData.map(tournament => {
-        console.log('Tournament ID:', tournament.tournamentId);
-        return (
-          <Tournament
-            key={tournament.tournamentId}
-            tournamentName={tournament.tournamentName}
-            registeredUsers={tournament.registeredUsers}
-            rules={tournament.rules}
-            prize={tournament.prize}
-            tournamentId={tournament.tournamentId}
-            duels={tournament.tournamentDuels}
-          />
-        );
-      })}
-      {!hasOngoingTournaments && <h2>No ongoing Tournaments!</h2>}
+      {ongoingTournaments.length > 0 && <h2>Ongoing Tournaments!</h2>}
+      {ongoingTournaments.map(tournament => (
+        <Tournament
+          key={tournament.tournamentId}
+          tournamentName={tournament.tournamentName}
+          registeredUsers={tournament.registeredUsers}
+          rules={tournament.rules}
+          prize={tournament.prize}
+          tournamentId={tournament.tournamentId}
+          duels={tournament.tournamentDuels}
+        />
+      ))}
+      {ongoingTournaments.length === 0 && <h2>No ongoing Tournaments!</h2>}
     </>
   );
 }
