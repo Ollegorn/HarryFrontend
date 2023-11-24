@@ -9,7 +9,9 @@ function Tournament(props) {
   const [isDeleted, setIsDeleted] = useState(false);
   const [showDuelsModal, setShowDuelsModal] = useState(false);
   const [duelsData, setDuelsData] = useState([]);
+  const [isRegistered, setIsRegistered] = useState(false);
 
+  const images = ['/Images/img1.png']
   const userContext = useUser();
   const isAdmin = userContext.user.roles.includes('Admin');
 
@@ -27,11 +29,40 @@ function Tournament(props) {
   };
 
   const handleShowDuels = () => {
-    // Call the getDuelsDetails function to fetch duelsData
     getDuelsDetails();
-    // Show the DuelsModal
     setShowDuelsModal(true);
   };
+
+  
+
+  const registerUser = async (tournamentId) => {
+    try {
+        const username = localStorage.getItem('username');
+
+        const requestBody = {
+            tournamentId: tournamentId,
+            username: username,
+        };
+
+        const response = await fetch('https://localhost:7099/api/Tournament/AddUserToTournament', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody),
+        });
+
+        if (response.ok) {
+            console.log('User registration successful');
+            setIsRegistered(true);
+        } else {
+            console.error('User registration failed');
+        }
+    } catch (error) {
+        console.error('Error during user registration:', error);
+    }
+};
+
 
   const startTournament = async () => {
     const apiStartUrl = `https://localhost:7099/api/Tournament/StartTournament?tournamentId=${props.tournamentId}`;
@@ -101,42 +132,65 @@ function Tournament(props) {
   const isStarted = props.duels.length === 0
   return (
     <div className="tournament">
-      <div key={props.tournamentId} className="tournament-box">
-        <h3>Name: {props.tournamentName}</h3>
-        <h4>Rules: {props.rules}</h4>
-        <p>Prize: {props.prize}</p>
-        <p>Number of Wizards: {props.registeredUsers.length}</p>
+      
 
-        {expandedTournamentId === props.tournamentId && (
-          <div className="expanded-details">
-            <h3>Top 3 Wizards:</h3>
-            <ul>
-              {topWizards.map((wizard) => (
-                <li key={wizard.userName}>
-                  {wizard.userName} - Wins: {wizard.wins}, Defeats: {wizard.defeats}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        <div className="btn-container">
-          <button className="details-btn" onClick={() => handleDetailsToggle(props.tournamentId)}>
-            {expandedTournamentId === props.tournamentId ? 'Hide Details' : 'Show Details'}
-          </button>
-          {isAdmin && <button className='delete-btn' onClick={deleteTournament}>Delete</button>}
-          {isAdmin && isStarted && (
-            <button className='details-btn' onClick={startTournament}>
-              Start Tournament
-            </button>
-          )}
-          {isStarted && (<button>Register</button>)}
-          {!isStarted && <button onClick={handleShowDuels}>Show My duels</button>}
+      <div className='tournament-box'>
+        
+        <div key={props.tournamentId} className='tournament-details'>
+          <h3>{props.tournamentName}</h3>
+          <h4>Rules: {props.rules}</h4>
+          <p>Prize: {props.prize}</p>
+          <p>Number of Wizards: {props.registeredUsers.length}</p>
         </div>
-        {showDuelsModal && (
-        <DuelsModal duelsData={duelsData} onClose={() => setShowDuelsModal(false)} />
-      )}
+
+        <div className='tournament-btns'>
+          {expandedTournamentId === props.tournamentId && (
+            <div className="expanded-details">
+              <h3>Top 3 Wizards:</h3>
+              <ul>
+                {topWizards.map((wizard) => (
+                  <li key={wizard.userName}>
+                    {wizard.userName} - Wins: {wizard.wins}, Defeats: {wizard.defeats}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="btn-container">
+
+            <div>
+              <button className="details-btn" onClick={() => handleDetailsToggle(props.tournamentId)}>
+                {expandedTournamentId === props.tournamentId ? 'Hide Details' : 'Learn More'}
+              </button>
+
+              {isStarted && !isRegistered && (<button className='user-btn' onClick={() => registerUser(props.tournamentId)}
+              >Register</button>)}
+
+              {!isStarted && <button className='user-btn' onClick={handleShowDuels}>Show My duels</button>}
+            </div>
+            {isAdmin && <div className='admin-btns'>
+              <button className='delete-btn' onClick={deleteTournament}>Delete</button>
+              {isStarted && <button className='details-btn' onClick={startTournament}>Start Tournament</button>}
+            </div>
+
+            }
+            
+            
+            
+
+            
+          </div>
+          {showDuelsModal && (
+            <DuelsModal duelsData={duelsData} onClose={() => setShowDuelsModal(false)} />
+          )}
+          </div>
+        </div>
+      
+      <div className='tournament-img'>
+        <img src={process.env.PUBLIC_URL + images[props.imageNumber]} />
       </div>
+
     </div>
   );
 }

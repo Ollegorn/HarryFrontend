@@ -33,6 +33,7 @@ function Home() {
           prize={tournament.prize}
           tournamentId={tournament.tournamentId}
           duels={tournament.tournamentDuels}
+          imageNumber={tournament.imageNumber}
         />
       ))}
       {ongoingTournaments.length === 0 && <h2>No ongoing Tournaments!</h2>}

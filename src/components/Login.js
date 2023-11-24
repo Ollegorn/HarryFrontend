@@ -41,6 +41,7 @@ function Login({ onClose }) {
         localStorage.setItem('jwtToken', data.token);
         localStorage.setItem('refreshToken', data.refreshToken);
         localStorage.setItem('userId', data.userId);
+        localStorage.setItem('username', username);
   
         // Fetch user roles after successful login
         const rolesResponse = await fetch(

@@ -28,6 +28,8 @@ function Tournaments() {
             prize={tournament.prize}
             tournamentId={tournament.tournamentId}
             duels={tournament.tournamentDuels}
+            imageNumber={tournament.imageNumber}
+
           />
         )}
     </>

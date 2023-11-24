@@ -1,42 +1,68 @@
 .tournament {
-  padding: 4rem;
-  background: #fff;
-}
-
-h2 {
-  text-align: center;
-}
-
-h3, h4, p, .details-btn{
-  margin: 10px auto;
+  color: #D2D4DB;
+  background: #0C1416;
+  margin: 1rem auto;
+  display: flex;
+  width: 52.5rem;
+  max-width: 52.5rem;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 1rem;
+  border: 4px solid var(--gradient-01, #B8B799);
 }
 
 .tournament-box{
   display: flex;
+  width: 28.25rem;
+  padding: 2rem 0rem 2rem 2rem;
   flex-direction: column;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  margin: 10px auto;
-  width: 600px;
-  border: 1px solid black;
-  padding: 20px;
+  gap: 2rem;
+  flex-shrink: 0;
 }
 
-.details-btn{
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
-  text-decoration: none;
-  color: black;
-  font-weight: 600;
+.tournament-details{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  align-self: stretch;
 }
 
-.details-btn:hover{
-  background-color: brown;
+button{
+  border-radius: 0.5rem;
+  border: 2px solid var(--gradient-01, #B8B799);
+  padding: 0.725rem 2rem;
+  margin: 0 0.725rem;
+}
+
+button:hover{
+  cursor: pointer;
 }
 
 .btn-container{
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
+
+.user-btn{
+  background-color: #B8B799
+}
+
+
+.tournament-img{
+  flex: 1 0 0;
+  align-self: stretch;
+  border-left: 4px solid var(--gradient-01, #B8B799);
+  display: flex;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+

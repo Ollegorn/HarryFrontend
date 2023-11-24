@@ -41,9 +41,7 @@ function Navbar() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('jwtToken');
-    localStorage.removeItem('refreshToken');
-    localStorage.removeItem('userRoles');
+    localStorage.clear();
     setIsLoggedIn(false);
     // Update the user context when logging out
     userContext.updateUser({ roles: [] });

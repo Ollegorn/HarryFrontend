@@ -2,6 +2,8 @@ import React from 'react';
 import './User.css'
 
 function User(props) {
+  
+
   return (
     <div className='user'>
       <h3>Username: {props.username} </h3> 

@@ -89,8 +89,15 @@ function Admins() {
           {showTournaments && (
             <div className='tournamentsContainer'>
               {tournamentsData.map(tournament => (
-                <Tournament key={tournament.tournamentId} tournamentName={tournament.tournamentName}
-                registeredUsers={tournament.registeredUsers} rules={tournament.rules} prize={tournament.prize} tournamentId={tournament.tournamentId} duels={tournament.tournamentDuels}/>
+                <Tournament key={tournament.tournamentId} 
+                tournamentName={tournament.tournamentName}
+                registeredUsers={tournament.registeredUsers} 
+                rules={tournament.rules} 
+                prize={tournament.prize} 
+                tournamentId={tournament.tournamentId} 
+                duels={tournament.tournamentDuels}
+                imageNumber={tournament.imageNumber}
+                />
               ))}  
             </div>
           )}
@@ -126,6 +133,15 @@ function Admins() {
                   onChange={(e) => setNewTournament({ ...newTournament, prize: e.target.value })}
                   required
                 />
+              </label>
+              <label>
+                Image Number:
+                <input 
+                  type='number'
+                  value={newTournament.imageNumber}
+                  onChange={(e) => setNewTournament({...newTournament, imageNumber:e.target.value})}
+                />
+
               </label>
               <button type="button" onClick={handleCreateTournament} disabled={!newTournament.tournamentName || !newTournament.rules || !newTournament.prize}>
                 Create Tournament
