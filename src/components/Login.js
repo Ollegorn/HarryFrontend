@@ -1,7 +1,7 @@
 // Login.js
 import React, { useState } from 'react';
 import SignUp from './SignUp';
-import { useUser } from './UserContext'; // Import useUser hook
+import { useUser } from './UserContext'; 
 import './Login.css';
 
 function Login({ onClose }) {
@@ -55,9 +55,7 @@ function Login({ onClose }) {
   
         if (rolesResponse.ok) {
           const rolesData = await rolesResponse.json();
-          // Store user roles and ID in localStorage
           localStorage.setItem('userRoles', JSON.stringify(rolesData));
-          // Update the user context with roles
           userContext.updateUser({ roles: rolesData });
         }
   

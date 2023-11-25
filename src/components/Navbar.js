@@ -41,6 +41,7 @@ function Navbar({ pageTitle }) {
   };
 
   const handleLoginClick = () => {
+    console.log('Button clicked!');
     setShowLogin(true);
   };
 
