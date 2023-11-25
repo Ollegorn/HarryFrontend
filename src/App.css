@@ -134,36 +134,72 @@
   --neutral-96: rgba(176, 179, 191, 1);
   --neutral-98: rgba(210, 212, 219, 1);
   --neutral-99: rgba(232, 233, 237, 1);
+
   --primary-010: rgba(12, 20, 22, 1);
   --primary-0110: rgba(22, 36, 39, 1);
   --primary-0120: rgba(36, 60, 66, 1);
   --primary-0130: rgba(51, 84, 92, 1);
   --primary-0140: rgba(65, 108, 118, 1);
+
   --primary-020: rgba(12, 29, 36, 1);
   --primary-0210: rgba(20, 50, 61, 1);
   --primary-0220: rgba(36, 87, 107, 1);
   --primary-0230: rgba(51, 124, 153, 1);
   --primary-0240: rgba(71, 159, 194, 1);
+
   --primary-0310: rgba(29, 17, 12, 1);
   --primary-0320: rgba(43, 26, 18, 1);
   --primary-0330: rgba(58, 35, 24, 1);
   --primary-0340: rgba(72, 43, 30, 1);
   --primary-0350: rgba(86, 52, 36, 1);
+
   --primary-0410: rgba(24, 21, 40, 1);
   --primary-0420: rgba(38, 33, 63, 1);
   --primary-0430: rgba(49, 42, 80, 1);
   --primary-0440: rgba(65, 56, 107, 1);
   --primary-0450: rgba(81, 70, 134, 1);
+
   --secondary-1295: rgba(171, 170, 135, 1);
   --secondary-1296: rgba(184, 183, 153, 1);
   --secondary-1297: rgba(205, 204, 183, 1);
   --secondary-1298: rgba(222, 221, 207, 1);
   --secondary-1299: rgba(238, 238, 231, 1);
+
   --secondary-3490: rgba(156, 118, 28, 1);
   --secondary-3495: rgba(173, 131, 31, 1);
   --secondary-3496: rgba(191, 144, 34, 1);
   --secondary-3498: rgba(221, 174, 60, 1);
   --secondary-3499: rgba(224, 182, 82, 1);
+
+  /*surface colors - to be paired with elevations = shadows*/
+  --surface-01: linear-gradient(
+    180deg,
+    rgba(36, 38, 45, 0.17) 0%,
+    rgba(20, 21, 25, 0.17) 100%
+  );
+  --surface-02: linear-gradient(
+    180deg,
+    rgba(54, 57, 68, 0.17) 0%,
+    rgba(36, 38, 45, 0.17) 100%
+  );
+  --surface-03: linear-gradient(
+    180deg,
+    rgba(64, 67, 79, 0.17) 0%,
+    rgba(64, 67, 79, 0.17) 100%,
+    rgba(54, 57, 68, 0.17) 100%
+  );
+  --surface-04: linear-gradient(
+    180deg,
+    rgba(82, 86, 102, 0.17) 0%,
+    rgba(64, 67, 79, 0.17) 100%,
+    rgba(64, 67, 79, 0.17) 100%
+  );
+  --surface-05: linear-gradient(
+    180deg,
+    rgba(100, 105, 125, 0.17) 0%,
+    rgba(64, 67, 79, 0.17) 100%,
+    rgba(82, 86, 102, 0.17) 100%
+  );
 
   /* title text styles */
   --title-large-font-family: "Syne", Helvetica;
