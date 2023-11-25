@@ -223,6 +223,57 @@
   --title-small-letter-spacing: 0.00625rem;
   --title-small-line-height: 1.5rem;
 
+  /*background images*/
+  --background-01: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-01.jpg"),
+    lightgray 50% / cover no-repeat;
+  --background-02: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-02.jpg"),
+    lightgray 50% / cover no-repeat;
+  --background-03: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-03.png"),
+    lightgray 50% / cover no-repeat;
+  --background-04: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-04.png"),
+    lightgray 50% / cover no-repeat;
+  --background-05: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-05.png"),
+    lightgray 50% / cover no-repeat;
+  --background-06: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-06.png"),
+    lightgray 50% / cover no-repeat;
+  --background-07: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-07.png"),
+    lightgray 50% / cover no-repeat;
+
   /* avatars */
   --x2d-avatar01: url("../public/Images/Avatars/01.svg"), rgba(12, 20, 22, 1);
   --x2d-avatar02: url("../public/Images/Avatars/02.svg"), rgba(22, 36, 39, 1);

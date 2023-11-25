@@ -8,7 +8,9 @@ video {
 }
 */
 .hero-container {
-  background: url('/public/Images/Hogwarts2.jpg') center center/cover no-repeat; 
+  background:  var(--background-01);
+  background-size: cover; 
+  background-position: center;
   height: 100vh;
   width: 100%;
   display: flex;
