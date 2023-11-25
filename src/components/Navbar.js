@@ -7,6 +7,7 @@ import Login from "./Login";
 import { useUser } from "./UserContext"; // Import useUser hook
 import CustomButton from "./CustomButton";
 import useScreenSize from "./useScreenSize";
+import UserAvatar from "./UserAvatar";
 
 Modal.setAppElement("#root");
 
