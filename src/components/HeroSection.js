@@ -11,7 +11,7 @@ function HeroSection() {
       <p>What are you waiting for?</p>
       <div className="hero-btns">
         <CustomButton type={"default"} size={"small"}>
-          Welcome to MasterOfMagic!
+          Let The Magic Begin
         </CustomButton>
       </div>
     </div>

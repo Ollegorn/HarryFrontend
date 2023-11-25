@@ -5,17 +5,19 @@ function CustomButton({ type, size, children }) {
     <>
       <style type="text/css">
         {`.btn-default {
-            background: var(--surface-01);
-            box-shadow: var(--elevation-01);
+            background: var(--surface-03);
+            box-shadow: var(--elevation-03);
             backdrop-filter: blur(8px);
             color: var(--neutral-98);
+            transform: translateY(0px);
             transition: all 0.2s ease-in-out;
         }
 
         .btn-default:hover {
-            background: var(--surface-03);
-            box-shadow: var(--elevation-03);
+            background: var(--surface-05);
+            box-shadow: var(--elevation-05);
             color: var(--neutral-99);
+            transform: translateY(-2px);
         }
 
         .btn-outlined {
@@ -23,6 +25,7 @@ function CustomButton({ type, size, children }) {
             border: 3px solid var(--secondary-1295);
             backdrop-filter: blur(0px);
             color: var(--secondary-1295);
+            transform: scale(1);
             transition: all 0.2s ease-in-out;
         }
 
@@ -30,6 +33,7 @@ function CustomButton({ type, size, children }) {
             border: 3px solid var(--secondary-1297);
             backdrop-filter: blur(4px);
             color: var(--secondary-1297);
+            transform: scale(1.05);
         }
 
         .btn-ghost {
@@ -38,6 +42,8 @@ function CustomButton({ type, size, children }) {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             backdrop-filter: blur(0px);
+            transform: scale(1);
+            text-transform: none;
             transition: all 0.2s ease-in-out;
         }
 
@@ -47,6 +53,8 @@ function CustomButton({ type, size, children }) {
             -webkit-background-clip: text;
             -webkit-text-fill-color: var(--secondary-1295);
             backdrop-filter: blur(1px);
+            transform: scale(1.05);
+            text-transform: uppercase;
         }
         
         .btn-small {
