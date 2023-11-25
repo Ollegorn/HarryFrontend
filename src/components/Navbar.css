@@ -75,6 +75,10 @@
   display: none;
 }
 
+.page-title-container {
+  display: none;
+}
+
 @media screen and (max-width: 1315px) {
   .navbar-logo {
     font-size: 1.5rem;
@@ -173,5 +177,20 @@
   .fa-times {
     color: var(--neutral-99);
     font-size: 1.8rem;
+  }
+  .page-title-container {
+    display: flex;
+    flex: 1 0 0;
+    justify-content: center;
+  }
+  .page-title {
+    font-family: var(--title-medium-font-family);
+    font-size: var(--title-medium-font-size);
+    font-style: var(--title-medium-font-style);
+    font-weight: var(--title-medium-font-weight);
+    line-height: var(--title-medium-line-height);
+    letter-spacing: var(--title-medium-letter-spacing);
+    color: var(--neutral-99);
+    text-align: center;
   }
 }
