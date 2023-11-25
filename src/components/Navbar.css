@@ -136,22 +136,22 @@
   }
 
   .nav-menu {
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 100%;
     height: calc(100vh - 56px);
     position: absolute;
     top: 56px;
-    opacity: 0;
+    opacity: hidden;
     transition: all 0.5s ease;
   }
 
   .nav-menu.active {
+    display: flex;
     background: var(--neutral-10);
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
-    z-index: 1;
   }
 
   .nav-links {

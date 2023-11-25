@@ -40,14 +40,13 @@ function Navbar({ pageTitle }) {
   };
 
   const handleLoginClick = () => {
-    console.log('Button clicked!');
     setShowLogin(true);
+    setClick(false);
   };
 
   const handleLogout = () => {
     localStorage.clear();
     setIsLoggedIn(false);
-    // Update the user context when logging out
     userContext.updateUser({ roles: [] });
   };
 
@@ -124,22 +123,57 @@ function Navbar({ pageTitle }) {
                 Rules
               </Link>
             </li>
-          </ul>
-          {!isLoggedIn && (
-            <CustomButton
-              type="outlined"
-              size={
-                screenSize.width <= 1104
-                  ? "small"
-                  : screenSize.width <= 1315
-                  ? "medium"
-                  : "large"
-              }
-              onClick={handleLoginClick}
-            >
-              Sign In
-            </CustomButton>
+          <li className="nav-item">
+          {screenSize.width > 970 ?(
+            !isLoggedIn ? (
+              <CustomButton
+                type="outlined"
+                size={
+                  screenSize.width <= 1104
+                    ? "small"
+                    : screenSize.width <= 1315
+                    ? "medium"
+                    : "large"
+                }
+                onClick={handleLoginClick}
+              >
+                Log In
+              </CustomButton>
+            ):(
+              <CustomButton
+                type="outlined"
+                size={
+                  screenSize.width <= 1104
+                    ? "small"
+                    : screenSize.width <= 1315
+                    ? "medium"
+                    : "large"
+                }
+              onClick={handleLogout}
+              >Log Out</CustomButton>
+            )
+          ):(
+            !isLoggedIn ? (
+              <Link
+                to='/'
+                className="nav-links"
+                onClick={handleLoginClick}
+              >
+                Log In
+              </Link>
+            ):(
+              <Link
+                to='/'
+                className="nav-links"
+
+                onClick={handleLogout}
+              >Log Out</Link>
+            )
           )}
+          
+          </li>
+          </ul>
+
         </div>
       </nav>
       <Modal
