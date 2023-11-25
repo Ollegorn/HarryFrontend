@@ -2,6 +2,7 @@ import "./Home.css";
 import React, { useEffect, useState } from "react";
 import HeroSection from "../HeroSection";
 import Tournament from "../Tournament";
+import Navbar from "../Navbar";
 
 function Home() {
   const [tournamentsData, setTournamentsData] = useState([]);
@@ -26,6 +27,7 @@ function Home() {
 
   return (
     <>
+      <Navbar pageTitle={"Home"} />
       <HeroSection />
       {ongoingTournaments.length > 0 && <h2>Ongoing Tournaments!</h2>}
       {ongoingTournaments.map((tournament) => (

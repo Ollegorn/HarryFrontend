@@ -12,7 +12,7 @@ function App() {
   return (
     <UserProvider>
       <Router>
-        <Navbar />
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tournaments" element={<Tournaments />} />

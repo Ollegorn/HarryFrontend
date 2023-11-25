@@ -10,7 +10,7 @@ import useScreenSize from "./useScreenSize";
 
 Modal.setAppElement("#root");
 
-function Navbar() {
+function Navbar({ pageTitle }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
@@ -77,6 +77,11 @@ function Navbar() {
           >
             MasterOfMagic
           </Link>
+          {screenSize.width < 970 && (
+            <div className="page-title-container">
+              <p className="page-title">{pageTitle}</p>
+            </div>
+          )}
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
@@ -123,7 +128,13 @@ function Navbar() {
           {!isLoggedIn && (
             <CustomButton
               type="outlined"
-              size={screenSize.width <= 1104 ? "small" : screenSize.width <= 1315 ? "medium" : "large"}
+              size={
+                screenSize.width <= 1104
+                  ? "small"
+                  : screenSize.width <= 1315
+                  ? "medium"
+                  : "large"
+              }
               onClick={handleLoginClick}
             >
               Sign In
