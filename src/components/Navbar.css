@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 97vw;
+  width: 100%;
   background: var(--surface-01);
   backdrop-filter: blur(24.5px);
   box-shadow: var(--elevation-01);
