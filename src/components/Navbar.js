@@ -40,6 +40,7 @@ function Navbar() {
   };
 
   const handleLoginClick = () => {
+    console.log('Button clicked!');
     setShowLogin(true);
   };
 

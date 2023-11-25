@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 
-function CustomButton({ type, size, children }) {
+function CustomButton({ type, size, onClick, children }) {
   return (
     <>
       <style type="text/css">
@@ -103,6 +103,8 @@ function CustomButton({ type, size, children }) {
         size={
           size === "large" ? "large" : size === "medium" ? "medium" : "small"
         }
+        onClick={onClick}
+
       >
         {children}
       </Button>
