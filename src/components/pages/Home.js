@@ -1,3 +1,4 @@
+import "./Home.css";
 import React, { useEffect, useState } from "react";
 import HeroSection from "../HeroSection";
 import Tournament from "../Tournament";

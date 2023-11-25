@@ -65,7 +65,7 @@
     0px 8px 12px 6px rgba(20, 21, 25, 0.15);
 
   /* gradients */
-  --gradient-01: linear-gradient(180deg, #b8b799 0%, #416c76 100%);
+  --gradient-01: linear-gradient(270deg, #b8b799 0%, #416c76 100%);
   --gradient-02: linear-gradient(180deg, #b8b799 0%, #479fc2 100%);
   --gradient-03: linear-gradient(180deg, #ddae3c 0%, #563424 100%);
   --gradient-04: linear-gradient(180deg, #ddae3c 0%, #41386b 100%);
@@ -677,6 +677,34 @@ body {
   letter-spacing: var(--body-small-letter-spacing);
   line-height: var(--body-small-line-height);
 }
+
+/* gradient border */
+
+.border-gradient {
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 3px;
+  border-image-source: var(--gradient-01);
+}
+
+.only-bottom {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+.only-right {
+  border-bottom: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+.left-and-right {
+  border-bottom: 0;
+  border-top: 0;
+}
+
+
 
 .home,
 .tournaments {
