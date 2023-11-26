@@ -193,6 +193,9 @@
     color: var(--neutral-99);
     text-align: center;
   }
+  .page-title:hover{
+    cursor: pointer;
+  }
 }
 
 .sign-in{

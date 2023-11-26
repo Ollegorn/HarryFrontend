@@ -20,6 +20,7 @@ function Navbar({ pageTitle }) {
 
   // Use the useUser hook to get the user context
   const userContext = useUser();
+  const isAdmin = userContext.user.roles.includes("Admin");
 
   const handleClick = () => setClick(!click);
   const closeMobileMenuAndScrollToTop = () => {
@@ -80,7 +81,7 @@ function Navbar({ pageTitle }) {
           </Link>
           {screenSize.width < 970 && (
             <div className="page-title-container">
-              <p className="page-title">{pageTitle}</p>
+              <p className="page-title" onClick={closeMobileMenuAndScrollToTop}>{pageTitle}</p>
             </div>
           )}
           <div className="menu-icon" onClick={handleClick}>
@@ -99,7 +100,7 @@ function Navbar({ pageTitle }) {
             {isLoggedIn && (
               <li className="nav-item">
                 <Link
-                  to="/admins"
+                  to="/"
                   className="nav-links"
                   onClick={closeMobileMenuAndScrollToTop}
                 >
@@ -125,6 +126,17 @@ function Navbar({ pageTitle }) {
                 Rules
               </Link>
             </li>
+            {isAdmin && (
+              <li className="nav-item">
+                <Link
+                  to="/admins" 
+                  className="nav-links"
+                  onClick={closeMobileMenuAndScrollToTop}
+                >
+                  Admin Page
+                </Link>
+              </li>
+            )}
 
           {screenSize.width < 970 &&(
             <li className="nav-item">
