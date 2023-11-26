@@ -49,6 +49,7 @@ function Navbar({ pageTitle }) {
     localStorage.clear();
     setIsLoggedIn(false);
     userContext.updateUser({ roles: [] });
+    setClick(false);
   };
 
   const handleCloseModal = () => {
@@ -124,9 +125,29 @@ function Navbar({ pageTitle }) {
                 Rules
               </Link>
             </li>
-          <li className="nav-item">
-          {screenSize.width > 970 ?(
-            !isLoggedIn ? (
+
+          {screenSize.width < 970 &&(
+            <li className="nav-item">
+              {!isLoggedIn ? (
+                <Link
+                  to='/'
+                  className="nav-links"
+                  onClick={handleLoginClick}
+                >
+                  Log In
+                </Link>
+              ):(
+                <Link
+                  to='/'
+                  className="nav-links"
+
+                  onClick={handleLogout}
+                >Log Out</Link>
+              )}
+            </li>
+          )}
+          </ul>
+          {!isLoggedIn ? (
               <CustomButton
                 type="outlined"
                 size={
@@ -152,28 +173,7 @@ function Navbar({ pageTitle }) {
                 }
               onClick={handleLogout}
               >Log Out</CustomButton>
-            )
-          ):(
-            !isLoggedIn ? (
-              <Link
-                to='/'
-                className="nav-links"
-                onClick={handleLoginClick}
-              >
-                Log In
-              </Link>
-            ):(
-              <Link
-                to='/'
-                className="nav-links"
-
-                onClick={handleLogout}
-              >Log Out</Link>
-            )
-          )}
-          
-          </li>
-          </ul>
+            )}
 
         </div>
       </nav>
