@@ -7,7 +7,6 @@ import Login from "./Login";
 import { useUser } from "./UserContext"; // Import useUser hook
 import CustomButton from "./CustomButton";
 import useScreenSize from "./useScreenSize";
-import UserAvatar from "./UserAvatar";
 
 Modal.setAppElement("#root");
 
@@ -70,7 +69,7 @@ function Navbar({ pageTitle }) {
 
   return (
     <>
-      <nav className="navbar border-gradient only-bottom">
+      <nav className="navbar border-gradient border-gradient--01 border-gradient--only-bottom">
         <div className="navbar-container">
           <Link
             to="/"
@@ -81,7 +80,9 @@ function Navbar({ pageTitle }) {
           </Link>
           {screenSize.width < 970 && (
             <div className="page-title-container">
-              <p className="page-title" onClick={closeMobileMenuAndScrollToTop}>{pageTitle}</p>
+              <p className="page-title" onClick={closeMobileMenuAndScrollToTop}>
+                {pageTitle}
+              </p>
             </div>
           )}
           <div className="menu-icon" onClick={handleClick}>
@@ -129,7 +130,7 @@ function Navbar({ pageTitle }) {
             {isAdmin && (
               <li className="nav-item">
                 <Link
-                  to="/admins" 
+                  to="/admins"
                   className="nav-links"
                   onClick={closeMobileMenuAndScrollToTop}
                 >
@@ -138,55 +139,51 @@ function Navbar({ pageTitle }) {
               </li>
             )}
 
-          {screenSize.width < 970 &&(
-            <li className="nav-item">
-              {!isLoggedIn ? (
-                <Link
-                  to='/'
-                  className="nav-links"
-                  onClick={handleLoginClick}
-                >
-                  Log In
-                </Link>
-              ):(
-                <Link
-                  to='/'
-                  className="nav-links"
-
-                  onClick={handleLogout}
-                >Log Out</Link>
-              )}
-            </li>
-          )}
-          </ul>
-          {!isLoggedIn ? (
-              <CustomButton
-                type="outlined"
-                size={
-                  screenSize.width <= 1104
-                    ? "small"
-                    : screenSize.width <= 1315
-                    ? "medium"
-                    : "large"
-                }
-                onClick={handleLoginClick}
-              >
-                Log In
-              </CustomButton>
-            ):(
-              <CustomButton
-                type="outlined"
-                size={
-                  screenSize.width <= 1104
-                    ? "small"
-                    : screenSize.width <= 1315
-                    ? "medium"
-                    : "large"
-                }
-              onClick={handleLogout}
-              >Log Out</CustomButton>
+            {screenSize.width < 970 && (
+              <li className="nav-item">
+                {!isLoggedIn ? (
+                  <Link to="/" className="nav-links" onClick={handleLoginClick}>
+                    Log In
+                  </Link>
+                ) : (
+                  <Link to="/" className="nav-links" onClick={handleLogout}>
+                    Log Out
+                  </Link>
+                )}
+              </li>
             )}
-
+          </ul>
+          { screenSize.width > 970 && (!isLoggedIn ? (
+            <CustomButton
+              className="btn-navbar"
+              type="outlined"
+              size={
+                screenSize.width <= 1104
+                  ? "small"
+                  : screenSize.width <= 1315
+                  ? "medium"
+                  : "large"
+              }
+              onClick={handleLoginClick}
+            >
+              Log In
+            </CustomButton>
+          ) : (
+            <CustomButton
+              className="btn-navbar"
+              type="outlined"
+              size={
+                screenSize.width <= 1104
+                  ? "small"
+                  : screenSize.width <= 1315
+                  ? "medium"
+                  : "large"
+              }
+              onClick={handleLogout}
+            >
+              Log Out
+            </CustomButton>
+          ))}
         </div>
       </nav>
       <Modal

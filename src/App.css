@@ -1,6 +1,57 @@
 /*all style variables used for the styling of the website*/
 
 :root {
+  /*background images*/
+  --background-01: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-01.jpg"),
+    lightgray 50% / cover no-repeat;
+  --background-02: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-02.jpg"),
+    lightgray 50% / cover no-repeat;
+  --background-03: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-03.png"),
+    lightgray 50% / cover no-repeat;
+  --background-04: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-04.png"),
+    lightgray 50% / cover no-repeat;
+  --background-05: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-05.png"),
+    lightgray 50% / cover no-repeat;
+  --background-06: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-06.png"),
+    lightgray 50% / cover no-repeat;
+  --background-07: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.77) 0%,
+      rgba(20, 21, 25, 0.77) 100%
+    ),
+    url("../public/Images/Backgrounds/bg-07.png"),
+    lightgray 50% / cover no-repeat;
+
   /* body text styles */
   --body-large-font-family: "Syne", Helvetica;
   --body-large-font-size: 1.25rem;
@@ -66,9 +117,9 @@
 
   /* gradients */
   --gradient-01: linear-gradient(270deg, #b8b799 0%, #416c76 100%);
-  --gradient-02: linear-gradient(180deg, #b8b799 0%, #479fc2 100%);
-  --gradient-03: linear-gradient(180deg, #ddae3c 0%, #563424 100%);
-  --gradient-04: linear-gradient(180deg, #ddae3c 0%, #41386b 100%);
+  --gradient-02: linear-gradient(270deg, #b8b799 0%, #479fc2 100%);
+  --gradient-03: linear-gradient(270deg, #ddae3c 0%, #563424 100%);
+  --gradient-04: linear-gradient(270deg, #ddae3c 0%, #41386b 100%);
 
   /* headline text styles */
   --headline-large-font-family: "Metal Mania", Helvetica;
@@ -222,57 +273,6 @@
   --title-small-font-weight: 500;
   --title-small-letter-spacing: 0.00625rem;
   --title-small-line-height: 1.5rem;
-
-  /*background images*/
-  --background-01: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-01.jpg"),
-    lightgray 50% / cover no-repeat;
-  --background-02: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-02.jpg"),
-    lightgray 50% / cover no-repeat;
-  --background-03: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-03.png"),
-    lightgray 50% / cover no-repeat;
-  --background-04: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-04.png"),
-    lightgray 50% / cover no-repeat;
-  --background-05: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-05.png"),
-    lightgray 50% / cover no-repeat;
-  --background-06: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-06.png"),
-    lightgray 50% / cover no-repeat;
-  --background-07: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-07.png"),
-    lightgray 50% / cover no-repeat;
 
   /* avatars */
   --x2d-avatar01: url("../public/Images/Avatars/01.svg"), rgba(12, 20, 22, 1);
@@ -684,22 +684,40 @@ body {
   border: 10px solid;
   border-image-slice: 1;
   border-width: 3px;
+}
+
+.border-gradient--01 {
   border-image-source: var(--gradient-01);
 }
 
-.only-bottom {
+.border-gradient--02 {
+  border-image-source: var(--gradient-02);
+}
+
+.border-gradient--03 {
+  border-image-source: var(--gradient-03);
+}
+
+.border-gradient--04 {
+  border-image-source: var(--gradient-04);
+}
+
+.border-gradient--only-bottom {
+  border-radius: none;
   border-left: 0;
   border-right: 0;
   border-top: 0;
 }
 
-.only-right {
+.border-gradient--only-right {
+  border-radius: none;
   border-bottom: 0;
   border-left: 0;
   border-top: 0;
 }
 
-.left-and-right {
+.border-gradient--left-and-right {
+  border-radius: none;
   border-bottom: 0;
   border-top: 0;
 }

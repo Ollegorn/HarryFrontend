@@ -1,4 +1,4 @@
-function UserAvatar({ variant, size, clickable = false }) {
+function UserAvatar({ variant, size, clickable = false, onClick }) {
   return (
     <>
       <style type="text/css">
@@ -23,11 +23,14 @@ function UserAvatar({ variant, size, clickable = false }) {
         .user-avatar-large {
             height: 7.5rem;
             width: 7.5rem;
-        }
-        
+        }  
         `}
       </style>
-      <div className={`user-avatar user-avatar-${size}`}></div>;
+      <div
+        className={`user-avatar user-avatar-${size}`}
+        onClick={onClick}
+      ></div>
+      ;
     </>
   );
 }

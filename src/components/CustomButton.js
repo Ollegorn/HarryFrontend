@@ -89,7 +89,6 @@ function CustomButton({ type, size, onClick, children }) {
             line-height: var(--label-large-line-height);
             letter-spacing: var(--label-large-letter-spacing);
         }
-        
         `}
       </style>
       <Button
@@ -104,7 +103,6 @@ function CustomButton({ type, size, onClick, children }) {
           size === "large" ? "large" : size === "medium" ? "medium" : "small"
         }
         onClick={onClick}
-
       >
         {children}
       </Button>
