@@ -7,6 +7,19 @@
   align-items: center;
 }
 
+.hero-container--bg-01 {
+  background: linear-gradient(180deg, rgba(12, 20, 22, 0.17) 0%, #141519 100%),
+    linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.5) 0%,
+      rgba(20, 21, 25, 0.5) 100%
+    ),
+    url("../../public/Images/Backgrounds/bg-01.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .hero-container--bg-02 {
   background: linear-gradient(180deg, rgba(12, 20, 22, 0.17) 0%, #141519 100%),
     linear-gradient(
@@ -15,6 +28,71 @@
       rgba(20, 21, 25, 0.5) 100%
     ),
     url("../../public/Images/Backgrounds/bg-02.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-container--bg-03 {
+  background: linear-gradient(180deg, rgba(12, 20, 22, 0.17) 0%, #141519 100%),
+    linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.5) 0%,
+      rgba(20, 21, 25, 0.5) 100%
+    ),
+    url("../../public/Images/Backgrounds/bg-03.png"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-container--bg-04 {
+  background: linear-gradient(180deg, rgba(12, 20, 22, 0.17) 0%, #141519 100%),
+    linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.5) 0%,
+      rgba(20, 21, 25, 0.5) 100%
+    ),
+    url("../../public/Images/Backgrounds/bg-04.png"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-container--bg-05 {
+  background: linear-gradient(180deg, rgba(12, 20, 22, 0.17) 0%, #141519 100%),
+    linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.5) 0%,
+      rgba(20, 21, 25, 0.5) 100%
+    ),
+    url("../../public/Images/Backgrounds/bg-05.png"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-container--bg-06 {
+  background: linear-gradient(180deg, rgba(12, 20, 22, 0.17) 0%, #141519 100%),
+    linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.5) 0%,
+      rgba(20, 21, 25, 0.5) 100%
+    ),
+    url("../../public/Images/Backgrounds/bg-06.png"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-container--bg-07 {
+  background: linear-gradient(180deg, rgba(12, 20, 22, 0.17) 0%, #141519 100%),
+    linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.5) 0%,
+      rgba(20, 21, 25, 0.5) 100%
+    ),
+    url("../../public/Images/Backgrounds/bg-07.png"), lightgray 50%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

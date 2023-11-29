@@ -1,5 +1,3 @@
 body {
-  background: var(--background-01);
-  background-size: cover;
-  background-position: center;
+  background-color: var(--neutral-10);
 }

@@ -28,7 +28,16 @@ function Home() {
   return (
     <>
       <Navbar pageTitle={"Home"} />
-      <HeroSection />
+      <HeroSection
+        id="home"
+        bgID="02"
+        heading="Step into the Arena of Magic"
+        body="Welcome to MasterOfMagic, the ultimate platform for duelling
+          enthusiasts in the Harry Potter Magic Awakened community. Dive into a
+          world where magic duels come alive, and players compete for glory and
+          honor in thrilling tournaments."
+        ctaText="Begin Your Magical Journey"
+      />
       {ongoingTournaments.length > 0 && <h2>Ongoing Tournaments!</h2>}
       {ongoingTournaments.map((tournament) => (
         <Tournament
