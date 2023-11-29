@@ -45,6 +45,14 @@ function Navbar({ pageTitle }) {
     setClick(false);
   };
 
+  //delete later
+  const fakeData = () => {
+    localStorage.setItem("username", "ollegorn");
+    localStorage.setItem("userRoles", JSON.stringify(["Admin"]));
+    localStorage.setItem("userId", "460cbcfe-da31-4247-8dd9-63a3eaa35d0e")
+    setIsLoggedIn(true);
+  }
+
   const handleLogout = () => {
     localStorage.clear();
     setIsLoggedIn(false);
@@ -153,38 +161,37 @@ function Navbar({ pageTitle }) {
               </li>
             )}
           </ul>
-          {screenSize.width > 970 &&
-            (!isLoggedIn ? (
-              <CustomButton
-                className="btn-navbar"
-                type="outlined"
-                size={
-                  screenSize.width <= 1104
-                    ? "small"
-                    : screenSize.width <= 1315
-                    ? "medium"
-                    : "large"
-                }
-                onClick={handleLoginClick}
-              >
-                Log In
-              </CustomButton>
-            ) : (
-              <CustomButton
-                className="btn-navbar"
-                type="outlined"
-                size={
-                  screenSize.width <= 1104
-                    ? "small"
-                    : screenSize.width <= 1315
-                    ? "medium"
-                    : "large"
-                }
-                onClick={handleLogout}
-              >
-                Log Out
-              </CustomButton>
-            ))}
+          { screenSize.width > 970 && (!isLoggedIn ? (
+            <CustomButton
+              className="btn-navbar"
+              type="outlined"
+              size={
+                screenSize.width <= 1104
+                  ? "small"
+                  : screenSize.width <= 1315
+                  ? "medium"
+                  : "large"
+              }
+              onClick={fakeData} //change to handleloginclick later
+            >
+              Log In
+            </CustomButton>
+          ) : (
+            <CustomButton
+              className="btn-navbar"
+              type="outlined"
+              size={
+                screenSize.width <= 1104
+                  ? "small"
+                  : screenSize.width <= 1315
+                  ? "medium"
+                  : "large"
+              }
+              onClick={handleLogout}
+            >
+              Log Out
+            </CustomButton>
+          ))}
         </div>
       </nav>
       <Modal

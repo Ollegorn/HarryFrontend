@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Tournament.css';
 import { useUser } from './UserContext';
 import DuelsModal from './DuelsModal';
@@ -14,6 +14,12 @@ function Tournament(props) {
   const images = ['/Images/img1.png']
   const userContext = useUser();
   const isAdmin = userContext.user.roles.includes('Admin');
+
+  useEffect(() => {
+    const username = localStorage.getItem('username');
+    const isUserRegistered = props.registeredUsers.some(user => user.userName === username);
+    setIsRegistered(isUserRegistered);
+  }, [props.registeredUsers]);
 
   const handleDetailsToggle = async (tournamentId) => {
     setExpandedTournamentId(

@@ -3,6 +3,8 @@ import { useUser } from '../UserContext';
 import User from '../User';
 import Tournament from '../Tournament';
 import './Admins.css';
+import Navbar from "../Navbar";
+
 
 function Admins() {
   const userContext = useUser();
@@ -72,87 +74,90 @@ function Admins() {
   };
 
   return (
-    <div className='admins'>
-      <h1>Admins Page</h1>
-      {isAdmin ? (
-        <>
-          <h2 onClick={handleToggleUsers}>Users</h2>
-          {showUsers && (
-            <div className='usersContainer'>
-              {usersData.map(user => (
-                <User key={user.id} username={user.userName} wins={user.wins} defeats={user.defeats} totalPoints={user.totalTournamentPoints} id={user.id}/>
-              ))}
-            </div>
-          )}
+    <>
+      <Navbar pageTitle={"Admin Page"} />
+      <div className='admins'>
+        <h1>Admins Page</h1>
+        {isAdmin ? (
+          <>
+            <h2 onClick={handleToggleUsers}>Users</h2>
+            {showUsers && (
+              <div className='usersContainer'>
+                {usersData.map(user => (
+                  <User key={user.id} username={user.userName} wins={user.wins} defeats={user.defeats} totalPoints={user.totalTournamentPoints} id={user.id}/>
+                ))}
+              </div>
+            )}
 
-          <h2 onClick={handleToggleTournaments}>Tournaments</h2>
-          {showTournaments && (
-            <div className='tournamentsContainer'>
-              {tournamentsData.map(tournament => (
-                <Tournament key={tournament.tournamentId} 
-                tournamentName={tournament.tournamentName}
-                registeredUsers={tournament.registeredUsers} 
-                rules={tournament.rules} 
-                prize={tournament.prize} 
-                tournamentId={tournament.tournamentId} 
-                duels={tournament.tournamentDuels}
-                imageNumber={tournament.imageNumber}
-                />
-              ))}  
-            </div>
-          )}
-          <div>
-            <h2>Create New Tournament</h2>
-            <form>
-              <label>
-                Tournament Name:
-                <input
-                  type="text"
-                  value={newTournament.tournamentName}
-                  onChange={(e) =>
-                    setNewTournament({ ...newTournament, tournamentName: e.target.value })
-                  }
-                  required
-                />
-              </label>
-              <label>
-                Rules:
-                <textarea
-                  value={newTournament.rules}
-                  onChange={(e) =>
-                    setNewTournament({ ...newTournament, rules: e.target.value })
-                  }
-                  required
-                />
-              </label>
-              <label>
-                Prize:
-                <input
-                  type="text"
-                  value={newTournament.prize}
-                  onChange={(e) => setNewTournament({ ...newTournament, prize: e.target.value })}
-                  required
-                />
-              </label>
-              <label>
-                Image Number:
-                <input 
-                  type='number'
-                  value={newTournament.imageNumber}
-                  onChange={(e) => setNewTournament({...newTournament, imageNumber:e.target.value})}
-                />
+            <h2 onClick={handleToggleTournaments}>Tournaments</h2>
+            {showTournaments && (
+              <div className='tournamentsContainer'>
+                {tournamentsData.map(tournament => (
+                  <Tournament key={tournament.tournamentId} 
+                  tournamentName={tournament.tournamentName}
+                  registeredUsers={tournament.registeredUsers} 
+                  rules={tournament.rules} 
+                  prize={tournament.prize} 
+                  tournamentId={tournament.tournamentId} 
+                  duels={tournament.tournamentDuels}
+                  imageNumber={tournament.imageNumber}
+                  />
+                ))}  
+              </div>
+            )}
+            <div>
+              <h2>Create New Tournament</h2>
+              <form>
+                <label>
+                  Tournament Name:
+                  <input
+                    type="text"
+                    value={newTournament.tournamentName}
+                    onChange={(e) =>
+                      setNewTournament({ ...newTournament, tournamentName: e.target.value })
+                    }
+                    required
+                  />
+                </label>
+                <label>
+                  Rules:
+                  <textarea
+                    value={newTournament.rules}
+                    onChange={(e) =>
+                      setNewTournament({ ...newTournament, rules: e.target.value })
+                    }
+                    required
+                  />
+                </label>
+                <label>
+                  Prize:
+                  <input
+                    type="text"
+                    value={newTournament.prize}
+                    onChange={(e) => setNewTournament({ ...newTournament, prize: e.target.value })}
+                    required
+                  />
+                </label>
+                <label>
+                  Image Number:
+                  <input 
+                    type='number'
+                    value={newTournament.imageNumber}
+                    onChange={(e) => setNewTournament({...newTournament, imageNumber:e.target.value})}
+                  />
 
-              </label>
-              <button type="button" onClick={handleCreateTournament} disabled={!newTournament.tournamentName || !newTournament.rules || !newTournament.prize}>
-                Create Tournament
-              </button>
-            </form>
-          </div>
-        </>
-      ) : (
-        <p>Access denied. This page is for admins only.</p>
-      )}
-    </div>
+                </label>
+                <button type="button" onClick={handleCreateTournament} disabled={!newTournament.tournamentName || !newTournament.rules || !newTournament.prize}>
+                  Create Tournament
+                </button>
+              </form>
+            </div>
+          </>
+        ) : (
+          <p>Access denied. This page is for admins only.</p>
+        )}
+      </div>
+    </>
   );
 }
 
