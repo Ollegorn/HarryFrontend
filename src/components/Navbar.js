@@ -69,7 +69,7 @@ function Navbar({ pageTitle }) {
 
   return (
     <>
-      <nav className="navbar border-gradient border-gradient--01 border-gradient--only-bottom">
+      <nav className="navbar tint-petrol border-gradient border-gradient--01 border-gradient--only-bottom">
         <div className="navbar-container">
           <Link
             to="/"
@@ -153,37 +153,38 @@ function Navbar({ pageTitle }) {
               </li>
             )}
           </ul>
-          { screenSize.width > 970 && (!isLoggedIn ? (
-            <CustomButton
-              className="btn-navbar"
-              type="outlined"
-              size={
-                screenSize.width <= 1104
-                  ? "small"
-                  : screenSize.width <= 1315
-                  ? "medium"
-                  : "large"
-              }
-              onClick={handleLoginClick}
-            >
-              Log In
-            </CustomButton>
-          ) : (
-            <CustomButton
-              className="btn-navbar"
-              type="outlined"
-              size={
-                screenSize.width <= 1104
-                  ? "small"
-                  : screenSize.width <= 1315
-                  ? "medium"
-                  : "large"
-              }
-              onClick={handleLogout}
-            >
-              Log Out
-            </CustomButton>
-          ))}
+          {screenSize.width > 970 &&
+            (!isLoggedIn ? (
+              <CustomButton
+                className="btn-navbar"
+                type="outlined"
+                size={
+                  screenSize.width <= 1104
+                    ? "small"
+                    : screenSize.width <= 1315
+                    ? "medium"
+                    : "large"
+                }
+                onClick={handleLoginClick}
+              >
+                Log In
+              </CustomButton>
+            ) : (
+              <CustomButton
+                className="btn-navbar"
+                type="outlined"
+                size={
+                  screenSize.width <= 1104
+                    ? "small"
+                    : screenSize.width <= 1315
+                    ? "medium"
+                    : "large"
+                }
+                onClick={handleLogout}
+              >
+                Log Out
+              </CustomButton>
+            ))}
         </div>
       </nav>
       <Modal

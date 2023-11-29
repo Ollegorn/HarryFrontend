@@ -11,6 +11,19 @@
   z-index: 999;
 }
 
+.tint-petrol {
+  background: linear-gradient(
+      0deg,
+      rgba(22, 36, 39, 0.21) 0%,
+      rgba(22, 36, 39, 0.21) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(54, 57, 68, 0.17) 0%,
+      rgba(36, 38, 45, 0.17) 100%
+    );
+}
+
 .navbar-container {
   display: flex;
   justify-content: space-between;

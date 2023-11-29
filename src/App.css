@@ -58,14 +58,14 @@
   --body-large-font-style: normal;
   --body-large-font-weight: 400;
   --body-large-letter-spacing: 0.03125rem;
-  --body-large-line-height: 1.5rem;
+  --body-large-line-height: 1.875rem;
 
   --body-medium-font-family: "Syne", Helvetica;
   --body-medium-font-size: 1.125rem;
   --body-medium-font-style: normal;
   --body-medium-font-weight: 400;
   --body-medium-letter-spacing: 0.01563rem;
-  --body-medium-line-height: 1.5rem;
+  --body-medium-line-height: 1.6875rem;
 
   --body-small-font-family: "Syne", Helvetica;
   --body-small-font-size: 1rem;
@@ -83,25 +83,25 @@
 
   /* display text styles */
   --display-large-font-family: "Metal Mania", Helvetica;
-  --display-large-font-size: 4.5rem;
+  --display-large-font-size: 6.95rem;
   --display-large-font-style: normal;
   --display-large-font-weight: 400;
   --display-large-letter-spacing: -0.01563rem;
-  --display-large-line-height: 5rem;
+  --display-large-line-height: 100%;
 
   --display-medium-font-family: "Metal Mania", Helvetica;
-  --display-medium-font-size: 3.5625rem;
+  --display-medium-font-size: 5.5625rem;
   --display-medium-font-style: normal;
   --display-medium-font-weight: 400;
   --display-medium-letter-spacing: 0rem;
-  --display-medium-line-height: 4rem;
+  --display-medium-line-height: 100%;
 
   --display-small-font-family: "Metal Mania", Helvetica;
   --display-small-font-size: 2.8125rem;
   --display-small-font-style: normal;
   --display-small-font-weight: 400;
   --display-small-letter-spacing: 0rem;
-  --display-small-line-height: 3.25rem;
+  --display-small-line-height: 100%;
 
   /* shadows */
   --elevation-01: 0px 1px 3px 1px rgba(20, 21, 25, 0.3),
@@ -145,11 +145,11 @@
 
   /* label text styles */
   --label-extra-small-font-family: "Syne", Helvetica;
-  --label-extra-small-font-size: 0.75rem;
+  --label-extra-small-font-size: 0.625rem;
   --label-extra-small-font-style: normal;
   --label-extra-small-font-weight: 700;
   --label-extra-small-letter-spacing: 0.03125rem;
-  --label-extra-small-line-height: 1.25rem;
+  --label-extra-small-line-height: 1rem;
 
   --label-large-font-family: "Syne", Helvetica;
   --label-large-font-size: 1.125rem;
@@ -251,6 +251,19 @@
     rgba(64, 67, 79, 0.17) 100%,
     rgba(82, 86, 102, 0.17) 100%
   );
+
+  /* surface tits */
+  --tint-primary-0103: linear-gradient(
+      0deg,
+      rgba(65, 108, 118, 0.21) 0%,
+      rgba(65, 108, 118, 0.21) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(64, 67, 79, 0.17) 0%,
+      rgba(64, 67, 79, 0.17) 100%,
+      rgba(54, 57, 68, 0.17) 100%
+    );
 
   /* title text styles */
   --title-large-font-family: "Syne", Helvetica;
@@ -730,3 +743,4 @@ body {
   justify-content: center;
   font-size: 3rem;
 }
+

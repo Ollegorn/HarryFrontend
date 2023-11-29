@@ -7,13 +7,18 @@ import useScreenSize from "./useScreenSize";
 function HeroSection() {
   const screenSize = useScreenSize();
   return (
-    <div className="hero-container" id="home">
-      {/*<video src='/Videos/video-2.mp4' autoPlay loop muted /> */}
-      <h1>MAGIC AWAITS</h1>
-      <p>What are you waiting for?</p>
-      <div className="hero-btns">
+    <header className="hero-container hero-container--bg-02" id="home">
+      <div className="hero__text">
+        <h1 className="hero__text--heading">Step into the Arena of Magic</h1>
+        <p className="hero__text--body">
+          Welcome to MasterOfMagic, the ultimate platform for duelling
+          enthusiasts in the Harry Potter Magic Awakened community. Dive into a
+          world where magic duels come alive, and players compete for glory and
+          honor in thrilling tournaments.
+        </p>
+      <div className="hero__cta">
         <CustomButton
-          type={"default"}
+          type={"cta"}
           size={
             screenSize.width < 1104
               ? "small"
@@ -22,10 +27,11 @@ function HeroSection() {
               : "large"
           }
         >
-          Let The Magic Begin
+          Begin Your Magical Journey
         </CustomButton>
       </div>
-    </div>
+      </div>
+    </header>
   );
 }
 
