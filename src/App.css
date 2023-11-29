@@ -729,6 +729,13 @@ body {
   border-top: 0;
 }
 
+.border-gradient--only-left {
+  border-radius: none;
+  border-bottom: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
 .border-gradient--left-and-right {
   border-radius: none;
   border-bottom: 0;
@@ -743,4 +750,3 @@ body {
   justify-content: center;
   font-size: 3rem;
 }
-

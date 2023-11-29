@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import HeroSection from "../HeroSection";
 import Tournament from "../Tournament";
 import Navbar from "../Navbar";
+import FeaturedCard from "../FeaturedCard";
 
 function Home() {
   const [tournamentsData, setTournamentsData] = useState([]);
@@ -38,6 +39,7 @@ function Home() {
           honor in thrilling tournaments."
         ctaText="Begin Your Magical Journey"
       />
+      <FeaturedCard />
       {ongoingTournaments.length > 0 && <h2>Ongoing Tournaments!</h2>}
       {ongoingTournaments.map((tournament) => (
         <Tournament

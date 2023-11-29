@@ -3,7 +3,6 @@ import Home from "./components/pages/Home";
 import Footer from "./components/Footer";
 import Tournaments from "./components/pages/Tournaments";
 import Admins from "./components/pages/Admins";
-import Navbar from "./components/Navbar";
 import { UserProvider } from "./components/UserContext";
 
 function App() {

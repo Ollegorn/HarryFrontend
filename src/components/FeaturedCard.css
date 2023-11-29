@@ -1,0 +1,95 @@
+.featured {
+  display: flex;
+  padding-bottom: 0px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12.5rem;
+}
+
+.featured-card {
+  align-items: center;
+  backdrop-filter: blur(21px);
+  background: linear-gradient(
+    180deg,
+    rgba(20, 21, 25, 0.07) 0%,
+    rgba(20, 21, 25, 0.07) 0.01%,
+    rgba(65, 108, 118, 0.07) 100%
+  );
+  border-radius: 1rem;
+  box-shadow: var(--elevation-01);
+  display: flex;
+  max-width: 70.5rem;
+  min-height: 20.75rem;
+  overflow: hidden;
+}
+
+.featured-card__overlay {
+  display: flex;
+  padding: 3rem;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1 0 0;
+}
+
+.featured-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  flex: 1 0 0;
+}
+
+.featured-card__content__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  align-self: stretch;
+}
+
+.featured-card__content__text > h4 {
+  align-self: stretch;
+  color: var(--neutral-99);
+  font-family: var(--headline-large-font-family);
+  font-size: var(--headline-large-font-size);
+  font-style: var(--headline-large-font-style);
+  font-weight: var(--headline-large-font-weight);
+  line-height: var(--headline-large-line-height);
+}
+
+.featured-card__content__text > p {
+  align-self: stretch;
+  color: var(--neutral-98);
+  font-family: var(--body-large-font-family);
+  font-size: var(--body-large-font-size);
+  font-style: var(--body-large-font-style);
+  font-weight: var(--body-large-font-weight);
+  line-height: var(--body-large-line-height);
+  letter-spacing: var(--body-large-letter-spacing);
+}
+
+.featured-card__Image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+}
+
+.featured-card__Image > .icon--big {
+  display: flex;
+  width: 10rem;
+  height: 10rem;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon-tournament {
+  background-image: url("../../public/Images/Icons/tabler_tournament.svg");
+}
+
+.icon-wand {
+  background-image: url("../../public/Images/Icons/mdi_wand.svg");
+}
