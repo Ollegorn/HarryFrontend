@@ -46,7 +46,7 @@ function CustomButton({ type, size, onClick, children }) {
           width: 100%;
           transform: scaleX(1.2);
           transform: scaleY(1.2);
-          translateZ(0);
+          transform: translateZ(0);
           filter: blur(0.9375rem);
           background: linear-gradient(to left, 
             var(--primary-010),
