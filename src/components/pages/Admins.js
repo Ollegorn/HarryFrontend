@@ -124,6 +124,9 @@ function Admins() {
                   tournamentId={tournament.tournamentId} 
                   duels={tournament.tournamentDuels}
                   imageNumber={tournament.imageNumber}
+                  details={tournament.details}
+                  startDate={tournament.startDate}
+                  endDate={tournament.endDate}
                   />
                 ))}  
               </div>
@@ -131,82 +134,84 @@ function Admins() {
             <div>
               <h2>Create New Tournament</h2>
               <form>
-  <label>
-    Tournament Name:
-    <input
-      type="text"
-      value={newTournament.tournamentName}
-      onChange={(e) =>
-        setNewTournament({ ...newTournament, tournamentName: e.target.value })
-      }
-      required
-    />
-  </label>
-  <label>
-        Rules:
-        {Array.isArray(newTournament.rules) &&
-          newTournament.rules.map((rule, index) => (
-            <div key={index}>
-              <input
-                type="text"
-                value={rule}
-                onChange={(e) => handleRuleChange(index, e.target.value)}
-                required
-              />
-            </div>
-          ))}
-        <button type="button" onClick={handleAddRule}>
-          +
-        </button>
-      </label>
-  <label>
-    Prize:
-    <input
-      type="text"
-      value={newTournament.prize}
-      onChange={(e) => setNewTournament({ ...newTournament, prize: e.target.value })}
-      required
-    />
-  </label>
-  <label>
-    Description:
-    <input
-      type="text"
-      value={newTournament.description}
-      onChange={(e) => setNewTournament({ ...newTournament, description: e.target.value })}
-      required
-    />
-  </label>
-  <label>
-    Start Date:
-    <input
-      type="datetime-local"
-      value={newTournament.startDate}
-      onChange={(e) => setNewTournament({ ...newTournament, startDate: e.target.value })}
-      required
-    />
-  </label>
-  <label>
-    End Date:
-    <input
-      type="datetime-local"
-      value={newTournament.endDate}
-      onChange={(e) => setNewTournament({ ...newTournament, endDate: e.target.value })}
-      required
-    />
-  </label>
-  <label>
-    Image Number:
-    <input
-      type='number'
-      value={newTournament.imageNumber}
-      onChange={(e) => setNewTournament({ ...newTournament, imageNumber: e.target.value })}
-    />
-  </label>
-  <button type="button" onClick={handleCreateTournament} disabled={!newTournament.tournamentName || !newTournament.rules.length || !newTournament.prize || !newTournament.description}>
-    Create Tournament
-  </button>
-</form>
+                <label>
+                  Tournament Name:
+                  <input
+                    type="text"
+                    value={newTournament.tournamentName}
+                    onChange={(e) =>
+                      setNewTournament({ ...newTournament, tournamentName: e.target.value })
+                    }
+                    required
+                  />
+                </label>
+
+                <label>
+                  Rules:
+                  {Array.isArray(newTournament.rules) &&
+                    newTournament.rules.map((rule, index) => (
+                      <div key={index}>
+                        <input
+                          type="text"
+                          value={rule}
+                          onChange={(e) => handleRuleChange(index, e.target.value)}
+                          required
+                        />
+                      </div>
+                    ))}
+                  <button type="button" onClick={handleAddRule}>
+                    +
+                  </button>
+                </label>
+
+                <label>
+                  Prize:
+                  <input
+                    type="text"
+                    value={newTournament.prize}
+                    onChange={(e) => setNewTournament({ ...newTournament, prize: e.target.value })}
+                    required
+                  />
+                </label>
+                <label>
+                  Description:
+                  <input
+                    type="text"
+                    value={newTournament.description}
+                    onChange={(e) => setNewTournament({ ...newTournament, description: e.target.value })}
+                    required
+                  />
+                </label>
+                <label>
+                  Start Date:
+                  <input
+                    type="date"
+                    value={newTournament.startDate}
+                    onChange={(e) => setNewTournament({ ...newTournament, startDate: e.target.value })}
+                    required
+                  />
+                </label>
+                <label>
+                  End Date:
+                  <input
+                    type="date"
+                    value={newTournament.endDate}
+                    onChange={(e) => setNewTournament({ ...newTournament, endDate: e.target.value })}
+                    required
+                  />
+                </label>
+                <label>
+                  Image Number:
+                  <input
+                    type='number'
+                    value={newTournament.imageNumber}
+                    onChange={(e) => setNewTournament({ ...newTournament, imageNumber: e.target.value })}
+                  />
+                </label>
+                <button type="button" onClick={handleCreateTournament} disabled={!newTournament.tournamentName || !newTournament.rules.length || !newTournament.prize || !newTournament.description}>
+                  Create Tournament
+                </button>
+              </form>
 
             </div>
           </>

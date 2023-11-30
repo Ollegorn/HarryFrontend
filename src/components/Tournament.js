@@ -146,6 +146,8 @@ function Tournament(props) {
           <h3>{props.tournamentName}</h3>
           <h4>Rules: {props.rules}</h4>
           <p>Prize: {props.prize}</p>
+          <p>Details: {props.details}</p>
+          <p>Dates: {props.startDate}-{props.endDate}</p>
           <p>Number of Wizards: {props.registeredUsers.length}</p>
         </div>
 
