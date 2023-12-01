@@ -39,6 +39,12 @@ function Tournament(props) {
     setShowDuelsModal(true);
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+  };
+
   
 
   const registerUser = async (tournamentId) => {
@@ -146,8 +152,8 @@ function Tournament(props) {
           <h3>{props.tournamentName}</h3>
           <h4>Rules: {props.rules}</h4>
           <p>Prize: {props.prize}</p>
-          <p>Details: {props.details}</p>
-          <p>Dates: {props.startDate}-{props.endDate}</p>
+          <p>Description: {props.description}</p>
+          <p>Dates: {formatDate(props.startDate)} - {formatDate(props.endDate)}</p>
           <p>Number of Wizards: {props.registeredUsers.length}</p>
         </div>
 

@@ -43,7 +43,13 @@ function Admins() {
 
   const handleCreateTournament = async () => {
     const apiCreateTournamentUrl = 'https://localhost:7099/api/Tournament/CreateTournament';
-     console.log(newTournament)
+    console.log(newTournament)
+    const requestBody = {
+      ...newTournament,
+      startDate: newTournament.startDate || new Date().toISOString(),
+      endDate: newTournament.endDate || new Date().toISOString(),
+    };
+
     try {
       const response = await fetch(apiCreateTournamentUrl, {
         method: 'POST',
@@ -51,7 +57,7 @@ function Admins() {
           'Accept': 'text/plain',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newTournament),
+        body: JSON.stringify(requestBody),
       });
 
       if (response.ok) {
@@ -124,7 +130,7 @@ function Admins() {
                   tournamentId={tournament.tournamentId} 
                   duels={tournament.tournamentDuels}
                   imageNumber={tournament.imageNumber}
-                  details={tournament.details}
+                  description={tournament.description}
                   startDate={tournament.startDate}
                   endDate={tournament.endDate}
                   />
