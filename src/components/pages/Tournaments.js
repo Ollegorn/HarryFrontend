@@ -109,6 +109,9 @@ function Tournaments() {
           tournamentId={tournament.tournamentId}
           duels={tournament.tournamentDuels}
           imageNumber={tournament.imageNumber}
+          details={tournament.details}
+          startDate={tournament.startDate}
+          endDate={tournament.endDate}
         />
       ))}
     </>
