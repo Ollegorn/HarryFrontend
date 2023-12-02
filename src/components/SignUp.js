@@ -23,7 +23,7 @@ function SignUp({ onClose }) {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://localhost:7099/api/Auth/register', {
+      const response = await fetch('https://harrytournament-api.azurewebsites.net/api/Auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
