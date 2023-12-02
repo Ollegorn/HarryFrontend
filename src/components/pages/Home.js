@@ -1,10 +1,10 @@
 import "./Home.css";
 import React, { useEffect, useState } from "react";
 import HeroSection from "../HeroSection";
-import Tournament from "../Tournament";
 import Navbar from "../Navbar";
 import FeaturedSection from "../FeaturedSection";
 import FeaturedEventsSection from "../FeaturedEventsSection";
+import HighlightSection from "../HighlightSection";
 
 function Home() {
   const [tournamentsData, setTournamentsData] = useState([]);
@@ -42,20 +42,7 @@ function Home() {
       />
       <FeaturedSection />
       <FeaturedEventsSection />
-      {ongoingTournaments.length > 0 && <h2>Ongoing Tournaments!</h2>}
-      {ongoingTournaments.map((tournament) => (
-        <Tournament
-          key={tournament.tournamentId}
-          tournamentName={tournament.tournamentName}
-          registeredUsers={tournament.registeredUsers}
-          rules={tournament.rules}
-          prize={tournament.prize}
-          tournamentId={tournament.tournamentId}
-          duels={tournament.tournamentDuels}
-          imageNumber={tournament.imageNumber}
-        />
-      ))}
-      {ongoingTournaments.length === 0 && <h2>No ongoing Tournaments!</h2>}
+      <HighlightSection />
     </>
   );
 }
