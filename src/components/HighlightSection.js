@@ -22,16 +22,16 @@ function HighlightSection() {
           <div className="col">
             <div className="tile">
               <iframe
-                src="https://www.youtube.com/embed/Ww-mp8I23Z0?si=uKvMHo7JOQ_YMWPZ"
+                src="https://www.youtube.com/embed/wMZzXYJGIDA?si=4ge0_DfOZhtGZMKS"
                 title="YouTube video player"
                 frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
               ></iframe>
             </div>
             <div className="tile">
               <iframe
-                src="https://www.youtube.com/embed/Ww-mp8I23Z0?si=uKvMHo7JOQ_YMWPZ"
+                src="https://www.youtube.com/embed/2Q50fsKhMgA?si=gqAewtnepiiYaEej"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -41,7 +41,7 @@ function HighlightSection() {
           </div>
           <div className="tile">
             <iframe
-              src="https://www.youtube.com/embed/Ww-mp8I23Z0?si=uKvMHo7JOQ_YMWPZ"
+              src="https://www.youtube.com/embed/sDHYpxP5Us0?si=5YqwdsPct9MDQzOi"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -52,28 +52,10 @@ function HighlightSection() {
         <div className="row">
           <div className="tile">
             <iframe
-              src="https://www.youtube.com/embed/Ww-mp8I23Z0?si=uKvMHo7JOQ_YMWPZ"
+              src="https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
               title="YouTube video player"
               frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div className="tile">
-            <iframe
-              src="https://www.youtube.com/embed/Ww-mp8I23Z0?si=uKvMHo7JOQ_YMWPZ"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div className="tile">
-            <iframe
-              src="https://www.youtube.com/embed/Ww-mp8I23Z0?si=uKvMHo7JOQ_YMWPZ"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             ></iframe>
           </div>

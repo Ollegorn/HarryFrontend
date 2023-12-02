@@ -46,11 +46,11 @@
 }
 
 .tile {
-  flex: 1 0 0;
-  align-self: stretch;
   border-radius: 1rem;
   border: 1px solid var(--surface-01);
   backdrop-filter: blur(21px);
+  width: 560px;
+  height: 315px;
 }
 
 .col {
