@@ -5,6 +5,7 @@ import Navbar from "../Navbar";
 import FeaturedSection from "../FeaturedSection";
 import FeaturedEventsSection from "../FeaturedEventsSection";
 import HighlightSection from "../HighlightSection";
+import RulesSection from "../RulesSection";
 
 function Home() {
   const [tournamentsData, setTournamentsData] = useState([]);
@@ -43,6 +44,7 @@ function Home() {
       <FeaturedSection />
       <FeaturedEventsSection />
       <HighlightSection />
+      <RulesSection />
     </>
   );
 }

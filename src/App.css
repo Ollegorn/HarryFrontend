@@ -118,8 +118,8 @@
   /* gradients */
   --gradient-01: linear-gradient(270deg, #b8b799 0%, #416c76 100%);
   --gradient-02: linear-gradient(270deg, #b8b799 0%, #479fc2 100%);
-  --gradient-03: linear-gradient(270deg, #ddae3c 0%, #563424 100%);
-  --gradient-04: linear-gradient(270deg, #ddae3c 0%, #41386b 100%);
+  --gradient-03: linear-gradient(90deg, #ddae3c 0%, #563424 100%);
+  --gradient-04: linear-gradient(180deg, #ddae3c 0%, #41386b 100%);
 
   /* headline text styles */
   --headline-large-font-family: "Metal Mania", Helvetica;

@@ -1,0 +1,94 @@
+.segmented-rules-card {
+  display: flex;
+  width: 70.5rem;
+  max-width: 70.5rem;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 21, 25, 0.17) 0%,
+    rgba(65, 56, 107, 0.17) 100%
+  );
+  box-shadow: var(--elevation-01);
+  backdrop-filter: blur(21px);
+}
+
+.rule-card {
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  flex: 1 0 0;
+}
+
+.rule-card__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: stretch;
+}
+
+.rule-card__text > h5 {
+  max-height: 2.5rem;
+  align-self: stretch;
+  color: var(--neutral-99);
+  text-align: center;
+  font-family: var(--headline-small-font-family);
+  font-size: var(--headline-small-font-size);
+  font-style: var(--headline-small-font-style);
+  font-weight: var(--headline-small-font-weight);
+  line-height: var(--headline-small-line-height);
+}
+
+.rule-card__text > p {
+  min-height: 6rem;
+  align-self: stretch;
+  color: var(--neutral-99);
+  text-align: center;
+  font-family: var(--body-medium-font-family);
+  font-size: var(--body-medium-font-size);
+  font-style: var(--body-medium-font-style);
+  font-weight: var(--body-medium-font-weight);
+  line-height: var(--body-medium-line-height);
+  letter-spacing: var(--body-medium-letter-spacing);
+}
+
+.rule-card__icon {
+  display: flex;
+  width: 10rem;
+  height: 10rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-wizard-hat {
+  background: url("../../public/Images/Icons/mdi_wizard-hat.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.icon-tournament-2 {
+  background: url("../../public/Images/Icons/tabler_tournament2.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.icon-reward {
+  background: url("../../public/Images/Icons/material-symbols_rewarded-ads.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.divider {
+  width: 0.25rem;
+  height: 10rem;
+  flex-shrink: 0;
+  background: var(--gradient-04);
+}
