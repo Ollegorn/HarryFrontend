@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Navbar from '../Navbar';
 
 function DuelistZone() {
   return (
-    <div>DuelistZone</div>
+    <>
+      <Navbar pageTitle={"Duelist Zone"} />
+      {/* add duels for tournaments*/}
+    </>
   )
 }
 

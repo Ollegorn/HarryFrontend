@@ -103,7 +103,7 @@ function Navbar({ pageTitle }) {
             {isLoggedIn && (
               <li className="nav-item">
                 <Link
-                  to="/"
+                  to="/duelist-zone"
                   className="nav-links"
                   onClick={closeMobileMenuAndScrollToTop}
                 >
@@ -113,7 +113,7 @@ function Navbar({ pageTitle }) {
             )}
             <li className="nav-item">
               <Link
-                to="/"
+                to="/leaderboard"
                 className="nav-links"
                 onClick={closeMobileMenuAndScrollToTop}
               >
