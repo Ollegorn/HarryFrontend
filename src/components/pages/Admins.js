@@ -18,7 +18,7 @@ function Admins() {
 
   const [newTournament, setNewTournament] = useState({
     tournamentName: "",
-    rules: [""], // Start with one empty rule
+    rules: [""],
     prize: "",
     imageNumber: 0,
     description: "",
@@ -62,6 +62,7 @@ function Admins() {
 
       if (response.ok) {
         console.log('Tournament created successfully');
+        console.log(newTournament);
         setNewTournament({
           tournamentName: '',
           rules: '',

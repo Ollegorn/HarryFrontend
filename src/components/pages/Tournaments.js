@@ -32,9 +32,10 @@ function Tournaments() {
           tournamentId={tournament.tournamentId}
           duels={tournament.tournamentDuels}
           imageNumber={tournament.imageNumber}
-          details={tournament.details}
+          description={tournament.description}
           startDate={tournament.startDate}
           endDate={tournament.endDate}
+          
         />
       ))}
     </>

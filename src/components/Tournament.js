@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Tournament.css';
+import CustomBadge from './CustomBadge';
+import CustomButton from './CustomButton';
 import { useUser } from './UserContext';
-import DuelsModal from './DuelsModal';
 
 function Tournament(props) {
   const [expandedTournamentId, setExpandedTournamentId] = useState(null);
@@ -10,19 +11,21 @@ function Tournament(props) {
   const [showDuelsModal, setShowDuelsModal] = useState(false);
   const [duelsData, setDuelsData] = useState([]);
   const [isRegistered, setIsRegistered] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const images = [
-                  '/Images/Events/event_01.jpg',
-                  '/Images/Events/event_02.jpg',
-                  '/Images/Events/event_03.jpg',
-                  '/Images/Events/event_04.jpg',
-                  '/Images/Events/event_05.jpg',
-                  '/Images/Events/event_06.jpg',
-                  '/Images/Events/event_07.jpg',
-                  '/Images/Events/event_08.jpg',
-                  '/Images/Events/event_09.jpg',
-                  '/Images/Events/event_10.jpg'
-                ]
+    '/Images/Events/event_01.jpg',
+    '/Images/Events/event_02.jpg',
+    '/Images/Events/event_03.jpg',
+    '/Images/Events/event_04.jpg',
+    '/Images/Events/event_05.jpg',
+    '/Images/Events/event_06.jpeg',
+    '/Images/Events/event_07.jpg',
+    '/Images/Events/event_08.jpg',
+    '/Images/Events/event_09.jpg',
+    '/Images/Events/event_10.jpg'
+  ]
+
   const userContext = useUser();
   const isAdmin = userContext.user.roles.includes('Admin');
 
@@ -33,6 +36,7 @@ function Tournament(props) {
   }, [props.registeredUsers]);
 
   const handleDetailsToggle = async (tournamentId) => {
+    setIsExpanded(!isExpanded);
     setExpandedTournamentId(
       expandedTournamentId === tournamentId ? null : tournamentId
     );
@@ -153,71 +157,70 @@ function Tournament(props) {
   }
 
   const isStarted = props.duels.length === 0
+
+
   return (
-    <div className="tournament">
-      
+    <div key={props.tournamentId} className={`tournament${isExpanded ? ' expanded' : ''}`}>
 
-      <div className='tournament-box'>
-        
-        <div key={props.tournamentId} className='tournament-details'>
-          <h3>{props.tournamentName}</h3>
-          <h4>Rules: {props.rules}</h4>
+      <div className='tournament__content-container'>
+        <div className='card-content'>
+          <div className='badge-stack'>
+          <div className='badge-stack'>
+            {props.rules.map((rule, index) => (
+              <CustomBadge key={index}>{rule}</CustomBadge>
+            ))}
+          </div>
+          </div>
+          <h6>{props.tournamentName}</h6>
           <p>Prize: {props.prize}</p>
-          <p>Description: {props.description}</p>
-          <p>Dates: {formatDate(props.startDate)} - {formatDate(props.endDate)}</p>
-          <p>Number of Wizards: {props.registeredUsers.length}</p>
+          <p className='tournament-dates'>{formatDate(props.startDate)} - {formatDate(props.endDate)}</p>
+          <p className='tournament-description'>{props.description}</p>
+
+          {isExpanded && (
+          <div className="expanded-details">
+            <h3>Top 3 Wizards:</h3>
+            <ul>
+              {topWizards.map((wizard) => (
+                <li key={wizard.userName}>
+                  {wizard.userName} - Wins: {wizard.wins}, Defeats: {wizard.defeats}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         </div>
 
-        <div className='tournament-btns'>
-          {expandedTournamentId === props.tournamentId && (
-            <div className="expanded-details">
-              <h3>Top 3 Wizards:</h3>
-              <ul>
-                {topWizards.map((wizard) => (
-                  <li key={wizard.userName}>
-                    {wizard.userName} - Wins: {wizard.wins}, Defeats: {wizard.defeats}
-                  </li>
-                ))}
-              </ul>
-            </div>
+        
+        <div className='tournament-actions'>
+          <CustomButton type={"outlined"} size={"medium"} onClick={() => handleDetailsToggle(props.tournamentId)}>
+            {expandedTournamentId === props.tournamentId ? "Hide Details" : "Learn More"}
+          </CustomButton>
+
+          {isStarted && !isRegistered && (
+            <CustomButton size={"medium"} onClick={() => registerUser(props.tournamentId)}>
+              Register Now
+            </CustomButton>
           )}
 
-          <div className="btn-container">
-
-            <div>
-              <button className="details-btn" onClick={() => handleDetailsToggle(props.tournamentId)}>
-                {expandedTournamentId === props.tournamentId ? 'Hide Details' : 'Learn More'}
-              </button>
-
-              {isStarted && !isRegistered && (<button className='user-btn' onClick={() => registerUser(props.tournamentId)}
-              >Register</button>)}
-
-              {!isStarted && isRegistered && <button className='user-btn' onClick={handleShowDuels}>Show My duels</button>}
-            </div>
-            {isAdmin && <div className='admin-btns'>
-              <button className='delete-btn' onClick={deleteTournament}>Delete</button>
-              {isStarted && <button className='details-btn' onClick={startTournament}>Start Tournament</button>}
-            </div>
-
-            }
-            
-            
-            
-
-            
-          </div>
-          {showDuelsModal && (
-            <DuelsModal duelsData={duelsData} onClose={() => setShowDuelsModal(false)} />
+          {!isStarted && (
+            <CustomButton size={"medium"} onClick={handleShowDuels}>
+              Show Duels
+            </CustomButton>
           )}
-          </div>
         </div>
-      
-      <div className='tournament-img'>
-        <img src={process.env.PUBLIC_URL + images[props.imageNumber]} />
+        {isAdmin && isExpanded && <div className='admin-btns'>
+              <CustomButton size={"small"} onClick={deleteTournament}>Delete</CustomButton>
+              {isStarted && <CustomButton size={"small"} onClick={startTournament}>Start Tournament</CustomButton>}
+            </div>
+        }        
+      </div>
+
+      <div className={`tournament__img dynamic-background`} style={{backgroundImage: `url(${images[props.   imageNumber]})`}}>
       </div>
 
     </div>
-  );
+  )
 }
 
-export default Tournament;
+export default Tournament
+

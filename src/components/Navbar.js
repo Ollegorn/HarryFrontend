@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import "./Navbar.css";
 import Login from "./Login";
-import { useUser } from "./UserContext"; // Import useUser hook
+import { useUser } from "./UserContext";
 import CustomButton from "./CustomButton";
 import useScreenSize from "./useScreenSize";
 

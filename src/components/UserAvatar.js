@@ -30,7 +30,6 @@ function UserAvatar({ variant, size, clickable = false, onClick }) {
         className={`user-avatar user-avatar-${size}`}
         onClick={onClick}
       ></div>
-      ;
     </>
   );
 }
