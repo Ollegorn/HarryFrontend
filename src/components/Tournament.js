@@ -192,7 +192,7 @@ function Tournament(props) {
               {isStarted && !isRegistered && (<button className='user-btn' onClick={() => registerUser(props.tournamentId)}
               >Register</button>)}
 
-              {!isStarted && <button className='user-btn' onClick={handleShowDuels}>Show My duels</button>}
+              {!isStarted && isRegistered && <button className='user-btn' onClick={handleShowDuels}>Show My duels</button>}
             </div>
             {isAdmin && <div className='admin-btns'>
               <button className='delete-btn' onClick={deleteTournament}>Delete</button>

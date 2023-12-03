@@ -41,7 +41,7 @@ function Duel(props) {
           <>
             <form onSubmit={handleSubmit}>
               <label>
-              {props.userOne.userName} Wins:
+                My Wins:
                 <input
                   type="number"
                   value={userOneWins}
@@ -49,7 +49,7 @@ function Duel(props) {
                 />
               </label>
               <label>
-              {props.userTwo.userName} Wins:
+              My Defeats:
                 <input
                   type="number"
                   value={userTwoWins}
