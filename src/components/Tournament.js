@@ -11,7 +11,18 @@ function Tournament(props) {
   const [duelsData, setDuelsData] = useState([]);
   const [isRegistered, setIsRegistered] = useState(false);
 
-  const images = ['/Images/img1.png']
+  const images = [
+                  '/Images/Events/event_01.jpg',
+                  '/Images/Events/event_02.jpg',
+                  '/Images/Events/event_03.jpg',
+                  '/Images/Events/event_04.jpg',
+                  '/Images/Events/event_05.jpg',
+                  '/Images/Events/event_06.jpg',
+                  '/Images/Events/event_07.jpg',
+                  '/Images/Events/event_08.jpg',
+                  '/Images/Events/event_09.jpg',
+                  '/Images/Events/event_10.jpg'
+                ]
   const userContext = useUser();
   const isAdmin = userContext.user.roles.includes('Admin');
 
