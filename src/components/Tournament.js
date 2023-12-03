@@ -165,11 +165,9 @@ function Tournament(props) {
       <div className='tournament__content-container'>
         <div className='card-content'>
           <div className='badge-stack'>
-          <div className='badge-stack'>
             {props.rules.map((rule, index) => (
               <CustomBadge key={index}>{rule}</CustomBadge>
             ))}
-          </div>
           </div>
           <h6>{props.tournamentName}</h6>
           <p>Prize: {props.prize}</p>

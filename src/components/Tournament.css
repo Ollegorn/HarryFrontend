@@ -18,6 +18,7 @@
 
 .expanded-details{
   margin: auto;
+  color: var(--neutral-98);
 }
 
 .admin-btns{
@@ -44,6 +45,10 @@
   align-items: flex-start;
   gap: 0.5rem;
   align-self: stretch;
+}
+
+.card-content p{
+  color: var(--neutral-98)
 }
 
 .card-content h6{
