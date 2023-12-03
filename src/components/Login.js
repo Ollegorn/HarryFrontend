@@ -25,7 +25,7 @@ function Login({ onClose }) {
     e.preventDefault();
   
     try {
-      const response = await fetch('https://localhost:7099/api/Auth/Login', {
+      const response = await fetch('https://harrytournament-api.azurewebsites.net/api/Auth/Login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ function Login({ onClose }) {
   
         // Fetch user roles after successful login
         const rolesResponse = await fetch(
-          `https://localhost:7099/api/Setup/GetUserRoles?name=${username}`,
+          `https://harrytournament-api.azurewebsites.net/api/Setup/GetUserRoles?name=${username}`,
           {
             headers: {
               Authorization: `Bearer ${data.token}`,

@@ -45,13 +45,7 @@ function Navbar({ pageTitle }) {
     setClick(false);
   };
 
-  //delete later
-  const fakeData = () => {
-    localStorage.setItem("username", "ollegorn");
-    localStorage.setItem("userRoles", JSON.stringify(["Admin"]));
-    localStorage.setItem("userId", "460cbcfe-da31-4247-8dd9-63a3eaa35d0e")
-    setIsLoggedIn(true);
-  }
+  
 
   const handleLogout = () => {
     localStorage.clear();
@@ -172,7 +166,7 @@ function Navbar({ pageTitle }) {
                   ? "medium"
                   : "large"
               }
-              onClick={fakeData} //change to handleloginclick later
+              onClick={handleLoginClick}
             >
               Log In
             </CustomButton>
