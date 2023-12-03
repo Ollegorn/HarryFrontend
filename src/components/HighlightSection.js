@@ -10,6 +10,7 @@ function HighlightSection() {
         <div className="row">
           <div className="tile">
             <iframe
+              className="video"
               src="https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
               title="YouTube video player"
               frameborder="0"
@@ -22,6 +23,7 @@ function HighlightSection() {
           <div className="col">
             <div className="tile">
               <iframe
+                className="video"
                 src="https://www.youtube.com/embed/wMZzXYJGIDA?si=4ge0_DfOZhtGZMKS"
                 title="YouTube video player"
                 frameborder="0"
@@ -31,6 +33,7 @@ function HighlightSection() {
             </div>
             <div className="tile">
               <iframe
+                className="video"
                 src="https://www.youtube.com/embed/2Q50fsKhMgA?si=gqAewtnepiiYaEej"
                 title="YouTube video player"
                 frameborder="0"
@@ -41,6 +44,7 @@ function HighlightSection() {
           </div>
           <div className="tile">
             <iframe
+              className="video"
               src="https://www.youtube.com/embed/sDHYpxP5Us0?si=5YqwdsPct9MDQzOi"
               title="YouTube video player"
               frameborder="0"
@@ -52,6 +56,7 @@ function HighlightSection() {
         <div className="row">
           <div className="tile">
             <iframe
+              className="video"
               src="https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
               title="YouTube video player"
               frameborder="0"
