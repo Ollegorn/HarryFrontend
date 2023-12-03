@@ -12,7 +12,7 @@ function Home() {
 
   useEffect(() => {
     const tournamentsUrl =
-      "https://localhost:7099/api/Tournament/AllTournamnets";
+      "https://harrytournament-api.azurewebsites.net/api/Tournament/AllTournamnets";
 
     fetch(tournamentsUrl)
       .then((res) => res.json())
@@ -43,7 +43,7 @@ function Home() {
       />
       <FeaturedSection />
       <FeaturedEventsSection />
-      <HighlightSection />
+      {/*<HighlightSection />*/}
       <RulesSection />
     </>
   );

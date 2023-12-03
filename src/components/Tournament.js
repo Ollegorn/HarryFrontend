@@ -56,7 +56,7 @@ function Tournament(props) {
             username: username,
         };
 
-        const response = await fetch('https://localhost:7099/api/Tournament/AddUserToTournament', {
+        const response = await fetch('https://harrytournament-api.azurewebsites.net/api/Tournament/AddUserToTournament', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -77,7 +77,7 @@ function Tournament(props) {
 
 
   const startTournament = async () => {
-    const apiStartUrl = `https://localhost:7099/api/Tournament/StartTournament?tournamentId=${props.tournamentId}`;
+    const apiStartUrl = `https://harrytournament-api.azurewebsites.net/api/Tournament/StartTournament?tournamentId=${props.tournamentId}`;
     try {
       const response = await fetch(apiStartUrl, {
         method: 'POST',
@@ -97,7 +97,7 @@ function Tournament(props) {
   };
 
   const getDuelsDetails = async () => {
-    const duelsUrl = 'https://localhost:7099/api/Duel/AllDuels';
+    const duelsUrl = 'https://harrytournament-api.azurewebsites.net/api/Duel/AllDuels';
   
     try {
       const response = await fetch(duelsUrl);
@@ -116,7 +116,7 @@ function Tournament(props) {
   
 
   const deleteTournament = async () => {
-    const apiDeleteUrl = `https://localhost:7099/api/Tournament/DeleteTournament?id=${props.tournamentId}`;
+    const apiDeleteUrl = `https://harrytournament-api.azurewebsites.net/api/Tournament/DeleteTournament?id=${props.tournamentId}`;
   
     try {
       const response = await fetch(apiDeleteUrl, {

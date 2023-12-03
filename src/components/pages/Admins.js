@@ -42,7 +42,7 @@ function Admins() {
   };
 
   const handleCreateTournament = async () => {
-    const apiCreateTournamentUrl = 'https://localhost:7099/api/Tournament/CreateTournament';
+    const apiCreateTournamentUrl = 'https://harrytournament-api.azurewebsites.net/api/Tournament/CreateTournament';
     console.log(newTournament)
     const requestBody = {
       ...newTournament,
@@ -80,8 +80,8 @@ function Admins() {
   };
 
   useEffect(() => {
-    const usersUrl = 'https://localhost:7099/api/User/AllUsers';
-    const tournamentsUrl = 'https://localhost:7099/api/Tournament/AllTournamnets';
+    const usersUrl = 'https://harrytournament-api.azurewebsites.net/api/User/AllUsers';
+    const tournamentsUrl = 'https://harrytournament-api.azurewebsites.net/api/Tournament/AllTournamnets';
 
     fetch(usersUrl)
       .then(res => res.json())
