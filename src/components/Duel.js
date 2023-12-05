@@ -46,7 +46,7 @@ function Duel(props) {
     }
   };
   return (
-    <div className='duel'>
+    <div className={`duel ${props.isCompleted ? 'completed' : ''}`}>
 
       <div className='duel__details'>
         <div className='duel__t-details'>
