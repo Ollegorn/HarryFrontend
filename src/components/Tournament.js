@@ -3,13 +3,12 @@ import './Tournament.css';
 import CustomBadge from './CustomBadge';
 import CustomButton from './CustomButton';
 import { useUser } from './UserContext';
+import { Link } from 'react-router-dom';
 
 function Tournament(props) {
   const [expandedTournamentId, setExpandedTournamentId] = useState(null);
   const [topWizards, setTopWizards] = useState([]);
   const [isDeleted, setIsDeleted] = useState(false);
-  const [showDuelsModal, setShowDuelsModal] = useState(false);
-  const [duelsData, setDuelsData] = useState([]);
   const [isRegistered, setIsRegistered] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -51,10 +50,7 @@ function Tournament(props) {
     }
   };
 
-  const handleShowDuels = () => {
-    getDuelsDetails();
-    setShowDuelsModal(true);
-  };
+  
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -113,25 +109,7 @@ function Tournament(props) {
     }
   };
 
-  const getDuelsDetails = async () => {
-    const duelsUrl =
-      "https://harrytournament-api.azurewebsites.net/api/Duel/AllDuels";
-
-    try {
-      const response = await fetch(duelsUrl);
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Duel Details:", data);
-        setDuelsData(data);
-      } else {
-        console.error("Failed to fetch duels details");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
+  
   const deleteTournament = async () => {
     const apiDeleteUrl = `https://harrytournament-api.azurewebsites.net/api/Tournament/DeleteTournament?id=${props.tournamentId}`;
 
@@ -203,9 +181,11 @@ function Tournament(props) {
           )}
 
           {!isStarted && (
-            <CustomButton size={"medium"} onClick={handleShowDuels}>
-              Show Duels
-            </CustomButton>
+            <Link to="/duelist-zone">
+              <CustomButton size={"medium"}>
+                Show Duels
+              </CustomButton>
+            </Link>
           )}
         </div>
         {isAdmin && isExpanded && <div className='admin-btns'>
