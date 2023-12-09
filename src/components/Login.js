@@ -1,4 +1,71 @@
-// Login.js
+import React from 'react'
+import './Login.css';
+
+function Login() {
+  return (
+    <div className='login'>
+      <h6>Login</h6>
+      <div className='login__inputgroup'>
+
+        <div className='email-input'>
+          <p>Email</p>
+          <div className='input-container'>
+            <div className='input'>
+              <div className='icon-mail_outline'></div>
+              <input placeholder='user@example.com'></input>
+            </div>
+          </div>
+        </div>
+
+        <div className='password-input'>
+          <p>Password</p>
+          <div className='input-container'>
+            <div className='input'>
+              <div className='icon-mail_outline'></div>
+              <input placeholder='password'></input>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Login
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*// Login.js
 import React, { useState } from 'react';
 import SignUp from './SignUp';
 import { useUser } from './UserContext'; 
@@ -127,3 +194,4 @@ function Login({ onClose }) {
 }
 
 export default Login;
+*/

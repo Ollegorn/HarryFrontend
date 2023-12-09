@@ -195,7 +195,7 @@ function Tournament(props) {
         }        
       </div>
 
-      <div className={`tournament__img dynamic-background`} style={{backgroundImage: `url(${images[props.   imageNumber]})`}}>
+      <div className={`tournament__img dynamic-background`} style={{backgroundImage: `url(${images[props.imageNumber]})`}}>
       </div>
 
     </div>
