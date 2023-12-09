@@ -1,15 +1,8 @@
-<<<<<<< Updated upstream
 import React, { useState, useEffect } from 'react';
 import './Tournament.css';
 import CustomBadge from './CustomBadge';
 import CustomButton from './CustomButton';
 import { useUser } from './UserContext';
-=======
-import React, { useState, useEffect } from "react";
-import "./Tournament.css";
-import { useUser } from "./UserContext";
-import DuelsModal from "./DuelsModal";
->>>>>>> Stashed changes
 
 function Tournament(props) {
   const [expandedTournamentId, setExpandedTournamentId] = useState(null);
@@ -33,10 +26,6 @@ function Tournament(props) {
     '/Images/Events/event_10.jpg'
   ]
 
-<<<<<<< Updated upstream
-=======
-  const images = ["/Images/img1.png"];
->>>>>>> Stashed changes
   const userContext = useUser();
   const isAdmin = userContext.user.roles.includes("Admin");
 
@@ -169,7 +158,6 @@ function Tournament(props) {
     return null;
   }
 
-<<<<<<< Updated upstream
   const isStarted = props.duels.length === 0
 
 
@@ -228,89 +216,8 @@ function Tournament(props) {
       </div>
 
       <div className={`tournament__img dynamic-background`} style={{backgroundImage: `url(${images[props.   imageNumber]})`}}>
-=======
-  const isStarted = props.duels.length === 0;
-  return (
-    <div className="tournament">
-      <div className="tournament-box">
-        <div key={props.tournamentId} className="tournament-details">
-          <h3>{props.tournamentName}</h3>
-          <h4>Rules: {props.rules}</h4>
-          <p>Prize: {props.prize}</p>
-          <p>Description: {props.description}</p>
-          <p>
-            Dates: {formatDate(props.startDate)} - {formatDate(props.endDate)}
-          </p>
-          <p>Number of Wizards: {props.registeredUsers.length}</p>
-        </div>
-
-        <div className="tournament-btns">
-          {expandedTournamentId === props.tournamentId && (
-            <div className="expanded-details">
-              <h3>Top 3 Wizards:</h3>
-              <ul>
-                {topWizards.map((wizard) => (
-                  <li key={wizard.userName}>
-                    {wizard.userName} - Wins: {wizard.wins}, Defeats:{" "}
-                    {wizard.defeats}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <div className="btn-container">
-            <div>
-              <button
-                className="details-btn"
-                onClick={() => handleDetailsToggle(props.tournamentId)}
-              >
-                {expandedTournamentId === props.tournamentId
-                  ? "Hide Details"
-                  : "Learn More"}
-              </button>
-
-              {isStarted && !isRegistered && (
-                <button
-                  className="user-btn"
-                  onClick={() => registerUser(props.tournamentId)}
-                >
-                  Register
-                </button>
-              )}
-
-              {!isStarted && isRegistered && (
-                <button className="user-btn" onClick={handleShowDuels}>
-                  Show My duels
-                </button>
-              )}
-            </div>
-            {isAdmin && (
-              <div className="admin-btns">
-                <button className="delete-btn" onClick={deleteTournament}>
-                  Delete
-                </button>
-                {isStarted && (
-                  <button className="details-btn" onClick={startTournament}>
-                    Start Tournament
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
-          {showDuelsModal && (
-            <DuelsModal
-              duelsData={duelsData}
-              onClose={() => setShowDuelsModal(false)}
-            />
-          )}
-        </div>
->>>>>>> Stashed changes
       </div>
 
-      <div className="tournament-img">
-        <img src={process.env.PUBLIC_URL + images[props.imageNumber]} />
-      </div>
     </div>
   )
 }
