@@ -1,4 +1,19 @@
-/* Login.css */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 .login-container {
   max-width: 600px;
   margin: 200px auto;
@@ -7,8 +22,6 @@
   border: 1px solid #ccc;
   border-radius: 8px;
 }
-
-/* You can add more styles for your form elements, e.g., inputs, buttons, etc. */
 .login-container h2 {
   margin-bottom: 20px;
 }
@@ -38,5 +51,4 @@
 .login-container button:hover {
   background-color: #45a049;
 }
-
-/* You may want to add additional styling based on your form elements and design */
+ */
