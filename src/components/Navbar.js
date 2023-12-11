@@ -1,30 +1,29 @@
 // Navbar.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Modal from "react-modal";
 import "./Navbar.css";
 import Login from "./Login";
+import SignUp from "./SignUp";
 import { useUser } from "./UserContext";
 import CustomButton from "./CustomButton";
 import useScreenSize from "./useScreenSize";
-
-Modal.setAppElement("#root");
+import Popup from "./Popup";
 
 function Navbar({ pageTitle }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const [showLogin, setShowLogin] = useState(false);
+  const [showAuthForm, setShowAuthForm] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [authFormType, setAuthFormType] = useState("login"); // Add state for form type
   const screenSize = useScreenSize();
 
-  // Use the useUser hook to get the user context
   const userContext = useUser();
   const isAdmin = userContext.user.roles.includes("Admin");
 
   const handleClick = () => setClick(!click);
   const closeMobileMenuAndScrollToTop = () => {
     setClick(false);
-    setShowLogin(false);
+    setShowAuthForm(false);
 
     window.scrollTo({
       top: 0,
@@ -41,11 +40,17 @@ function Navbar({ pageTitle }) {
   };
 
   const handleLoginClick = () => {
-    setShowLogin(true);
+    setAuthFormType("login");
+    setShowAuthForm(true);
     setClick(false);
   };
 
-  
+  const handleSignupClick = () => {
+    setAuthFormType("signup");
+    setShowAuthForm(true);
+    setClick(false);
+  };
+
 
   const handleLogout = () => {
     localStorage.clear();
@@ -55,7 +60,7 @@ function Navbar({ pageTitle }) {
   };
 
   const handleCloseModal = () => {
-    setShowLogin(false);
+    setShowAuthForm(false);
   };
 
   useEffect(() => {
@@ -66,6 +71,25 @@ function Navbar({ pageTitle }) {
       setIsLoggedIn(true);
     }
   }, []);
+
+  useEffect(() => {
+    showButton();
+
+    const storedToken = localStorage.getItem("jwtToken");
+    if (storedToken) {
+      setIsLoggedIn(true);
+    }
+
+    if (showAuthForm) {
+      document.body.classList.add("popup-open");
+    } else {
+      document.body.classList.remove("popup-open");
+    }
+
+    return () => {
+      document.body.classList.remove("popup-open");
+    };
+  }, [showAuthForm]);
 
   window.addEventListener("resize", showButton);
 
@@ -82,7 +106,10 @@ function Navbar({ pageTitle }) {
           </Link>
           {screenSize.width < 970 && (
             <div className="page-title-container">
-              <p className="page-title" onClick={closeMobileMenuAndScrollToTop}>
+              <p
+                className="page-title"
+                onClick={closeMobileMenuAndScrollToTop}
+              >
                 {pageTitle}
               </p>
             </div>
@@ -91,7 +118,7 @@ function Navbar({ pageTitle }) {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
+          <li className="nav-item">
               <Link
                 to="/tournaments"
                 className="nav-links"
@@ -144,18 +171,26 @@ function Navbar({ pageTitle }) {
             {screenSize.width < 970 && (
               <li className="nav-item">
                 {!isLoggedIn ? (
-                  <Link to="/" className="nav-links" onClick={handleLoginClick}>
+                  <Link
+                    to="/"
+                    className="nav-links"
+                    onClick={handleLoginClick}
+                  >
                     Log In
                   </Link>
                 ) : (
-                  <Link to="/" className="nav-links" onClick={handleLogout}>
+                  <Link
+                    to="/"
+                    className="nav-links"
+                    onClick={handleLogout}
+                  >
                     Log Out
                   </Link>
                 )}
               </li>
             )}
           </ul>
-          { screenSize.width > 970 && (!isLoggedIn ? (
+          {screenSize.width > 970 && (!isLoggedIn ? (
             <CustomButton
               className="btn-navbar"
               type="outlined"
@@ -188,14 +223,15 @@ function Navbar({ pageTitle }) {
           ))}
         </div>
       </nav>
-      <Modal
-        isOpen={showLogin}
-        onRequestClose={handleCloseModal}
-        contentLabel="Login Modal"
-        className="modal"
-      >
-        <Login onClose={handleCloseModal} />
-      </Modal>
+      {showAuthForm && (
+        <Popup show={showAuthForm} onClose={handleCloseModal}>
+          {authFormType === "login" ? (
+            <Login onButtonClick={handleLoginClick} onSignupClick={handleSignupClick} />
+          ) : (
+            <SignUp onButtonClick={handleSignupClick} onLoginClick={handleLoginClick}/>
+          )}
+        </Popup>
+      )}
     </>
   );
 }

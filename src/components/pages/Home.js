@@ -6,7 +6,6 @@ import FeaturedSection from "../FeaturedSection";
 import FeaturedEventsSection from "../FeaturedEventsSection";
 import HighlightSection from "../HighlightSection";
 import RulesSection from "../RulesSection";
-import Login from "../Login";
 
 function Home() {
   const [tournamentsData, setTournamentsData] = useState([]);
@@ -32,7 +31,6 @@ function Home() {
   return (
     <>
       <Navbar pageTitle={"Home"} />
-      <Login />
       <HeroSection
         id="home"
         bgID="02"
