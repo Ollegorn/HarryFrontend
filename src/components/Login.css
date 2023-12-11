@@ -5,7 +5,7 @@
   height: auto;
   padding: 3rem;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content:space-evenly;
   align-items: center;
   flex-shrink: 0;
   background-color: black;
@@ -42,7 +42,7 @@
   gap: 0.5rem;
 }
 
-.email-input p{
+.email-input label{
   color: var(--neutral-98, #D2D4DB);
 
   /* Label/Large */
@@ -150,8 +150,8 @@ align-self: stretch;
   align-items: center;
   gap: 0.5rem;
   align-self: stretch;
-}
-.login-btn .state-layer p{
+  color: var(--neutral-99);
+  background: var(--tint-primary-0103);
   color: var(--neutral-99);
   text-align: center;
 
@@ -162,6 +162,17 @@ align-self: stretch;
   font-weight: 500;
   line-height: 1.5rem; /* 133.333% */
   letter-spacing: 0.00625rem;
+
+  border: none;
+}
+
+.login-btn .state-layer:hover{
+  cursor: pointer;
+}
+
+.login-message{
+  color: white;
+  font-size: 1.5em;
 }
 
 .social-login{

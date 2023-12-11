@@ -2,61 +2,142 @@ import {useState} from 'react';
 import "./Login.css";
 
 function SignUp({onLoginClick, onButtonClick}) {
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [signupMessage, setSignupMessage] = useState('');
+
+  const handleUserNameChange = (e) => {
+    setUserName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const handleSignupSubmit = async (e) => {
+    e.preventDefault();
+    if(password !== confirmPassword){
+      setSignupMessage("Passwords don't match")
+      return;
+    }
+
+    try {
+      const response = await fetch('https://harrytournament-api.azurewebsites.net/api/Auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userName: userName,
+          email: email,
+          password: password,
+        }),
+      });
+
+      if (response.ok) {
+        setSignupMessage('Sign Up successful! Please Login');
+      } else {
+        setSignupMessage('Sign Up failed. Please try again.');
+        console.error('Sign Up failed');
+      }
+    } catch (error) {
+      setSignupMessage('Error during Sign Up. Please try again.');
+      console.error('Error during Sign Up:', error);
+    }
+  };
+
+  
 
   return (
     <div className='login'>
       <h6>Sign Up</h6>
       <div className='login__inputgroup'>
-        <div className='email-input'>
-          <p>Username</p>
-          <div className='input-container'>
-            <div className='input'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.21704C6.48 2.21704 2 6.69704 2 12.217C2 17.737 6.48 22.217 12 22.217C17.52 22.217 22 17.737 22 12.217C22 6.69704 17.52 2.21704 12 2.21704ZM18.36 17.047C16.93 15.307 13.46 14.717 12 14.717C10.54 14.717 7.07 15.307 5.64 17.047C4.62 15.707 4 14.037 4 12.217C4 7.80704 7.59 4.21704 12 4.21704C16.41 4.21704 20 7.80704 20 12.217C20 14.037 19.38 15.707 18.36 17.047ZM8.5 9.71704C8.5 7.77704 10.06 6.21704 12 6.21704C13.94 6.21704 15.5 7.77704 15.5 9.71704C15.5 11.657 13.94 13.217 12 13.217C10.06 13.217 8.5 11.657 8.5 9.71704Z" fill="#E8E9ED"/>
-            </svg>
-              <input placeholder='AlbusPotter'></input>
-            </div>
-          </div>
-        </div>
-        <div className='email-input'>
-          <p>Email</p>
-          <div className='input-container'>
-            <div className='input'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-              <path d="M20 4.88373H4C2.9 4.88373 2.01 5.78373 2.01 6.88373L2 18.8837C2 19.9837 2.9 20.8837 4 20.8837H20C21.1 20.8837 22 19.9837 22 18.8837V6.88373C22 5.78373 21.1 4.88373 20 4.88373ZM20 18.8837H4V8.88373L12 13.8837L20 8.88373V18.8837ZM12 11.8837L4 6.88373H20L12 11.8837Z" fill="#B0B3BF"/>
-            </svg>
-              <input placeholder='user@example.com'></input>
-            </div>
-          </div>
-        </div>
 
-        <div className='email-input'>
-          <p>Password</p>
-          <div className='input-container'>
-            <div className='input'>
+        <form onSubmit={handleSignupSubmit}>
+          <div className='email-input'>
+            <label htmlFor='userName'>Username</label>
+            <div className='input-container'>
+              <div className='input'>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                <path d="M6 22.8837C5.45 22.8837 4.97933 22.6881 4.588 22.2967C4.19667 21.9054 4.00067 21.4344 4 20.8837V10.8837C4 10.3337 4.196 9.86306 4.588 9.47173C4.98 9.08039 5.45067 8.88439 6 8.88373H7V6.88373C7 5.50039 7.48767 4.32139 8.463 3.34673C9.43833 2.37206 10.6173 1.88439 12 1.88373C13.3833 1.88373 14.5627 2.37139 15.538 3.34673C16.5133 4.32206 17.0007 5.50106 17 6.88373V8.88373H18C18.55 8.88373 19.021 9.07973 19.413 9.47173C19.805 9.86373 20.0007 10.3344 20 10.8837V20.8837C20 21.4337 19.8043 21.9047 19.413 22.2967C19.0217 22.6887 18.5507 22.8844 18 22.8837H6ZM6 20.8837H18V10.8837H6V20.8837ZM12 17.8837C12.55 17.8837 13.021 17.6881 13.413 17.2967C13.805 16.9054 14.0007 16.4344 14 15.8837C14 15.3337 13.8043 14.8631 13.413 14.4717C13.0217 14.0804 12.5507 13.8844 12 13.8837C11.45 13.8837 10.9793 14.0797 10.588 14.4717C10.1967 14.8637 10.0007 15.3344 10 15.8837C10 16.4337 10.196 16.9047 10.588 17.2967C10.98 17.6887 11.4507 17.8844 12 17.8837ZM9 8.88373H15V6.88373C15 6.05039 14.7083 5.34206 14.125 4.75873C13.5417 4.17539 12.8333 3.88373 12 3.88373C11.1667 3.88373 10.4583 4.17539 9.875 4.75873C9.29167 5.34206 9 6.05039 9 6.88373V8.88373Z" fill="#E8E9ED"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.21704C6.48 2.21704 2 6.69704 2 12.217C2 17.737 6.48 22.217 12 22.217C17.52 22.217 22 17.737 22 12.217C22 6.69704 17.52 2.21704 12 2.21704ZM18.36 17.047C16.93 15.307 13.46 14.717 12 14.717C10.54 14.717 7.07 15.307 5.64 17.047C4.62 15.707 4 14.037 4 12.217C4 7.80704 7.59 4.21704 12 4.21704C16.41 4.21704 20 7.80704 20 12.217C20 14.037 19.38 15.707 18.36 17.047ZM8.5 9.71704C8.5 7.77704 10.06 6.21704 12 6.21704C13.94 6.21704 15.5 7.77704 15.5 9.71704C15.5 11.657 13.94 13.217 12 13.217C10.06 13.217 8.5 11.657 8.5 9.71704Z" fill="#E8E9ED"/>
               </svg>
-              <input placeholder='Password'></input>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                <path d="M12 9.88373C12.7956 9.88373 13.5587 10.1998 14.1213 10.7624C14.6839 11.325 15 12.0881 15 12.8837C15 13.6794 14.6839 14.4424 14.1213 15.005C13.5587 15.5677 12.7956 15.8837 12 15.8837C11.2044 15.8837 10.4413 15.5677 9.87868 15.005C9.31607 14.4424 9 13.6794 9 12.8837C9 12.0881 9.31607 11.325 9.87868 10.7624C10.4413 10.1998 11.2044 9.88373 12 9.88373ZM12 5.38373C17 5.38373 21.27 8.49373 23 12.8837C21.27 17.2737 17 20.3837 12 20.3837C7 20.3837 2.73 17.2737 1 12.8837C2.73 8.49373 7 5.38373 12 5.38373ZM3.18 12.8837C3.98825 14.534 5.24331 15.9245 6.80248 16.897C8.36165 17.8695 10.1624 18.385 12 18.385C13.8376 18.385 15.6383 17.8695 17.1975 16.897C18.7567 15.9245 20.0117 14.534 20.82 12.8837C20.0117 11.2334 18.7567 9.84298 17.1975 8.87047C15.6383 7.89797 13.8376 7.38241 12 7.38241C10.1624 7.38241 8.36165 7.89797 6.80248 8.87047C5.24331 9.84298 3.98825 11.2334 3.18 12.8837Z" fill="#E8E9ED"/>
-              </svg>
-              
+                <input 
+                  type="text"
+                  id="userName"
+                  value={userName}
+                  onChange={handleUserNameChange}
+                  required
+                  placeholder='AlbusPotter'/>
               </div>
             </div>
           </div>
           <div className='email-input'>
-          <p>Confirm Password</p>
-          <div className='input-container'>
-            <div className='input'>
+            <label htmlFor='email'>Email</label>
+            <div className='input-container'>
+              <div className='input'>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                <path d="M6 22.8837C5.45 22.8837 4.97933 22.6881 4.588 22.2967C4.19667 21.9054 4.00067 21.4344 4 20.8837V10.8837C4 10.3337 4.196 9.86306 4.588 9.47173C4.98 9.08039 5.45067 8.88439 6 8.88373H7V6.88373C7 5.50039 7.48767 4.32139 8.463 3.34673C9.43833 2.37206 10.6173 1.88439 12 1.88373C13.3833 1.88373 14.5627 2.37139 15.538 3.34673C16.5133 4.32206 17.0007 5.50106 17 6.88373V8.88373H18C18.55 8.88373 19.021 9.07973 19.413 9.47173C19.805 9.86373 20.0007 10.3344 20 10.8837V20.8837C20 21.4337 19.8043 21.9047 19.413 22.2967C19.0217 22.6887 18.5507 22.8844 18 22.8837H6ZM6 20.8837H18V10.8837H6V20.8837ZM12 17.8837C12.55 17.8837 13.021 17.6881 13.413 17.2967C13.805 16.9054 14.0007 16.4344 14 15.8837C14 15.3337 13.8043 14.8631 13.413 14.4717C13.0217 14.0804 12.5507 13.8844 12 13.8837C11.45 13.8837 10.9793 14.0797 10.588 14.4717C10.1967 14.8637 10.0007 15.3344 10 15.8837C10 16.4337 10.196 16.9047 10.588 17.2967C10.98 17.6887 11.4507 17.8844 12 17.8837ZM9 8.88373H15V6.88373C15 6.05039 14.7083 5.34206 14.125 4.75873C13.5417 4.17539 12.8333 3.88373 12 3.88373C11.1667 3.88373 10.4583 4.17539 9.875 4.75873C9.29167 5.34206 9 6.05039 9 6.88373V8.88373Z" fill="#E8E9ED"/>
+                <path d="M20 4.88373H4C2.9 4.88373 2.01 5.78373 2.01 6.88373L2 18.8837C2 19.9837 2.9 20.8837 4 20.8837H20C21.1 20.8837 22 19.9837 22 18.8837V6.88373C22 5.78373 21.1 4.88373 20 4.88373ZM20 18.8837H4V8.88373L12 13.8837L20 8.88373V18.8837ZM12 11.8837L4 6.88373H20L12 11.8837Z" fill="#B0B3BF"/>
               </svg>
-              <input placeholder='Password'></input>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                <path d="M12 9.88373C12.7956 9.88373 13.5587 10.1998 14.1213 10.7624C14.6839 11.325 15 12.0881 15 12.8837C15 13.6794 14.6839 14.4424 14.1213 15.005C13.5587 15.5677 12.7956 15.8837 12 15.8837C11.2044 15.8837 10.4413 15.5677 9.87868 15.005C9.31607 14.4424 9 13.6794 9 12.8837C9 12.0881 9.31607 11.325 9.87868 10.7624C10.4413 10.1998 11.2044 9.88373 12 9.88373ZM12 5.38373C17 5.38373 21.27 8.49373 23 12.8837C21.27 17.2737 17 20.3837 12 20.3837C7 20.3837 2.73 17.2737 1 12.8837C2.73 8.49373 7 5.38373 12 5.38373ZM3.18 12.8837C3.98825 14.534 5.24331 15.9245 6.80248 16.897C8.36165 17.8695 10.1624 18.385 12 18.385C13.8376 18.385 15.6383 17.8695 17.1975 16.897C18.7567 15.9245 20.0117 14.534 20.82 12.8837C20.0117 11.2334 18.7567 9.84298 17.1975 8.87047C15.6383 7.89797 13.8376 7.38241 12 7.38241C10.1624 7.38241 8.36165 7.89797 6.80248 8.87047C5.24331 9.84298 3.98825 11.2334 3.18 12.8837Z" fill="#E8E9ED"/>
-              </svg>
-              
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  required
+                  placeholder='user@example.com'/>
+              </div>
+            </div>
+          </div>
+
+          <div className='email-input'>
+            <label htmlFor='password'>Password</label>
+            <div className='input-container'>
+              <div className='input'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                  <path d="M6 22.8837C5.45 22.8837 4.97933 22.6881 4.588 22.2967C4.19667 21.9054 4.00067 21.4344 4 20.8837V10.8837C4 10.3337 4.196 9.86306 4.588 9.47173C4.98 9.08039 5.45067 8.88439 6 8.88373H7V6.88373C7 5.50039 7.48767 4.32139 8.463 3.34673C9.43833 2.37206 10.6173 1.88439 12 1.88373C13.3833 1.88373 14.5627 2.37139 15.538 3.34673C16.5133 4.32206 17.0007 5.50106 17 6.88373V8.88373H18C18.55 8.88373 19.021 9.07973 19.413 9.47173C19.805 9.86373 20.0007 10.3344 20 10.8837V20.8837C20 21.4337 19.8043 21.9047 19.413 22.2967C19.0217 22.6887 18.5507 22.8844 18 22.8837H6ZM6 20.8837H18V10.8837H6V20.8837ZM12 17.8837C12.55 17.8837 13.021 17.6881 13.413 17.2967C13.805 16.9054 14.0007 16.4344 14 15.8837C14 15.3337 13.8043 14.8631 13.413 14.4717C13.0217 14.0804 12.5507 13.8844 12 13.8837C11.45 13.8837 10.9793 14.0797 10.588 14.4717C10.1967 14.8637 10.0007 15.3344 10 15.8837C10 16.4337 10.196 16.9047 10.588 17.2967C10.98 17.6887 11.4507 17.8844 12 17.8837ZM9 8.88373H15V6.88373C15 6.05039 14.7083 5.34206 14.125 4.75873C13.5417 4.17539 12.8333 3.88373 12 3.88373C11.1667 3.88373 10.4583 4.17539 9.875 4.75873C9.29167 5.34206 9 6.05039 9 6.88373V8.88373Z" fill="#E8E9ED"/>
+                </svg>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  required
+                  placeholder='Password'/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                  <path d="M12 9.88373C12.7956 9.88373 13.5587 10.1998 14.1213 10.7624C14.6839 11.325 15 12.0881 15 12.8837C15 13.6794 14.6839 14.4424 14.1213 15.005C13.5587 15.5677 12.7956 15.8837 12 15.8837C11.2044 15.8837 10.4413 15.5677 9.87868 15.005C9.31607 14.4424 9 13.6794 9 12.8837C9 12.0881 9.31607 11.325 9.87868 10.7624C10.4413 10.1998 11.2044 9.88373 12 9.88373ZM12 5.38373C17 5.38373 21.27 8.49373 23 12.8837C21.27 17.2737 17 20.3837 12 20.3837C7 20.3837 2.73 17.2737 1 12.8837C2.73 8.49373 7 5.38373 12 5.38373ZM3.18 12.8837C3.98825 14.534 5.24331 15.9245 6.80248 16.897C8.36165 17.8695 10.1624 18.385 12 18.385C13.8376 18.385 15.6383 17.8695 17.1975 16.897C18.7567 15.9245 20.0117 14.534 20.82 12.8837C20.0117 11.2334 18.7567 9.84298 17.1975 8.87047C15.6383 7.89797 13.8376 7.38241 12 7.38241C10.1624 7.38241 8.36165 7.89797 6.80248 8.87047C5.24331 9.84298 3.98825 11.2334 3.18 12.8837Z" fill="#E8E9ED"/>
+                </svg>
+                
+                </div>
+              </div>
+            </div>
+          <div className='email-input'>
+            <label htmlFor='confirmPassword'>Confirm Password</label>
+            <div className='input-container'>
+              <div className='input'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                  <path d="M6 22.8837C5.45 22.8837 4.97933 22.6881 4.588 22.2967C4.19667 21.9054 4.00067 21.4344 4 20.8837V10.8837C4 10.3337 4.196 9.86306 4.588 9.47173C4.98 9.08039 5.45067 8.88439 6 8.88373H7V6.88373C7 5.50039 7.48767 4.32139 8.463 3.34673C9.43833 2.37206 10.6173 1.88439 12 1.88373C13.3833 1.88373 14.5627 2.37139 15.538 3.34673C16.5133 4.32206 17.0007 5.50106 17 6.88373V8.88373H18C18.55 8.88373 19.021 9.07973 19.413 9.47173C19.805 9.86373 20.0007 10.3344 20 10.8837V20.8837C20 21.4337 19.8043 21.9047 19.413 22.2967C19.0217 22.6887 18.5507 22.8844 18 22.8837H6ZM6 20.8837H18V10.8837H6V20.8837ZM12 17.8837C12.55 17.8837 13.021 17.6881 13.413 17.2967C13.805 16.9054 14.0007 16.4344 14 15.8837C14 15.3337 13.8043 14.8631 13.413 14.4717C13.0217 14.0804 12.5507 13.8844 12 13.8837C11.45 13.8837 10.9793 14.0797 10.588 14.4717C10.1967 14.8637 10.0007 15.3344 10 15.8837C10 16.4337 10.196 16.9047 10.588 17.2967C10.98 17.6887 11.4507 17.8844 12 17.8837ZM9 8.88373H15V6.88373C15 6.05039 14.7083 5.34206 14.125 4.75873C13.5417 4.17539 12.8333 3.88373 12 3.88373C11.1667 3.88373 10.4583 4.17539 9.875 4.75873C9.29167 5.34206 9 6.05039 9 6.88373V8.88373Z" fill="#E8E9ED"/>
+                </svg>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={handleConfirmPasswordChange}
+                  required 
+                  placeholder='Password'></input>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                  <path d="M12 9.88373C12.7956 9.88373 13.5587 10.1998 14.1213 10.7624C14.6839 11.325 15 12.0881 15 12.8837C15 13.6794 14.6839 14.4424 14.1213 15.005C13.5587 15.5677 12.7956 15.8837 12 15.8837C11.2044 15.8837 10.4413 15.5677 9.87868 15.005C9.31607 14.4424 9 13.6794 9 12.8837C9 12.0881 9.31607 11.325 9.87868 10.7624C10.4413 10.1998 11.2044 9.88373 12 9.88373ZM12 5.38373C17 5.38373 21.27 8.49373 23 12.8837C21.27 17.2737 17 20.3837 12 20.3837C7 20.3837 2.73 17.2737 1 12.8837C2.73 8.49373 7 5.38373 12 5.38373ZM3.18 12.8837C3.98825 14.534 5.24331 15.9245 6.80248 16.897C8.36165 17.8695 10.1624 18.385 12 18.385C13.8376 18.385 15.6383 17.8695 17.1975 16.897C18.7567 15.9245 20.0117 14.534 20.82 12.8837C20.0117 11.2334 18.7567 9.84298 17.1975 8.87047C15.6383 7.89797 13.8376 7.38241 12 7.38241C10.1624 7.38241 8.36165 7.89797 6.80248 8.87047C5.24331 9.84298 3.98825 11.2334 3.18 12.8837Z" fill="#E8E9ED"/>
+                </svg>
+                
               </div>
             </div>
           </div>
@@ -64,13 +145,12 @@ function SignUp({onLoginClick, onButtonClick}) {
 
           <div className='button-stack'>
             <div className='login-btn'>
-              <div className='state-layer'>
-                <p>Sign Up</p>
-              </div>
+                <button className='state-layer' type='submit'>Sign Up</button>
             </div>
           </div>
-
-          <div className='social-login'>
+        </form>
+        <div className="login-message">{signupMessage}</div>
+        <div className='social-login'>
 
           <div className='sign-up-prompt' onClick={() => { onButtonClick(); onLoginClick(); }}>
               <div className='state-layer'>
@@ -100,104 +180,11 @@ function SignUp({onLoginClick, onButtonClick}) {
   )
 }
 
-export default SignUp
+export default SignUp;
 
 
 
 
 
 
-/*
-import React, { useState } from 'react';
-import './SignUp.css';
 
-function SignUp({ onClose }) {
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [signupMessage, setSignupMessage] = useState('');
-
-  const handleUserNameChange = (e) => {
-    setUserName(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSignupSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch('https://harrytournament-api.azurewebsites.net/api/Auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userName: userName,
-          email: email,
-          password: password,
-        }),
-      });
-
-      if (response.ok) {
-        setSignupMessage('Sign Up successful! Please close the window and Login');
-      } else {
-        setSignupMessage('Sign Up failed. Please try again.');
-        console.error('Sign Up failed');
-      }
-    } catch (error) {
-      setSignupMessage('Error during Sign Up. Please try again.');
-      console.error('Error during Sign Up:', error);
-    }
-  };
-
-  const handleClose = (e) => {
-    if (e.target.classList.contains('modal-overlay')) {
-      onClose();
-    }
-  };
-
-  return (
-    <div className="modal-overlay" onClick={handleClose}>
-      <div className="signup-container">
-        <h2>Sign Up</h2>
-        <form onSubmit={handleSignupSubmit}>
-          <label htmlFor="userName">Username:</label>
-          <input
-            type="text"
-            id="userName"
-            value={userName}
-            onChange={handleUserNameChange}
-            required
-          />
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-          <button type="submit" className='signup-btn'>Sign Up</button>
-        </form>
-        <div className="signup-message">{signupMessage}</div>
-      </div>
-    </div>
-  );
-}
-
-export default SignUp; */
