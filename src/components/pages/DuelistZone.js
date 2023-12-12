@@ -1,3 +1,76 @@
+import React from 'react';
+import Navbar from '../Navbar';
+import HeroSection from '../HeroSection';
+import FeaturedEventsSection from '../FeaturedEventsSection';
+
+function DuelistZone() {
+  return (
+    <nav className='hero-container--bg-03'>
+      <Navbar pageTitle={"Duelist Zone"}/>
+      <HeroSection
+        id="duelist-zone"
+        heading="your magical duels and achievements"
+        body="Here, you can manage your tournament participations, track your duel history, view your rankings, and analyze your performance statistics. This is your space to strategize, reflect, and prepare for your next magical challenge."
+        showButton={false}
+      />
+      <FeaturedEventsSection 
+        title="Events you have joined"
+      />
+
+    </nav>
+  )
+}
+
+export default DuelistZone;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar';
 import './DuelistZone.css';
@@ -75,3 +148,4 @@ function DuelistZone() {
 }
 
 export default DuelistZone;
+*/

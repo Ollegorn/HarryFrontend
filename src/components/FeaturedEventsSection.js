@@ -1,11 +1,11 @@
 import "./FeaturedEventsSection.css";
 import EventCard from "./EventCard";
 
-function FeaturedEventsSection() {
+function FeaturedEventsSection({title}) {
   return (
     <section className="featured-events">
       <div className="featured-events__header">
-        <h2>Join Today’s Magical Battles</h2>
+        <h2>{title}</h2>
         <p>
           Participate in our exclusive Solo Tournaments or team up for the Duo
           Leagues. The magic awaits!

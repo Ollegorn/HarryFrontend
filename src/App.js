@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/tournaments" element={<Tournaments />} />
           <Route path="/duelist-zone" element={<DuelistZone/>} />
-          <Route path="/leaderboard" element={<DuelistZone/>} />
+          <Route path="/leaderboard" element={<Admins/>} />
           <Route path="/admins" element={<Admins />} />
         </Routes>
         <Footer />
