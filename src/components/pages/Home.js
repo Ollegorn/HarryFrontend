@@ -30,7 +30,7 @@ function Home() {
 
   return (
     <>
-      <Navbar pageTitle={"Home"} />
+      <Navbar pageTitle={"Home"} theme={4} />
       <div className="content-wrapper">
         <HeroSection
           id="home"

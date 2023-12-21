@@ -326,6 +326,15 @@ label,
   gap: var(--margin-2x-mobile);
 }
 
+article {
+  display: flex;
+  padding: var(--gutter-mobile) 0rem;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gutter-mobile);
+  align-self: stretch;
+}
+
 /*
 *Logo & Icons
 */
@@ -341,12 +350,32 @@ label,
   background-size: cover;
 }
 
-.fas {
-  display: flex;
-  width: 1.5rem;
-  height: 1.5rem;
+.fas,
+.icon {
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+}
+
+.fas,
+.icon--small {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon--big {
+  width: 4rem;
+  height: 4rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon-tournament {
+  background-image: url("../public/Images/Icons/tabler_tournament.svg");
+}
+
+.icon-wand {
+  background-image: url("../public/Images/Icons/mdi_wand.svg");
 }
 
 .fas-01,
@@ -405,6 +434,18 @@ a {
     padding: var(--margin-2x-tablet) var(--margin-tablet);
     gap: var(--margin-2x-tablet);
   }
+
+  article {
+    padding: var(--gutter-tablet) 0rem;
+    gap: var(--gutter-tablet);
+  }
+
+  .icon--big {
+    width: 5.5rem;
+    height: 5.5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -456,6 +497,11 @@ a {
     gap: var(--margin-2x-desktop);
   }
 
+  article {
+    padding: var(--gutter-desktop) 0rem;
+    gap: var(--gutter-desktop);
+  }
+
   .logo {
     width: 12rem;
     height: 2.5rem;
@@ -463,6 +509,13 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  .icon--big {
+    width: 7rem;
+    height: 7rem;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
@@ -474,6 +527,11 @@ a {
     gap: var(--margin-2x-desktop-large);
   }
 
+  article {
+    padding: var(--gutter-desktop-large) 0rem;
+    gap: var(--gutter-desktop-large);
+  }
+
   .logo {
     width: 16rem;
     height: 4rem;
@@ -481,6 +539,13 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  .icon--big {
+    width: 8.5rem;
+    height: 8.5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 

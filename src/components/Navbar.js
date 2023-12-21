@@ -9,7 +9,7 @@ import CustomButton from "./CustomButton";
 import { useScreenSize, breakPoint } from "./useScreenSize";
 import Popup from "./Popup";
 
-function Navbar({ pageTitle, theme = 4 }) {
+function Navbar({ pageTitle, theme }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [showAuthForm, setShowAuthForm] = useState(false);
