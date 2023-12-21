@@ -86,9 +86,3 @@
   background-position: center;
 }
 
-.divider {
-  width: 0.25rem;
-  height: 10rem;
-  flex-shrink: 0;
-  background: var(--gradient-04);
-}

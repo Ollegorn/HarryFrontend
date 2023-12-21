@@ -1,3 +1,4 @@
+import "./Normalize.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Footer from "./components/Footer";
@@ -13,8 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tournaments" element={<Tournaments />} />
-          <Route path="/duelist-zone" element={<DuelistZone/>} />
-          <Route path="/leaderboard" element={<Admins/>} />
+          <Route path="/duelist-zone" element={<DuelistZone />} />
+          <Route path="/leaderboard" element={<Admins />} />
           <Route path="/admins" element={<Admins />} />
         </Routes>
         <Footer />

@@ -31,20 +31,20 @@ function Home() {
   return (
     <>
       <Navbar pageTitle={"Home"} />
-      <HeroSection
-        id="home"
-        bgID="02"
-        heading="Step into the Arena of Magic"
-        body="Welcome to MasterOfMagic, the ultimate platform for duelling
-          enthusiasts in the Harry Potter Magic Awakened community. Dive into a
-          world where magic duels come alive, and players compete for glory and
-          honor in thrilling tournaments."
-        ctaText="Begin Your Magical Journey"
-      />
-      <FeaturedSection />
-      <FeaturedEventsSection />
-      {/*<HighlightSection />*/}
-      <RulesSection />
+      <div className="content-wrapper">
+        <HeroSection
+          id="home"
+          heading="Step into the Arena of Magic"
+          body="Welcome to MasterOfMagic, the ultimate platform for duelling
+          enthusiasts in the Harry Potter Magic Awakened community."
+          ctaText="Begin Your Magical Journey"
+          theme={4}
+        />
+        <FeaturedSection />
+        <FeaturedEventsSection />
+        {/*<HighlightSection />*/}
+        <RulesSection />
+      </div>
     </>
   );
 }

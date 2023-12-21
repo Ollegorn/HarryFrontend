@@ -6,10 +6,10 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import { useUser } from "./UserContext";
 import CustomButton from "./CustomButton";
-import useScreenSize from "./useScreenSize";
+import { useScreenSize, breakPoint } from "./useScreenSize";
 import Popup from "./Popup";
 
-function Navbar({ pageTitle }) {
+function Navbar({ pageTitle, theme = 4 }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [showAuthForm, setShowAuthForm] = useState(false);
@@ -50,7 +50,6 @@ function Navbar({ pageTitle }) {
     setShowAuthForm(true);
     setClick(false);
   };
-
 
   const handleLogout = () => {
     localStorage.clear();
@@ -95,112 +94,123 @@ function Navbar({ pageTitle }) {
 
   return (
     <>
-      <nav className="navbar tint-petrol border-gradient border-gradient--01 border-gradient--only-bottom">
-        <div className="navbar-container">
-          <Link
-            to="/"
-            className="navbar-logo"
+      <nav
+        className={
+          click
+            ? `navbar active border-gradient border-gradient--0${4} border-gradient--only-bottom`
+            : `navbar border-gradient border-gradient--0${4} border-gradient--only-bottom`
+        }
+      >
+        <Link to="/" onClick={closeMobileMenuAndScrollToTop}>
+          <span className={click ? `logo inactive` : `logo`}></span>
+        </Link>
+        {screenSize.width < breakPoint.desktop && (
+          <p
+            className={
+              click
+                ? `title title--high-emphasis page-title link-0${theme} inactive`
+                : `title title--high-emphasis page-title link-0${theme}`
+            }
             onClick={closeMobileMenuAndScrollToTop}
           >
-            MasterOfMagic
-          </Link>
-          {screenSize.width < 970 && (
-            <div className="page-title-container">
-              <p
-                className="page-title"
+            {pageTitle}
+          </p>
+        )}
+        <div className="menu-icon" onClick={handleClick}>
+          <i
+            className={
+              click ? `fas fas-0${theme} fa-times` : `fas fas-0${theme} fa-bars`
+            }
+          />
+        </div>
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <li>
+            <Link
+              to="/tournaments"
+              className={`nav-links label label--high-emphasis link-0${theme}`}
+              onClick={closeMobileMenuAndScrollToTop}
+            >
+              Tournament Hub
+            </Link>
+          </li>
+          {isLoggedIn && (
+            <li>
+              <Link
+                to="/duelist-zone"
+                className={`nav-links label label--high-emphasis link-0${theme}`}
                 onClick={closeMobileMenuAndScrollToTop}
               >
-                {pageTitle}
-              </p>
-            </div>
+                Duelist Zone
+              </Link>
+            </li>
           )}
-          <div className="menu-icon" onClick={handleClick}>
-            <i className={click ? "fas fa-times" : "fas fa-bars"} />
-          </div>
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
-          <li className="nav-item">
+          <li>
+            <Link
+              to="/leaderboard"
+              className={`nav-links label label--high-emphasis link-0${theme}`}
+              onClick={closeMobileMenuAndScrollToTop}
+            >
+              Leaderboard
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/"
+              className={`nav-links label label--high-emphasis link-0${theme}`}
+              onClick={closeMobileMenuAndScrollToTop}
+            >
+              Rules
+            </Link>
+          </li>
+          {isAdmin && (
+            <li>
               <Link
-                to="/tournaments"
-                className="nav-links"
+                to="/admins"
+                className={`nav-links label label--high-emphasis link-0${theme}`}
                 onClick={closeMobileMenuAndScrollToTop}
               >
-                Tournament Hub
+                Admin Page
               </Link>
             </li>
-            {isLoggedIn && (
-              <li className="nav-item">
-                <Link
-                  to="/duelist-zone"
-                  className="nav-links"
-                  onClick={closeMobileMenuAndScrollToTop}
-                >
-                  Duelist Zone
-                </Link>
-              </li>
-            )}
-            <li className="nav-item">
-              <Link
-                to="/leaderboard"
-                className="nav-links"
-                onClick={closeMobileMenuAndScrollToTop}
-              >
-                Leaderboard
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/"
-                className="nav-links"
-                onClick={closeMobileMenuAndScrollToTop}
-              >
-                Rules
-              </Link>
-            </li>
-            {isAdmin && (
-              <li className="nav-item">
-                <Link
-                  to="/admins"
-                  className="nav-links"
-                  onClick={closeMobileMenuAndScrollToTop}
-                >
-                  Admin Page
-                </Link>
-              </li>
-            )}
+          )}
 
-            {screenSize.width < 970 && (
-              <li className="nav-item">
-                {!isLoggedIn ? (
-                  <Link
-                    to="/"
-                    className="nav-links"
-                    onClick={handleLoginClick}
-                  >
-                    Log In
-                  </Link>
-                ) : (
-                  <Link
-                    to="/"
-                    className="nav-links"
-                    onClick={handleLogout}
-                  >
-                    Log Out
-                  </Link>
-                )}
-              </li>
-            )}
-          </ul>
-          {screenSize.width > 970 && (!isLoggedIn ? (
+          {screenSize.width < breakPoint.desktop && (
+            <li>
+              {!isLoggedIn ? (
+                <Link
+                  to="/"
+                  className={`nav-links label label--high-emphasis link-0${theme}`}
+                  onClick={handleLoginClick}
+                >
+                  Log In
+                </Link>
+              ) : (
+                <Link
+                  to="/"
+                  className={`nav-links label label--high-emphasis link-0${theme}`}
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </Link>
+              )}
+            </li>
+          )}
+        </ul>
+        {screenSize.width > breakPoint.desktop &&
+          (!isLoggedIn ? (
             <CustomButton
               className="btn-navbar"
               type="outlined"
               size={
-                screenSize.width <= 1104
-                  ? "small"
-                  : screenSize.width <= 1315
+                screenSize.width > breakPoint.desktopLarge
+                  ? "extra-large"
+                  : screenSize.width > breakPoint.desktop
+                  ? "large"
+                  : screenSize.width > breakPoint.tablet
                   ? "medium"
-                  : "large"
+                  : "small"
               }
+              theme={theme}
               onClick={handleLoginClick}
             >
               Log In
@@ -210,25 +220,33 @@ function Navbar({ pageTitle }) {
               className="btn-navbar"
               type="outlined"
               size={
-                screenSize.width <= 1104
-                  ? "small"
-                  : screenSize.width <= 1315
+                screenSize.width > breakPoint.desktopLarge
+                  ? "extra-large"
+                  : screenSize.width > breakPoint.desktop
+                  ? "large"
+                  : screenSize.width > breakPoint.tablet
                   ? "medium"
-                  : "large"
+                  : "small"
               }
               onClick={handleLogout}
+              theme={theme}
             >
               Log Out
             </CustomButton>
           ))}
-        </div>
       </nav>
       {showAuthForm && (
         <Popup show={showAuthForm} onClose={handleCloseModal}>
           {authFormType === "login" ? (
-            <Login onButtonClick={handleLoginClick} onSignupClick={handleSignupClick} />
+            <Login
+              onButtonClick={handleLoginClick}
+              onSignupClick={handleSignupClick}
+            />
           ) : (
-            <SignUp onButtonClick={handleSignupClick} onLoginClick={handleLoginClick}/>
+            <SignUp
+              onButtonClick={handleSignupClick}
+              onLoginClick={handleLoginClick}
+            />
           )}
         </Popup>
       )}

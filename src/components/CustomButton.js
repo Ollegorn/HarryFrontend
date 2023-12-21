@@ -1,69 +1,62 @@
 import Button from "react-bootstrap/Button";
 
-function CustomButton({ type, size, onClick, children }) {
+function CustomButton({ type, size, theme = 4, onClick, children }) {
   return (
     <>
       <style type="text/css">
-        {`.btn-default, 
-          .btn-cta {
+        {`.btn-default0${theme},
+          .btn-cta0${theme} {
+            border: none;
             position: relative;
-            display: inline-flex;
-            background: var(--tint-primary-0103);
-            box-shadow: var(--elevation-03);
-            backdrop-filter: blur(8px);
-            color: var(--neutral-98);
+            color: var(--primary-0${theme}-50);
+            background: var(--primary-0${theme}-800);
+            box-shadow: var(--elevation-01);
+            backdrop-filter: blur(21px);
             transform: translateY(0px);
             transition: all 0.2s ease-in-out;
         }
 
-        .btn-default:hover, 
-        .btn-cta:hover {
-            background: var(--secondary-1295);
-            box-shadow: var(--elevation-05);
-            color: var(--neutral-10);
-            transform: translateY(-2px);
-        }
-
-        .btn-outlined {
-            position: relative;  
-            background: transparent;
-            border: 3px solid var(--secondary-1295);
-            backdrop-filter: blur(0px);
-            color: var(--secondary-1295);
-            transform: scale(1);
-            box-shadow: 0px 0px 0px 0px transparent;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .btn-cta::after {
+        .btn-cta0${theme}::after {
           position: absolute;
           content: "";
           top: 0;
-          left: 0; 
+          left: 0;
           right: 0;
-          z-index: -1; 
+          z-index: -1;
           height: 100%;
           width: 100%;
           transform: scaleX(1.2);
           transform: scaleY(1.2);
           transform: translateZ(0);
           filter: blur(0.9375rem);
-          background: linear-gradient(to left, 
-            var(--primary-010),
-            var(--primary-0110),
-            var(--primary-0120),
-            var(--primary-0130),
-            var(--primary-0140));
+          background: linear-gradient(to left,
+            var(--primary-0${theme}-900),
+            var(--primary-0${theme}-800),
+            var(--primary-0${theme}-700),
+            var(--primary-0${theme}-600),
+            var(--primary-0${theme}-500));
           background-size: 200% 200%;
           animation: animateGlow 1.7s linear infinite;
         }
-        .btn-cta:hover::after {
-          background: linear-gradient(to left, 
-            var(--secondary-1295), 
-            var(--secondary-1296), 
-            var(--secondary-1297), 
-            var(--secondary-1298), 
-            var(--secondary-1299));
+
+        .btn-default0${theme}:hover,
+        .btn-cta0${theme}:hover {
+            background: var(--primary-0${theme}-700);
+            box-shadow: var(--elevation-03);
+            transform: translateY(-2px);
+        }
+
+        .btn-cta0${theme}:hover {
+          color: var(--primary-0${theme}-900);
+        }
+
+        .btn-cta0${theme}:hover::after {
+          background: linear-gradient(to left,
+            var(--primary-0${theme}-400),
+            var(--primary-0${theme}-300),
+            var(--primary-0${theme}-200),
+            var(--primary-0${theme}-100),
+            var(--primary-0${theme}-50));
           background-size: 200% 200%;
           animation: animateGlow 1.7s linear infinite;
         }
@@ -77,85 +70,99 @@ function CustomButton({ type, size, onClick, children }) {
           }
         }
 
-        .btn-outlined:hover {
-            border: 3px solid var(--secondary-1297);
-            backdrop-filter: blur(4px);
-            color: var(--secondary-1297);
-            box-shadow: 0px 0px 0.2712px 0px var(--secondary-1295), 
-            0px 0px 0.5424px 0px var(--secondary-1295), 
-            0px 0px 1.8984px 0px var(--secondary-1295), 
-            0px 0px 3.7968px 0px var(--secondary-1295), 
-            0px 0px 6.5088px 0px var(--secondary-1295), 
-            0px 0px 11.3904px 0px var(--secondary-1295);
-            transform: scale(1.05);
-        }
-
-        .btn-ghost {
-            background: var(--gradient-01);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            backdrop-filter: blur(0px);
+        .btn-outlined0${theme} {
+            position: relative;
+            background: transparent;
+            color: var(--primary-0${theme}-500);
+            border: 2px solid var(--primary-0${theme}-500);
+            backdrop-filter: blur(21px);
             transform: scale(1);
-            text-transform: none;
+            box-shadow: 0px 0px 0px 0px transparent;
             transition: all 0.2s ease-in-out;
         }
 
-        .btn-ghost:hover {
-            background: var(--gradient-01);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: var(--secondary-1295);
-            backdrop-filter: blur(1px);
-            transform: scale(1.05);
-            text-transform: uppercase;
+        .btn-outlined0${theme}:hover {
+          color: var(--primary-0${theme}-400);
+          border: 3px solid var(--primary-0${theme}-400);
+          box-shadow: var(--focus-0${theme});
+          transform: scale(1.05);
+      }
+
+        .btn-ghost0${theme} {
+            border: none;
+            background: transparent;
+            color: var(--primary-0${theme}-50);
+            transform: scale(1);
+            transition: all 0.2s ease-in-out;
         }
+
+        .btn-ghost0${theme}:hover {
+          color: var(--primary-0${theme}-400);
+            transform: scale(1.05);
+        }
+
+        .btn-small,
+        .btn-medium,
+        .btn-large,
+        .btn-extra-large {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          font-family: var(--label-font-family);
+          font-style: var(--label-font-style);
+          font-weight: var(--label-font-weight);
+          line-height: var(--label-line-height);
+        }
+
+        .btn-small,
+        .btn-medium {
+          border-radius: var(--border-radius-base);
+        }
+
+        .btn-large,
+        .btn-extra-large {
+          border-radius: var(--border-radius-small);
+        }
+
         .btn-small {
             padding: 0.5rem 1rem;
-            border-radius: var(--border-radius-s);
-            font-family: var(--label-small-font-family);
             font-size: var(--label-small-font-size);
-            font-style: var(--label-small-font-style);
-            font-weight: var(--label-small-font-weight);
-            line-height: var(--label-small-line-height);
-            letter-spacing: var(--label-small-letter-spacing);
         }
 
         .btn-medium {
             padding: 0.75rem 1.5rem;
-            border-radius: var(--border-radius-s);
-            font-family: var(--label-medium-font-family);
             font-size: var(--label-medium-font-size);
-            font-style: var(--label-medium-font-style);
-            font-weight: var(--label-medium-font-weight);
-            line-height: var(--label-medium-line-height);
-            letter-spacing: var(--label-medium-letter-spacing);
         }
 
         .btn-large {
             padding: 1rem 2rem;
-            border-radius: var(--border-radius-s);
-            font-family: var(--label-large-font-family);
             font-size: var(--label-large-font-size);
-            font-style: var(--label-large-font-style);
-            font-weight: var(--label-large-font-weight);
-            line-height: var(--label-large-line-height);
-            letter-spacing: var(--label-large-letter-spacing);
         }
+
+        .btn-extra-large {
+          padding: 1rem 2rem;
+          font-size: var(--label-extra-large-font-size);
+      }
         `}
       </style>
       <Button
         variant={
           type === "cta"
-            ? "cta"
+            ? `cta0${theme}`
             : type === "ghost"
-            ? "ghost"
+            ? `ghost0${theme}`
             : type === "outlined"
-            ? "outlined"
-            : "default"
+            ? `outlined0${theme}`
+            : `default0${theme}`
         }
         size={
-          size === "large" ? "large" : size === "medium" ? "medium" : "small"
+          size === "extra-large"
+            ? "extra-large"
+            : size === "large"
+            ? "large"
+            : size === "medium"
+            ? "medium"
+            : "small"
         }
         onClick={onClick}
       >
