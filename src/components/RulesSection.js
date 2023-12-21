@@ -1,13 +1,31 @@
-import "./RulesSection.css";
-import SegmentedRulesCard from "./SegmentedRulesCard";
+import SectionHeading from "./SectionHeading";
+import TextCard from "./TextCard";
 
 function RulesSection() {
   return (
-    <section className="rules-section">
-      <div className="rules-section__title">
-        <h3>How It Works</h3>
-      </div>
-      <SegmentedRulesCard />
+    <section>
+      <SectionHeading>How It Works</SectionHeading>
+      <article>
+        <TextCard
+          heading={"Step 1"}
+          body={"Sign Up – Create your magical profile."}
+          icon={"wizard-hat"}
+          reverse
+        />
+
+        <TextCard
+          heading={"Step 2"}
+          body={"Choose a Tournament – Pick from a variety of dueling events."}
+          icon={"tournament"}
+        />
+
+        <TextCard
+          heading={"Step 3"}
+          body={"Compete & Win – Duel with others and climb the leaderboard"}
+          icon={"reward"}
+          reverse
+        />
+      </article>
     </section>
   );
 }

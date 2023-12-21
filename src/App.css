@@ -17,8 +17,8 @@
   --margin-desktop: 4rem;
   --margin-desktop-large: 4rem;
 
-  --margin-2x-mobile: 3.5rem;
-  --margin-2x-tablet: 4rem;
+  --margin-2x-mobile: 5rem;
+  --margin-2x-tablet: 5rem;
   --margin-2x-desktop: 8rem;
   --margin-2x-desktop-large: 8rem;
 
@@ -326,6 +326,15 @@ label,
   gap: var(--margin-2x-mobile);
 }
 
+section {
+  display: flex;
+  padding: var(--margin-mobile) 0rem;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--margin-mobile);
+  align-self: stretch;
+}
+
 article {
   display: flex;
   padding: var(--gutter-mobile) 0rem;
@@ -333,6 +342,14 @@ article {
   align-items: center;
   gap: var(--gutter-mobile);
   align-self: stretch;
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: var(--gutter-mobile);
 }
 
 /*
@@ -376,6 +393,14 @@ article {
 
 .icon-wand {
   background-image: url("../public/Images/Icons/mdi_wand.svg");
+}
+
+.icon-wizard-hat {
+  background-image: url("../public/Images/Icons/mdi_wizard-hat.svg");
+}
+
+.icon-reward {
+  background-image: url("../public/Images/Icons/material-symbols_rewarded-ads.svg");
 }
 
 .fas-01,
@@ -435,8 +460,17 @@ a {
     gap: var(--margin-2x-tablet);
   }
 
+  section {
+    padding: var(--margin-tablet) 0rem;
+    gap: var(--margin-tablet);
+  }
+
   article {
     padding: var(--gutter-tablet) 0rem;
+    gap: var(--gutter-tablet);
+  }
+
+  .section-heading {
     gap: var(--gutter-tablet);
   }
 
@@ -497,8 +531,17 @@ a {
     gap: var(--margin-2x-desktop);
   }
 
+  section {
+    padding: var(--margin-desktop) 0rem;
+    gap: var(--margin-desktop);
+  }
+
   article {
     padding: var(--gutter-desktop) 0rem;
+    gap: var(--gutter-desktop);
+  }
+
+  .section-heading {
     gap: var(--gutter-desktop);
   }
 
@@ -527,8 +570,17 @@ a {
     gap: var(--margin-2x-desktop-large);
   }
 
+  section {
+    padding: var(--margin-desktop-large) 0rem;
+    gap: var(--margin-desktop-large);
+  }
+
   article {
     padding: var(--gutter-desktop-large) 0rem;
+    gap: var(--gutter-desktop-large);
+  }
+
+  .section-heading {
     gap: var(--gutter-desktop-large);
   }
 
