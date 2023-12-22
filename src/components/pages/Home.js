@@ -42,7 +42,7 @@ function Home() {
         />
         <FeaturedSection />
         <FeaturedEventsSection />
-        {/*<HighlightSection />*/}
+        {<HighlightSection />}
         <RulesSection />
       </div>
     </>

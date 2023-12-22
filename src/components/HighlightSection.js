@@ -1,71 +1,187 @@
-import "./HighlightSection.css";
+import { useScreenSize, breakPoint } from "./useScreenSize";
+import SectionHeading from "./SectionHeading";
+import YTVideo from "./YTVideo";
 
 function HighlightSection() {
+  const screenSize = useScreenSize();
   return (
-    <section className="highlight-section">
-      <div className="highlight-section__title">
-        <h3>Highlights</h3>
-      </div>
-      <div className="highlight-section__video-gallery">
-        <div className="row">
-          <div className="tile">
-            <iframe
-              className="video"
-              src="https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <div className="tile">
-              <iframe
-                className="video"
-                src="https://www.youtube.com/embed/wMZzXYJGIDA?si=4ge0_DfOZhtGZMKS"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
+    <section>
+      <SectionHeading>Highlights</SectionHeading>
+      {
+        /**Top 9 highlights */
+        screenSize.width > breakPoint.desktopLarge ? (
+          <article>
+            <div className="row">
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/wMZzXYJGIDA?si=4ge0_DfOZhtGZMKS"
+                }
+              />
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/wMZzXYJGIDA?si=4ge0_DfOZhtGZMKS"
+                }
+              />
             </div>
-            <div className="tile">
-              <iframe
-                className="video"
-                src="https://www.youtube.com/embed/2Q50fsKhMgA?si=gqAewtnepiiYaEej"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
+
+            <div className="row">
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/2Q50fsKhMgA?si=gqAewtnepiiYaEej"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/2Q50fsKhMgA?si=gqAewtnepiiYaEej"
+                }
+              />
             </div>
-          </div>
-          <div className="tile">
-            <iframe
-              className="video"
-              src="https://www.youtube.com/embed/sDHYpxP5Us0?si=5YqwdsPct9MDQzOi"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-        <div className="row">
-          <div className="tile">
-            <iframe
-              className="video"
-              src="https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-      </div>
+
+            <div className="row">
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/sDHYpxP5Us0?si=5YqwdsPct9MDQzOi"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/sDHYpxP5Us0?si=5YqwdsPct9MDQzOi"
+                }
+              />
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/sDHYpxP5Us0?si=5YqwdsPct9MDQzOi"
+                }
+              />
+            </div>
+          </article>
+        ) : /**Top 7 highlights */
+        screenSize.width > breakPoint.desktop ? (
+          <article>
+            <div className="row">
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/wMZzXYJGIDA?si=4ge0_DfOZhtGZMKS"
+                }
+              />
+            </div>
+
+            <div className="row">
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/2Q50fsKhMgA?si=gqAewtnepiiYaEej"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/2Q50fsKhMgA?si=gqAewtnepiiYaEej"
+                }
+              />
+            </div>
+
+            <div className="row">
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/sDHYpxP5Us0?si=5YqwdsPct9MDQzOi"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/sDHYpxP5Us0?si=5YqwdsPct9MDQzOi"
+                }
+              />
+            </div>
+          </article>
+        ) : screenSize.width > breakPoint.tablet ? (
+          /*space for top 5 highlights */
+          <article>
+            <div className="row">
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/wMZzXYJGIDA?si=4ge0_DfOZhtGZMKS"
+                }
+              />
+            </div>
+            <div className="row">
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/2Q50fsKhMgA?si=gqAewtnepiiYaEej"
+                }
+              />
+            </div>
+            <div className="row">
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/sDHYpxP5Us0?si=5YqwdsPct9MDQzOi"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
+                }
+              />
+            </div>
+          </article>
+        ) : (
+          /*space for top 3 highlights */
+          <article>
+            <div className="col">
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/_nekgDAdXAg?si=R4FileJaeFaz0DzH"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/wMZzXYJGIDA?si=4ge0_DfOZhtGZMKS"
+                }
+              />
+
+              <YTVideo
+                url={
+                  "https://www.youtube.com/embed/sDHYpxP5Us0?si=5YqwdsPct9MDQzOi"
+                }
+              />
+            </div>
+          </article>
+        )
+      }
     </section>
   );
 }

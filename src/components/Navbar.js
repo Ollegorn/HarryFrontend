@@ -32,7 +32,7 @@ function Navbar({ pageTitle, theme }) {
   };
 
   const showButton = () => {
-    if (window.innerWidth <= 960) {
+    if (screenSize.width < breakPoint.desktop) {
       setButton(false);
     } else {
       setButton(true);
