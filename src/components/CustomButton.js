@@ -76,16 +76,16 @@ function CustomButton({ type, size, theme = 4, onClick, children }) {
             color: var(--primary-0${theme}-500);
             border: 2px solid var(--primary-0${theme}-500);
             backdrop-filter: blur(21px);
-            transform: scale(1);
+            transform: translateY(0px);
             box-shadow: 0px 0px 0px 0px transparent;
             transition: all 0.2s ease-in-out;
         }
 
         .btn-outlined0${theme}:hover {
           color: var(--primary-0${theme}-400);
-          border: 3px solid var(--primary-0${theme}-400);
+          border: 2px solid var(--primary-0${theme}-400);
           box-shadow: var(--focus-0${theme});
-          transform: scale(1.05);
+          transform: translateY(-2px);
       }
 
         .btn-ghost0${theme} {

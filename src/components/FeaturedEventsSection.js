@@ -1,17 +1,12 @@
 import "./FeaturedEventsSection.css";
 import EventCard from "./EventCard";
+import SectionHeading from "./SectionHeading";
 
-function FeaturedEventsSection({title}) {
+function FeaturedEventsSection() {
   return (
-    <section className="featured-events">
-      <div className="featured-events__header">
-        <h2>{title}</h2>
-        <p>
-          Participate in our exclusive Solo Tournaments or team up for the Duo
-          Leagues. The magic awaits!
-        </p>
-      </div>
-      <div className="featured-events__events">
+    <section>
+      <SectionHeading>Join Today's Magical Battles</SectionHeading>
+      <div className="featured-events">
         <EventCard
           title="Snatch Duo Tournament"
           date="November 13th - December 3rd"

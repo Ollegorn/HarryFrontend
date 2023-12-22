@@ -1,7 +1,7 @@
 body {
   background: url("../../../public/Images/Backgrounds/Home.svg"),
     var(--gradient-background-primary-04);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

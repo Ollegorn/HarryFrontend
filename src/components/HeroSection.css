@@ -8,8 +8,7 @@
   align-self: stretch;
 }
 
-.hero-container > .btn,
-.col > .btn {
+.hero-container > .btn {
   align-self: stretch;
 }
 
@@ -35,10 +34,6 @@
 
   .hero-container > .btn {
     align-self: flex-start;
-  }
-
-  .col > .btn {
-    align-self: center;
   }
 
   .hero__text {

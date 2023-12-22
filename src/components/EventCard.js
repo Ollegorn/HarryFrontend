@@ -1,6 +1,7 @@
 import "./EventCard.css";
 import CustomBadge from "./CustomBadge";
 import CustomButton from "./CustomButton";
+import ImageCard from "./ImageCard";
 
 function Eventcard({
   title = "Event Title",
@@ -15,40 +16,32 @@ function Eventcard({
   imageID = "01",
   status = "current",
   featured = true,
-  teamType = "duo",
+  teamType = "solo",
   tournamentType = "Round Robin",
 }) {
   return (
     <>
       <div className="event-card">
+        <ImageCard title={title} date={date} imageID={imageID} />
+
         <div className="event-card__content">
-          <div className="event-card__content__text">
-            <div className="badge-stack">
-              <CustomBadge type={status} style="filled">
-                {status === "past"
-                  ? "Past Event"
-                  : status === "upcoming"
-                  ? "Upcoming Event"
-                  : "Current Event"}
-              </CustomBadge>
-              {featured && (
-                <CustomBadge type={status} style="outlined">
-                  Featured
-                </CustomBadge>
-              )}
-              <CustomBadge type={status} style="outlined">
-                {teamType === "duo" ? "Duo" : "Solo"}
-              </CustomBadge>
-              <CustomBadge type={status} style="outlined">
-                {tournamentType}
-              </CustomBadge>
-            </div>
-            <h4>{title}</h4>
-            <p className="date">{date}</p>
-            <p className="description">{description}</p>
+          <div className="badge-stack">
+            <CustomBadge>
+              {status === "past"
+                ? "Past Event"
+                : status === "upcoming"
+                ? "Upcoming Event"
+                : "Current Event"}
+            </CustomBadge>
+            {featured && <CustomBadge>Featured</CustomBadge>}
+            <CustomBadge>{teamType === "duo" ? "Duo" : "Solo"}</CustomBadge>
+            <CustomBadge>{tournamentType}</CustomBadge>
           </div>
+
+          <p className="p--low-emphasis event-description">{description}</p>
+
           {primaryAction | secondaryAction && (
-            <div className="event-card__content__actions">
+            <div className="button-stack">
               {secondaryAction && (
                 <CustomButton
                   type={"outlined"}
@@ -69,9 +62,6 @@ function Eventcard({
               )}
             </div>
           )}
-        </div>
-        <div className="event-card__image">
-          <div className={`event-card__image-${imageID}`}></div>
         </div>
       </div>
     </>

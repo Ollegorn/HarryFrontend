@@ -270,6 +270,7 @@ p {
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+  color: var(--neutral-50);
 }
 .p--high-emphasis {
   font-size: 1rem;
@@ -288,6 +289,7 @@ label,
   font-style: var(--label-font-style);
   font-weight: var(--label-font-weight);
   line-height: var(--label-line-height);
+  color: var(--neutral-50);
 }
 .label--high-emphasis {
   font-size: 1rem;
@@ -318,17 +320,9 @@ a {
   text-decoration: none;
 }
 
-.typography-huge {
-  background: var(--gradient-text-primary-04);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 svg {
   width: 100%;
 }
-
 
 /*
 *LAYOUT
@@ -347,7 +341,7 @@ section {
   display: flex;
   padding: var(--margin-mobile) 0rem;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--margin-mobile);
   align-self: stretch;
 }
@@ -356,7 +350,7 @@ article {
   display: flex;
   padding: var(--gutter-mobile) 0rem;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--gutter-mobile);
   align-self: stretch;
 }
@@ -376,6 +370,10 @@ article {
   align-items: center;
   gap: var(--gutter-mobile);
   flex: 1 0 0;
+  align-self: stretch;
+}
+
+.col > .btn {
   align-self: stretch;
 }
 
@@ -486,10 +484,134 @@ article {
   color: var(--primary-04-400);
 }
 
+/*
+*Media
+*/
+
 .video {
   aspect-ratio: 16 / 9;
   width: 100%;
   border-radius: var(--border-radius-medium);
+}
+
+.event-image-01 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_01.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-02 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_02.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-03 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_03.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-04 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_04.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-05 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_05.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-06 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_06.jpeg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-07 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_07.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-08 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_08.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-09 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_09.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-10 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_10.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* breakpoints (min-width) used throughout the website
@@ -522,8 +644,16 @@ article {
     gap: var(--gutter-tablet);
   }
 
+  .col > .btn {
+    align-self: center;
+  }
+
   .section-heading {
     gap: var(--gutter-tablet);
+  }
+
+  .section-heading > h2 {
+    max-width: 50%;
   }
 
   .icon--big {
