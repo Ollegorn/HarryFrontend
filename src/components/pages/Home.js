@@ -1,13 +1,16 @@
 import "./Home.css";
 import React, { useEffect, useState } from "react";
+import { useScreenSize, breakPoint } from "../useScreenSize";
 import HeroSection from "../HeroSection";
 import Navbar from "../Navbar";
 import FeaturedSection from "../FeaturedSection";
 import FeaturedEventsSection from "../FeaturedEventsSection";
 import HighlightSection from "../HighlightSection";
 import RulesSection from "../RulesSection";
+import CustomButton from "../CustomButton";
 
 function Home() {
+  const screenSize = useScreenSize();
   const [tournamentsData, setTournamentsData] = useState([]);
 
   useEffect(() => {
@@ -44,6 +47,72 @@ function Home() {
         <FeaturedEventsSection />
         {<HighlightSection />}
         <RulesSection />
+        <div className="col">
+          <svg viewBox="0 0 92 18">
+            <text
+              className="title"
+              x="0"
+              y="15"
+              fill="url(#paint0_linear_12_795)"
+            >
+              The Magic
+            </text>
+            <defs>
+              <linearGradient
+                id="paint0_linear_12_795"
+                x1="30.876"
+                y1="0.765625"
+                x2="2.29087"
+                y2="8.2084"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.421875" stop-color="#C2C2AD" />
+                <stop offset="0.588542" stop-color="#81805F" />
+                <stop offset="0.917708" stop-color="#81805F" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <svg viewBox="0 0 59 18">
+            <text
+              className="title"
+              x="0"
+              y="15"
+              fill="url(#paint0_linear_12_795)"
+            >
+              Awaits
+            </text>
+            <defs>
+              <linearGradient
+                id="paint0_linear_12_795"
+                x1="30.876"
+                y1="0.765625"
+                x2="2.29087"
+                y2="8.2084"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.421875" stop-color="#C2C2AD" />
+                <stop offset="0.588542" stop-color="#81805F" />
+                <stop offset="0.917708" stop-color="#81805F" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <CustomButton
+            type={"cta"}
+            size={
+              screenSize.width > breakPoint.desktopLarge
+                ? "extra-large"
+                : screenSize.width > breakPoint.desktop
+                ? "large"
+                : screenSize.width > breakPoint.tablet
+                ? "medium"
+                : "small"
+            }
+            theme={4}
+          >
+            Get Started Now
+          </CustomButton>
+        </div>
       </div>
     </>
   );

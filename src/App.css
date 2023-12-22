@@ -318,6 +318,18 @@ a {
   text-decoration: none;
 }
 
+.typography-huge {
+  background: var(--gradient-text-primary-04);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+svg {
+  width: 100%;
+}
+
+
 /*
 *LAYOUT
 */
