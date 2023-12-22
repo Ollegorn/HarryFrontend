@@ -3,6 +3,7 @@
   overflow-x: auto;
   align-items: center;
   gap: var(--gutter-mobile);
+  justify-content: space-between;
   width: 100%;
 }
 

@@ -48,6 +48,31 @@ function Home() {
         {<HighlightSection />}
         <RulesSection />
         <div className="col">
+          <svg viewBox="0 0 62 18">
+            <text
+              className="title"
+              x="0"
+              y="15"
+              fill="url(#paint0_linear_12_795)"
+            >
+              Master
+            </text>
+            <defs>
+              <linearGradient
+                id="paint0_linear_12_795"
+                x1="30.876"
+                y1="0.765625"
+                x2="2.29087"
+                y2="8.2084"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.421875" stop-color="#C2C2AD" />
+                <stop offset="0.588542" stop-color="#81805F" />
+                <stop offset="0.917708" stop-color="#81805F" />
+              </linearGradient>
+            </defs>
+          </svg>
+
           <svg viewBox="0 0 92 18">
             <text
               className="title"
@@ -73,30 +98,6 @@ function Home() {
             </defs>
           </svg>
 
-          <svg viewBox="0 0 59 18">
-            <text
-              className="title"
-              x="0"
-              y="15"
-              fill="url(#paint0_linear_12_795)"
-            >
-              Awaits
-            </text>
-            <defs>
-              <linearGradient
-                id="paint0_linear_12_795"
-                x1="30.876"
-                y1="0.765625"
-                x2="2.29087"
-                y2="8.2084"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0.421875" stop-color="#C2C2AD" />
-                <stop offset="0.588542" stop-color="#81805F" />
-                <stop offset="0.917708" stop-color="#81805F" />
-              </linearGradient>
-            </defs>
-          </svg>
           <CustomButton
             type={"cta"}
             size={

@@ -44,8 +44,8 @@
 
 @media only screen and (min-width: 768px) {
   .image-card {
-    height: auto;
-    width: 21.25rem;
+    flex: 1 0 0;
+    height: 100%;
   }
 
   .image-card__info {
@@ -53,19 +53,11 @@
   }
 }
 @media only screen and (min-width: 992px) {
-  .image-card {
-    flex: 1 0 0;
-  }
-
   .image-card__info {
     padding: var(--gutter-desktop) 2rem;
   }
 }
 @media only screen and (min-width: 1200px) {
-  .image-card {
-    width: 30.375rem;
-  }
-
   .image-card__info {
     padding: var(--gutter-desktop-large) 2rem;
   }
