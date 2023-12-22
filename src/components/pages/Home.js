@@ -47,6 +47,7 @@ function Home() {
         <FeaturedEventsSection />
         {<HighlightSection />}
         <RulesSection />
+        <div className="divider"></div>
         <div className="col">
           <svg viewBox="0 0 62 18">
             <text

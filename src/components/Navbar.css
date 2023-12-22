@@ -11,23 +11,6 @@
   z-index: 999;
 }
 
-.menu-icon {
-  display: inline-flex;
-  padding: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  background: transparent;
-  backdrop-filter: blur(0px);
-  transition: all 0.2s ease-in-out;
-}
-
-.menu-icon {
-  background: var(--surface-03);
-  backdrop-filter: blur(21px);
-}
-
 .nav-menu {
   display: none;
   list-style: none;

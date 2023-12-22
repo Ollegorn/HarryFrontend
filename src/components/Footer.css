@@ -1,101 +1,60 @@
-footer {
-  margin: 0 auto;
+.footer__content {
   display: flex;
-  width: 100%;
-  height: 43.75rem;
-  padding: 2.5rem 4.75rem;
+  padding: var(--margin-mobile) 0rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("../../public/Images/Backgrounds/Hermione\ Granger-Teen-Action\ 02.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  backdrop-filter: blur(21px);
-  opacity: 0.5;
-}
-
-.footer__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.footer__logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  height: 3.49rem;
-  width: 14rem;
-  background-image: url("../../public/Images/Logo/extraLarge.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-.footer-divider {
-  height: 0.125rem;
+  gap: var(--margin-mobile);
   align-self: stretch;
-  border-radius: 0.25rem;
-  background: var(--secondary-1295);
+  backdrop-filter: blur(21px);
 }
 
 .footer__links {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: var(--gutter-mobile);
 }
 
-.footer__link-item {
-  display: flex;
-  list-style: none;
+.footer__content > svg {
+  cursor: pointer;
 }
 
-.footer__link {
-  color: var(--secondary-1297);
-  font-family: var(--title-medium-font-family);
-  font-size: var(--title-medium-font-size);
-  font-style: var(--title-medium-font-style);
-  font-weight: var(--title-medium-font-weight);
-  line-height: var(--title-medium-line-height);
-  letter-spacing: var(--title-medium-letter-spacing);
-  text-decoration: none;
-  transform: scale(1);
-  transition: all 0.2s ease-in-out;
-}
+/* breakpoints (min-width) used throughout the website
+*tablet: 768px;
+*desktop: 992px;
+*desktop-large: 1200px;
+*/
 
-.footer__link:hover,
-.footer__link-secondary:hover {
-  color: var(--secondary-1295);
-  transform: scale(1.05);
-  text-transform: uppercase;
-}
+@media only screen and (min-width: 768px) {
+  .footer__content {
+    padding: var(--margin-tablet) 0rem;
+    gap: var(--margin-tablet);
+  }
 
-.footer__link-secondary {
-  color: var(--primary-0140);
-  font-family: var(--title-small-font-family);
-  font-size: var(--title-small-font-size);
-  font-style: var(--title-small-font-style);
-  font-weight: var(--title-small-font-weight);
-  line-height: var(--title-small-line-height);
-  letter-spacing: var(--title-small-letter-spacing);
-  text-decoration: none;
-  transform: scale(1);
-  transition: all 0.2s ease-in-out;
+  .footer__links {
+    gap: var(--gutter-tablet);
+  }
 }
+@media only screen and (min-width: 992px) {
+  .footer__content {
+    padding: var(--margin-desktop) 0rem;
+    gap: var(--margin-desktop);
+  }
 
-.text-shadow {
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04),
-    3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04),
-    0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04),
-    7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04),
-    9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04),
-    11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04),
-    13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04),
-    0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04),
-    17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04),
-    19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+  .footer__links {
+    flex-direction: row;
+    gap: var(--gutter-desktop);
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .footer__content {
+    padding: var(--margin-desktop-large) 0rem;
+    gap: var(--margin-desktop-large);
+  }
+
+  .footer__links {
+    gap: var(--gutter-desktop-large);
+  }
 }

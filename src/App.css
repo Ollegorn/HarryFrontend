@@ -320,6 +320,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 svg {
   width: 100%;
 }
@@ -445,43 +449,68 @@ article {
   background-image: url("../public/Images/Icons/material-symbols_rewarded-ads.svg");
 }
 
+.icon-button {
+  display: inline-flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  transition: all 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+  background: var(--surface-03);
+  backdrop-filter: blur(21px);
+}
+
 .fas-01,
-.link-01 {
+.link-01,
+.link-secondary-01:hover {
   color: var(--primary-01-50);
 }
 
 .fas-02,
-.link-02 {
+.link-02,
+.link-secondary-02:hover {
   color: var(--primary-02-50);
 }
 
 .fas-03,
-.link-03 {
+.link-03,
+.link-secondary-03:hover {
   color: var(--primary-03-50);
 }
 
 .fas-04,
-.link-04 {
+.link-04,
+.link-secondary-04:hover {
   color: var(--primary-04-50);
 }
 
 .fas-01:hover,
-.link-01:hover {
+.link-01:hover,
+.link-secondary-01 {
   color: var(--primary-01-400);
 }
 
 .fas-02:hover,
-.link-02:hover {
+.link-02:hover,
+.link-secondary-02 {
   color: var(--primary-02-400);
 }
 
 .fas-03:hover,
-.link-03:hover {
+.link-03:hover,
+.link-secondary-03 {
   color: var(--primary-03-400);
 }
 
 .fas-04:hover,
-.link-04:hover {
+.link-04:hover,
+.link-secondary-04 {
   color: var(--primary-04-400);
 }
 

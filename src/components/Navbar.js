@@ -116,7 +116,7 @@ function Navbar({ pageTitle, theme }) {
             {pageTitle}
           </p>
         )}
-        <div className="menu-icon" onClick={handleClick}>
+        <div className="icon-button menu-icon" onClick={handleClick}>
           <i
             className={
               click ? `fas fas-0${theme} fa-times` : `fas fas-0${theme} fa-bars`
