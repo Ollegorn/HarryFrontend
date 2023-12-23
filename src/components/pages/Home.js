@@ -34,7 +34,7 @@ function Home() {
   return (
     <>
       <Navbar pageTitle={"Home"} theme={4} />
-      <div className="content-wrapper">
+      <div className="content-wrapper big-image-02 parallax">
         <HeroSection
           id="home"
           heading="Step into the Arena of Magic"
@@ -43,11 +43,14 @@ function Home() {
           ctaText="Begin Your Magical Journey"
           theme={4}
         />
+      </div>
+      <div className="content-wrapper big-image-03 parallax">
         <FeaturedSection />
         <FeaturedEventsSection />
         {<HighlightSection />}
         <RulesSection />
-        <div className="divider"></div>
+      </div>
+      <div className="content-wrapper big-image-02 parallax">
         <div className="col">
           <svg viewBox="0 0 62 18">
             <text

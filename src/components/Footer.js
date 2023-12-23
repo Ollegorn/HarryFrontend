@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="content-wrapper">
+    <footer className="content-wrapper big-image-03 parallax">
       <div className="footer__content">
         <Link to="/">
           <div className="logo"></div>

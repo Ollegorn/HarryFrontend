@@ -4,14 +4,7 @@ import "../App.css";
 import CustomButton from "./CustomButton";
 import { useScreenSize, breakPoint } from "./useScreenSize";
 
-function HeroSection({
-  id,
-  heading,
-  body,
-  ctaText,
-  showButton = true,
-  theme,
-}) {
+function HeroSection({ id, heading, body, ctaText, showButton = true, theme }) {
   const screenSize = useScreenSize();
   return (
     <header className={`hero-container`} id={id}>
