@@ -17,13 +17,38 @@ function Admins() {
   const [showTournaments, setShowTournaments] = useState(false);
 
   const [newTournament, setNewTournament] = useState({
-    tournamentName: '',
-    rules: '',
-    prize: '',
+    tournamentName: "",
+    rules: [""],
+    prize: "",
+    imageNumber: 0,
+    description: "",
+    startDate: "",
+    endDate: "",
   });
 
+  const handleAddRule = () => {
+    setNewTournament((prevTournament) => ({
+      ...prevTournament,
+      rules: [...prevTournament.rules, ""],
+    }));
+  };
+
+  const handleRuleChange = (index, value) => {
+    setNewTournament((prevTournament) => {
+      const newRules = [...prevTournament.rules];
+      newRules[index] = value;
+      return { ...prevTournament, rules: newRules };
+    });
+  };
+
   const handleCreateTournament = async () => {
-    const apiCreateTournamentUrl = 'https://localhost:7099/api/Tournament/CreateTournament';
+    const apiCreateTournamentUrl = 'https://harrytournament-api.azurewebsites.net/api/Tournament/CreateTournament';
+    console.log(newTournament)
+    const requestBody = {
+      ...newTournament,
+      startDate: newTournament.startDate || new Date().toISOString(),
+      endDate: newTournament.endDate || new Date().toISOString(),
+    };
 
     try {
       const response = await fetch(apiCreateTournamentUrl, {
@@ -32,15 +57,20 @@ function Admins() {
           'Accept': 'text/plain',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newTournament),
+        body: JSON.stringify(requestBody),
       });
 
       if (response.ok) {
         console.log('Tournament created successfully');
+        console.log(newTournament);
         setNewTournament({
           tournamentName: '',
           rules: '',
           prize: '',
+          imageNumber: 0,
+          description: '',
+          startDate: '',
+          endDate: '',
         });
       } else {
         console.error('Failed to create tournament');
@@ -51,8 +81,8 @@ function Admins() {
   };
 
   useEffect(() => {
-    const usersUrl = 'https://localhost:7099/api/User/AllUsers';
-    const tournamentsUrl = 'https://localhost:7099/api/Tournament/AllTournamnets';
+    const usersUrl = 'https://harrytournament-api.azurewebsites.net/api/User/AllUsers';
+    const tournamentsUrl = 'https://harrytournament-api.azurewebsites.net/api/Tournament/AllTournamnets';
 
     fetch(usersUrl)
       .then(res => res.json())
@@ -101,6 +131,9 @@ function Admins() {
                   tournamentId={tournament.tournamentId} 
                   duels={tournament.tournamentDuels}
                   imageNumber={tournament.imageNumber}
+                  description={tournament.description}
+                  startDate={tournament.startDate}
+                  endDate={tournament.endDate}
                   />
                 ))}  
               </div>
@@ -119,16 +152,25 @@ function Admins() {
                     required
                   />
                 </label>
+
                 <label>
                   Rules:
-                  <textarea
-                    value={newTournament.rules}
-                    onChange={(e) =>
-                      setNewTournament({ ...newTournament, rules: e.target.value })
-                    }
-                    required
-                  />
+                  {Array.isArray(newTournament.rules) &&
+                    newTournament.rules.map((rule, index) => (
+                      <div key={index}>
+                        <input
+                          type="text"
+                          value={rule}
+                          onChange={(e) => handleRuleChange(index, e.target.value)}
+                          required
+                        />
+                      </div>
+                    ))}
+                  <button type="button" onClick={handleAddRule}>
+                    +
+                  </button>
                 </label>
+
                 <label>
                   Prize:
                   <input
@@ -139,18 +181,45 @@ function Admins() {
                   />
                 </label>
                 <label>
+                  Description:
+                  <input
+                    type="text"
+                    value={newTournament.description}
+                    onChange={(e) => setNewTournament({ ...newTournament, description: e.target.value })}
+                    required
+                  />
+                </label>
+                <label>
+                  Start Date:
+                  <input
+                    type="date"
+                    value={newTournament.startDate}
+                    onChange={(e) => setNewTournament({ ...newTournament, startDate: e.target.value })}
+                    required
+                  />
+                </label>
+                <label>
+                  End Date:
+                  <input
+                    type="date"
+                    value={newTournament.endDate}
+                    onChange={(e) => setNewTournament({ ...newTournament, endDate: e.target.value })}
+                    required
+                  />
+                </label>
+                <label>
                   Image Number:
-                  <input 
+                  <input
                     type='number'
                     value={newTournament.imageNumber}
-                    onChange={(e) => setNewTournament({...newTournament, imageNumber:e.target.value})}
+                    onChange={(e) => setNewTournament({ ...newTournament, imageNumber: e.target.value })}
                   />
-
                 </label>
-                <button type="button" onClick={handleCreateTournament} disabled={!newTournament.tournamentName || !newTournament.rules || !newTournament.prize}>
+                <button type="button" onClick={handleCreateTournament} disabled={!newTournament.tournamentName || !newTournament.rules.length || !newTournament.prize || !newTournament.description}>
                   Create Tournament
                 </button>
               </form>
+
             </div>
           </>
         ) : (

@@ -1,0 +1,84 @@
+.text-card {
+  display: flex;
+  width: 100%;
+  padding: var(--margin-mobile);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gutter-mobile);
+  border-radius: var(--border-radius-large);
+  background: var(--surface-01);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--elevation-01);
+}
+
+.text-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gutter-mobile);
+  align-self: stretch;
+}
+
+/* breakpoints (min-width) used throughout the website
+*tablet: 768px;
+*desktop: 992px;
+*desktop-large: 1200px;
+*/
+
+@media only screen and (min-width: 768px) {
+  .text-card {
+    padding: var(--margin-tablet);
+    flex-direction: row;
+    gap: var(--gutter-tablet);
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+  }
+
+  .text-card__content {
+    gap: var(--gutter-tablet);
+    width: 50%;
+  }
+
+  .text-card > .divider {
+    width: 0.25rem;
+    height: 5.5rem;
+    flex-shrink: 0;
+    margin: auto 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .text-card {
+    padding: var(--margin-desktop);
+    gap: var(--gutter-desktop);
+  }
+
+  .text-card__content {
+    gap: var(--gutter-desktop);
+  }
+
+  .text-card > .divider {
+    height: 7rem;
+  }
+
+  .text-card > .icon {
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .text-card {
+    padding: var(--margin-desktop-large);
+    gap: var(--gutter-desktop-large);
+  }
+
+  .text-card__content {
+    gap: var(--gutter-desktop-large);
+  }
+
+  .text-card > .divider {
+    height: 8.5rem;
+  }
+}

@@ -1,0 +1,110 @@
+.duel{
+  display: inline-flex;
+  padding: 1rem 1rem 1rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.5rem;
+  background: var(--tint-primary-0101);
+
+  /* Elevation/00 */
+  backdrop-filter: blur(21px);
+
+  transition: background-color 0.3s ease;
+}
+
+.duel.completed {
+  background-color: red;
+  opacity: 0.7;
+}
+
+.duel__details{
+  display: flex;
+  padding: 0rem 1rem 0rem 0.5rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.duel__t-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.duel__t-details h6{
+  color: var(--neutral-98);
+}
+.duel__stats-value{
+  color: var(--neutral-99);
+
+}
+.duel__t-details h6, .duel__stats-value{
+
+  /* Title/Medium */
+  font-family: var(--title-medium-font-family);
+  font-size: var(--title-medium-font-size);
+  font-style: var(--title-medium-font-style);
+  font-weight: var(--title-medium-font-weight);
+  line-height: var(--title-medium-line-height);
+  letter-spacing: var(--title-medium-letter-spacing);
+}
+
+.duel__t-details p, .duel__stats-label{
+  color: var(--neutral-96);
+
+  /* Label/Extra Small */
+  font-family: var(--label-extra-small-font-family);
+  font-size: var(--label-extra-small-font-size);
+  font-style: var(--label-extra-small-font-style);
+  font-weight: var(--label-extra-small-font-weight);
+  line-height: var(--label-extra-small-line-height);
+  letter-spacing: var(--label-extra-small-letter-spacing);
+  text-transform: uppercase;
+}
+
+.duel__opponents{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.duel__opponent_team{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 20ch;
+}
+
+.duel__opponent_team p{
+  color: var(--neutral-98);
+
+  /* Label/Medium */
+  font-family: var(--label-medium-font-family);
+  font-size: var(--label-medium-font-size);
+  font-style: var(--label-medium-font-style);
+  font-weight: var(--label-medium-font-weight);
+  line-height: var(--label-medium-line-height);
+  letter-spacing: var(--label-medium-letter-spacing);
+}
+
+.duel__stats-section{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.duel__stats-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.duel__stats{
+  display: flex;
+  padding: 0rem 1rem 0rem 0.5rem;
+  flex-direction: column;
+  align-items: center;
+}
+

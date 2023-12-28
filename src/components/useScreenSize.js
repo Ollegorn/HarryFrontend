@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useScreenSize = () => {
+export const useScreenSize = () => {
   const [screenSize, setScreenSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -25,4 +25,8 @@ const useScreenSize = () => {
   return screenSize;
 };
 
-export default useScreenSize;
+export const breakPoint = {
+  tablet: 768,
+  desktop: 992,
+  desktopLarge: 1200,
+};

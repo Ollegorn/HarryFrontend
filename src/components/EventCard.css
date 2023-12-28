@@ -1,0 +1,109 @@
+.event-card {
+  display: flex;
+  flex-basis: 50%;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: var(--border-radius-large);
+  background: var(--surface-01);
+  box-shadow: var(elevation-01);
+  backdrop-filter: blur(20px);
+}
+
+.event-card__content {
+  display: flex;
+  padding: var(--gutter-mobile) var(--margin-mobile);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gutter-mobile);
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.badge-stack {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0.25rem;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.event-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  overflow: hidden;
+  color: var(--neutral-100);
+  text-overflow: ellipsis;
+}
+
+.button-stack {
+  display: flex;
+  padding-top: var(--gutter-mobile);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gutter-mobile);
+  align-self: stretch;
+}
+
+.button-stack > .btn {
+  align-self: stretch;
+  flex: 1 0 0;
+}
+
+/* breakpoints (min-width) used throughout the website
+*tablet: 768px;
+*desktop: 992px;
+*desktop-large: 1200px;
+*/
+
+@media only screen and (min-width: 768px) {
+  .event-card {
+    flex-basis: 95%;
+    flex-direction: row-reverse;
+  }
+
+  .event-card__content {
+    padding: var(--gutter-tablet) var(--margin-tablet);
+    gap: var(--gutter-tablet);
+  }
+
+  .button-stack {
+    padding-top: var(--gutter-tablet);
+    gap: var(--gutter-tablet);
+  }
+}
+@media only screen and (min-width: 992px) {
+  .event-card__content {
+    padding: var(--gutter-desktop) 2rem;
+    gap: var(--gutter-desktop);
+  }
+
+  .badge-stack {
+    gap: 0.5rem;
+  }
+
+  .button-stack {
+    padding-top: var(--gutter-desktop);
+    gap: var(--gutter-desktop);
+    flex-direction: row;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .event-card {
+    flex-basis: 75%;
+  }
+  .event-card__content {
+    padding: var(--gutter-desktop-large) 2rem;
+    gap: var(--gutter-desktop-large);
+  }
+
+  .button-stack {
+    padding-top: var(--gutter-desktop-large);
+    gap: var(--gutter-desktop-large);
+  }
+}

@@ -1,111 +1,177 @@
-/*all style variables used for the styling of the website*/
+/*
+*NEW STYLES 👇
+*/
 
 :root {
-  /*background images*/
-  --background-01: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-01.jpg"),
-    lightgray 50% / cover no-repeat;
-  --background-02: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-02.jpg"),
-    lightgray 50% / cover no-repeat;
-  --background-03: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-03.png"),
-    lightgray 50% / cover no-repeat;
-  --background-04: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-04.png"),
-    lightgray 50% / cover no-repeat;
-  --background-05: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-05.png"),
-    lightgray 50% / cover no-repeat;
-  --background-06: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-06.png"),
-    lightgray 50% / cover no-repeat;
-  --background-07: linear-gradient(
-      180deg,
-      rgba(36, 38, 45, 0.77) 0%,
-      rgba(20, 21, 25, 0.77) 100%
-    ),
-    url("../public/Images/Backgrounds/bg-07.png"),
-    lightgray 50% / cover no-repeat;
-
-  /* body text styles */
-  --body-large-font-family: "Syne", Helvetica;
-  --body-large-font-size: 1.25rem;
-  --body-large-font-style: normal;
-  --body-large-font-weight: 400;
-  --body-large-letter-spacing: 0.03125rem;
-  --body-large-line-height: 1.875rem;
-
-  --body-medium-font-family: "Syne", Helvetica;
-  --body-medium-font-size: 1.125rem;
-  --body-medium-font-style: normal;
-  --body-medium-font-weight: 400;
-  --body-medium-letter-spacing: 0.01563rem;
-  --body-medium-line-height: 1.6875rem;
-
-  --body-small-font-family: "Syne", Helvetica;
-  --body-small-font-size: 1rem;
-  --body-small-font-style: normal;
-  --body-small-font-weight: 400;
-  --body-small-letter-spacing: 0rem;
-  --body-small-line-height: 1.5rem;
-
   /* border radius*/
-  --border-radius-xs: 0.25rem;
-  --border-radius-s: 0.5rem;
-  --border-radius-m: 1rem;
-  --border-radius-l: 2rem;
-  --border-radius-xl: 4rem;
+  --border-radius-none: 0px;
+  --border-radius-base: 0.25rem;
+  --border-radius-small: 0.5rem;
+  --border-radius-medium: 1rem;
+  --border-radius-large: 1.5rem;
+  --border-radius-full: 100%;
 
-  /* display text styles */
-  --display-large-font-family: "Metal Mania", Helvetica;
-  --display-large-font-size: 6.95rem;
-  --display-large-font-style: normal;
-  --display-large-font-weight: 400;
-  --display-large-letter-spacing: -0.01563rem;
-  --display-large-line-height: 100%;
+  /* spacing */
+  --margin-mobile: 0.75rem;
+  --margin-tablet: 2rem;
+  --margin-desktop: 4rem;
+  --margin-desktop-large: 4rem;
 
-  --display-medium-font-family: "Metal Mania", Helvetica;
-  --display-medium-font-size: 5.5625rem;
-  --display-medium-font-style: normal;
-  --display-medium-font-weight: 400;
-  --display-medium-letter-spacing: 0rem;
-  --display-medium-line-height: 100%;
+  --margin-2x-mobile: 5rem;
+  --margin-2x-tablet: 5rem;
+  --margin-2x-desktop: 8rem;
+  --margin-2x-desktop-large: 8rem;
 
-  --display-small-font-family: "Metal Mania", Helvetica;
-  --display-small-font-size: 2.8125rem;
-  --display-small-font-style: normal;
-  --display-small-font-weight: 400;
-  --display-small-letter-spacing: 0rem;
-  --display-small-line-height: 100%;
+  --gutter-mobile: 0.75rem;
+  --gutter-tablet: 1.25rem;
+  --gutter-desktop: 1.5rem;
+  --gutter-desktop-large: 1.5rem;
 
-  /* shadows */
-  --elevation-01: 0px 1px 3px 1px rgba(20, 21, 25, 0.3),
-    0px 4px 4px 0px rgba(20, 21, 25, 0.15);
+  /* colors */
+  --neutral-900: #131515;
+  --neutral-800: #1d201f;
+  --neutral-700: #242827;
+  --neutral-600: #303634;
+  --neutral-500: #3a403f;
+  --neutral-400: #a9b1af;
+  --neutral-300: #c9cfcd;
+  --neutral-200: #dfe2e1;
+  --neutral-100: #eaeceb;
+  --neutral-50: #f4f5f5;
+
+  --primary-01-900: #1d2f2f;
+  --primary-01-800: #273f3f;
+  --primary-01-700: #467272;
+  --primary-01-600: #558b8b;
+  --primary-01-500: #67a2a2;
+  --primary-01-400: #8db9b9;
+  --primary-01-300: #9ac1c1;
+  --primary-01-200: #cce0e0;
+  --primary-01-100: #d9e8e8;
+  --primary-01-50: #f3f7f7;
+
+  --primary-02-900: #1d2729;
+  --primary-02-800: #324548;
+  --primary-02-700: #445b5f;
+  --primary-02-600: #557277;
+  --primary-02-500: #66888f;
+  --primary-02-400: #709299;
+  --primary-02-300: #88a5aa;
+  --primary-02-200: #a0b7bb;
+  --primary-02-100: #c3d2d5;
+  --primary-02-50: #dbe4e6;
+
+  --primary-03-900: #1c211c;
+  --primary-03-800: #394139;
+  --primary-03-700: #4c574c;
+  --primary-03-600: #535f53;
+  --primary-03-500: #687868;
+  --primary-03-400: #879787;
+  --primary-03-300: #9daa9d;
+  --primary-03-200: #d3d9d3;
+  --primary-03-100: #e9ece9;
+  --primary-03-50: #f4f6f4;
+
+  --primary-04-900: #171711;
+  --primary-04-800: #3b3a2b;
+  --primary-04-700: #464534;
+  --primary-04-600: #6a694e;
+  --primary-04-500: #81805f;
+  --primary-04-400: #979672;
+  --primary-04-300: #a6a587;
+  --primary-04-200: #c2c2ad;
+  --primary-04-100: #d4d3c4;
+  --primary-04-50: #e5e5dc;
+
+  /* gradients */
+  --gradient-text-neutral: linear-gradient(
+    243deg,
+    #dfe2e1 1.32%,
+    #a9b1af 99.13%
+  );
+  --gradient-text-primary-01: linear-gradient(
+    243deg,
+    #cce0e0 1.32%,
+    #67a2a2 99.13%
+  );
+  --gradient-text-primary-02: linear-gradient(
+    243deg,
+    #a0b7bb 1.32%,
+    #66888f 99.13%
+  );
+  --gradient-text-primary-03: linear-gradient(
+    243deg,
+    #d3d9d3 1.32%,
+    #687868 99.13%
+  );
+  --gradient-text-primary-04: linear-gradient(
+    243deg,
+    #c2c2ad 42.58%,
+    #81805f 58.88%,
+    #81805f 91.08%
+  );
+  --gradient-background-neutral: linear-gradient(
+    243deg,
+    #242827 1.32%,
+    #131515 99.13%
+  );
+  --gradient-background-primary-01: linear-gradient(
+    243deg,
+    #416c76 1.32%,
+    #1d2f2f 99.13%
+  );
+  --gradient-background-primary-02: linear-gradient(
+    243deg,
+    #66888f 1.32%,
+    #1d2729 99.13%
+  );
+  --gradient-background-primary-03: linear-gradient(
+    243deg,
+    #687868 1.32%,
+    #1c211c 99.13%
+  );
+  --gradient-background-primary-04: linear-gradient(
+    243deg,
+    #3b3a2b 1.32%,
+    #171711 99.13%
+  );
+
+  /*surface (backgrounds): paired with elevations or focus*/
+  --surface-00: linear-gradient(
+    180deg,
+    rgba(169, 177, 175, 0) 0%,
+    rgba(169, 177, 175, 0.3) 100%
+  );
+  --surface-01: linear-gradient(
+    180deg,
+    rgba(19, 21, 21, 0.3) 0%,
+    rgba(19, 21, 21, 0.1) 100%
+  );
+  --surface-02: linear-gradient(
+    180deg,
+    rgba(29, 32, 31, 0.3) 0%,
+    rgba(29, 32, 31, 0.1) 100%
+  );
+  --surface-03: linear-gradient(
+    180deg,
+    #242827 0%,
+    rgba(36, 40, 39, 0.3) 0.01%,
+    rgba(36, 40, 39, 0.1) 100%
+  );
+  --surface-04: linear-gradient(
+    180deg,
+    rgba(48, 54, 52, 0.3) 0%,
+    rgba(48, 54, 52, 0.1) 100%
+  );
+  --surface-05: linear-gradient(
+    180deg,
+    rgba(58, 64, 63, 0.3) 0%,
+    rgba(58, 64, 63, 0.1) 100%
+  );
+
+  /* elevation (box-shadows): use in combination with surface */
+  --elevation-01: 0px 1px 2px 0px rgba(20, 21, 25, 0.3),
+    0px 1px 4px 1px rgba(20, 21, 25, 0.15);
   --elevation-02: 0px 1px 2px 0px rgba(20, 21, 25, 0.3),
     0px 2px 6px 2px rgba(20, 21, 25, 0.15);
   --elevation-03: 0px 1px 3px 0px rgba(20, 21, 25, 0.3),
@@ -115,563 +181,35 @@
   --elevation-05: 0px 4px 4px 0px rgba(20, 21, 25, 0.3),
     0px 8px 12px 6px rgba(20, 21, 25, 0.15);
 
-  /* gradients */
-  --gradient-01: linear-gradient(270deg, #b8b799 0%, #416c76 100%);
-  --gradient-02: linear-gradient(270deg, #b8b799 0%, #479fc2 100%);
-  --gradient-03: linear-gradient(270deg, #ddae3c 0%, #563424 100%);
-  --gradient-04: linear-gradient(270deg, #ddae3c 0%, #41386b 100%);
+  /* focus (box-shadows): use for focus state of interactive elements */
+  --focus-00: 0px 0px 0.271px 0px #c9cfcd, 0px 0px 0.542px 0px #c9cfcd,
+    0px 0px 1.898px 0px #c9cfcd, 0px 0px 3.797px 0px #c9cfcd,
+    0px 0px 6.509px 0px #c9cfcd, 0px 0px 11.39px 0px #c9cfcd;
+  --focus-01: 0px 0px 0.271px 0px #9ac1c1, 0px 0px 0.542px 0px #9ac1c1,
+    0px 0px 1.898px 0px #9ac1c1, 0px 0px 3.797px 0px #9ac1c1,
+    0px 0px 6.509px 0px #9ac1c1, 0px 0px 11.39px 0px #9ac1c1;
+  --focus-02: 0px 0px 0.271px 0px #88a5aa, 0px 0px 0.542px 0px #88a5aa,
+    0px 0px 1.898px 0px #88a5aa, 0px 0px 3.797px 0px #88a5aa,
+    0px 0px 6.509px 0px #88a5aa, 0px 0px 11.39px 0px #88a5aa;
+  --focus-03: 0px 0px 0.271px 0px #9daa9d, 0px 0px 0.542px 0px #9daa9d,
+    0px 0px 1.898px 0px #9daa9d, 0px 0px 3.797px 0px #9daa9d,
+    0px 0px 6.509px 0px #9daa9d, 0px 0px 11.39px 0px #9daa9d;
+  --focus-04: 0px 0px 0.271px 0px #a6a587, 0px 0px 0.542px 0px #a6a587,
+    0px 0px 1.898px 0px #a6a587, 0px 0px 3.797px 0px #a6a587,
+    0px 0px 6.509px 0px #a6a587, 0px 0px 11.39px 0px #a6a587;
 
-  /* headline text styles */
-  --headline-large-font-family: "Metal Mania", Helvetica;
-  --headline-large-font-size: 2.5rem;
-  --headline-large-font-style: normal;
-  --headline-large-font-weight: 400;
-  --headline-large-letter-spacing: 0rem;
-  --headline-large-line-height: 3rem;
+  /* typography */
 
-  --headline-medium-font-family: "Metal Mania", Helvetica;
-  --headline-medium-font-size: 2.25rem;
-  --headline-medium-font-style: normal;
-  --headline-medium-font-weight: 400;
-  --headline-medium-letter-spacing: 0rem;
-  --headline-medium-line-height: 2.75rem;
-
-  --headline-small-font-family: "Metal Mania", Helvetica;
-  --headline-small-font-size: 2rem;
-  --headline-small-font-style: normal;
-  --headline-small-font-weight: 400;
-  --headline-small-letter-spacing: 0rem;
-  --headline-small-line-height: 2.5rem;
-
-  /* label text styles */
-  --label-extra-small-font-family: "Syne", Helvetica;
-  --label-extra-small-font-size: 0.625rem;
-  --label-extra-small-font-style: normal;
-  --label-extra-small-font-weight: 700;
-  --label-extra-small-letter-spacing: 0.03125rem;
-  --label-extra-small-line-height: 1rem;
-
-  --label-large-font-family: "Syne", Helvetica;
-  --label-large-font-size: 1.125rem;
-  --label-large-font-style: normal;
-  --label-large-font-weight: 500;
-  --label-large-letter-spacing: 0.00625rem;
-  --label-large-line-height: 1.5rem;
-
-  --label-medium-font-family: "Syne", Helvetica;
+  /* label global */
+  --label-font-family: "Syne", Helvetica;
+  --label-font-style: normal;
+  --label-font-weight: 600;
+  --label-line-height: 100%;
+  /* label sizes */
+  --label-small-font-size: 0.75rem;
   --label-medium-font-size: 1rem;
-  --label-medium-font-style: normal;
-  --label-medium-font-weight: 500;
-  --label-medium-letter-spacing: 0.03125rem;
-  --label-medium-line-height: 1.5rem;
-
-  --label-small-font-family: "Syne", Helvetica;
-  --label-small-font-size: 0.875rem;
-  --label-small-font-style: normal;
-  --label-small-font-weight: 500;
-  --label-small-letter-spacing: 0.03125rem;
-  --label-small-line-height: 1.5rem;
-
-  /* colors */
-  --neutral-10: rgba(20, 21, 25, 1);
-  --neutral-20: rgba(36, 38, 45, 1);
-  --neutral-30: rgba(54, 57, 68, 1);
-  --neutral-40: rgba(64, 67, 79, 1);
-  --neutral-50: rgba(82, 86, 102, 1);
-  --neutral-60: rgba(100, 105, 125, 1);
-  --neutral-70: rgba(119, 125, 146, 1);
-  --neutral-80: rgba(130, 135, 155, 1);
-  --neutral-90: rgba(153, 157, 173, 1);
-  --neutral-96: rgba(176, 179, 191, 1);
-  --neutral-98: rgba(210, 212, 219, 1);
-  --neutral-99: rgba(232, 233, 237, 1);
-
-  --primary-010: rgba(12, 20, 22, 1);
-  --primary-0110: rgba(22, 36, 39, 1);
-  --primary-0120: rgba(36, 60, 66, 1);
-  --primary-0130: rgba(51, 84, 92, 1);
-  --primary-0140: rgba(65, 108, 118, 1);
-
-  --primary-020: rgba(12, 29, 36, 1);
-  --primary-0210: rgba(20, 50, 61, 1);
-  --primary-0220: rgba(36, 87, 107, 1);
-  --primary-0230: rgba(51, 124, 153, 1);
-  --primary-0240: rgba(71, 159, 194, 1);
-
-  --primary-0310: rgba(29, 17, 12, 1);
-  --primary-0320: rgba(43, 26, 18, 1);
-  --primary-0330: rgba(58, 35, 24, 1);
-  --primary-0340: rgba(72, 43, 30, 1);
-  --primary-0350: rgba(86, 52, 36, 1);
-
-  --primary-0410: rgba(24, 21, 40, 1);
-  --primary-0420: rgba(38, 33, 63, 1);
-  --primary-0430: rgba(49, 42, 80, 1);
-  --primary-0440: rgba(65, 56, 107, 1);
-  --primary-0450: rgba(81, 70, 134, 1);
-
-  --secondary-1295: rgba(171, 170, 135, 1);
-  --secondary-1296: rgba(184, 183, 153, 1);
-  --secondary-1297: rgba(205, 204, 183, 1);
-  --secondary-1298: rgba(222, 221, 207, 1);
-  --secondary-1299: rgba(238, 238, 231, 1);
-
-  --secondary-3490: rgba(156, 118, 28, 1);
-  --secondary-3495: rgba(173, 131, 31, 1);
-  --secondary-3496: rgba(191, 144, 34, 1);
-  --secondary-3498: rgba(221, 174, 60, 1);
-  --secondary-3499: rgba(224, 182, 82, 1);
-
-  /*surface colors - to be paired with elevations = shadows*/
-  --surface-01: linear-gradient(
-    180deg,
-    rgba(36, 38, 45, 0.17) 0%,
-    rgba(20, 21, 25, 0.17) 100%
-  );
-  --surface-02: linear-gradient(
-    180deg,
-    rgba(54, 57, 68, 0.17) 0%,
-    rgba(36, 38, 45, 0.17) 100%
-  );
-  --surface-03: linear-gradient(
-    180deg,
-    rgba(64, 67, 79, 0.17) 0%,
-    rgba(64, 67, 79, 0.17) 100%,
-    rgba(54, 57, 68, 0.17) 100%
-  );
-  --surface-04: linear-gradient(
-    180deg,
-    rgba(82, 86, 102, 0.17) 0%,
-    rgba(64, 67, 79, 0.17) 100%,
-    rgba(64, 67, 79, 0.17) 100%
-  );
-  --surface-05: linear-gradient(
-    180deg,
-    rgba(100, 105, 125, 0.17) 0%,
-    rgba(64, 67, 79, 0.17) 100%,
-    rgba(82, 86, 102, 0.17) 100%
-  );
-
-  /* surface tits */
-  --tint-primary-0103: linear-gradient(
-      0deg,
-      rgba(65, 108, 118, 0.21) 0%,
-      rgba(65, 108, 118, 0.21) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(64, 67, 79, 0.17) 0%,
-      rgba(64, 67, 79, 0.17) 100%,
-      rgba(54, 57, 68, 0.17) 100%
-    );
-
-  /* title text styles */
-  --title-large-font-family: "Syne", Helvetica;
-  --title-large-font-size: 1.75rem;
-  --title-large-font-style: normal;
-  --title-large-font-weight: 400;
-  --title-large-letter-spacing: 0rem;
-  --title-large-line-height: 2.25rem;
-
-  --title-medium-font-family: "Syne", Helvetica;
-  --title-medium-font-size: 1.25rem;
-  --title-medium-font-style: normal;
-  --title-medium-font-weight: 700;
-  --title-medium-letter-spacing: 0.00938rem;
-  --title-medium-line-height: 1.5rem;
-
-  --title-small-font-family: "Syne", Helvetica;
-  --title-small-font-size: 1.125rem;
-  --title-small-font-style: normal;
-  --title-small-font-weight: 500;
-  --title-small-letter-spacing: 0.00625rem;
-  --title-small-line-height: 1.5rem;
-
-  /* avatars */
-  --x2d-avatar01: url("../public/Images/Avatars/01.svg"), rgba(12, 20, 22, 1);
-  --x2d-avatar02: url("../public/Images/Avatars/02.svg"), rgba(22, 36, 39, 1);
-  --x2d-avatar03: url("../public/Images/Avatars/03.svg"), rgba(36, 60, 66, 1);
-  --x2d-avatar04: url("../public/Images/Avatars/04.svg"), rgba(51, 84, 92, 1);
-  --x2d-avatar05: url("../public/Images/Avatars/05.svg"), rgba(65, 108, 118, 1);
-  --x2d-avatar06: url("../public/Images/Avatars/06.svg"), rgba(12, 29, 36, 1);
-  --x2d-avatar07: url("../public/Images/Avatars/07.svg"), rgba(20, 50, 61, 1);
-  --x2d-avatar08: url("../public/Images/Avatars/08.svg"), rgba(36, 87, 107, 1);
-  --x2d-avatar09: url("../public/Images/Avatars/09.svg"), rgba(51, 124, 153, 1);
-  --x2d-avatar10: url("../public/Images/Avatars/10.svg"), rgba(71, 159, 194, 1);
-  --x2d-avatar11: url("../public/Images/Avatars/11.svg"), rgba(171, 170, 135, 1);
-  --x2d-avatar12: url("../public/Images/Avatars/12.svg"), rgba(184, 183, 153, 1);
-  --x2d-avatar13: url("../public/Images/Avatars/13.svg"), rgba(205, 204, 183, 1);
-  --x2d-avatar14: url("../public/Images/Avatars/14.svg"), rgba(222, 221, 207, 1);
-  --x2d-avatar15: url("../public/Images/Avatars/15.svg"), rgba(238, 238, 231, 1);
-  --x2d-avatar16: url("../public/Images/Avatars/16.svg"), rgba(29, 17, 12, 1);
-  --x2d-avatar17: url("../public/Images/Avatars/17.svg"), rgba(43, 26, 18, 1);
-  --x2d-avatar18: url("../public/Images/Avatars/18.svg"), rgba(58, 35, 24, 1);
-  --x2d-avatar19: url("../public/Images/Avatars/19.svg"), rgba(72, 43, 30, 1);
-  --x2d-avatar20: url("../public/Images/Avatars/20.svg"), rgba(86, 52, 36, 1);
-  --x2d-avatar21: url("../public/Images/Avatars/21.svg"), rgba(24, 21, 40, 1);
-  --x2d-avatar22: url("../public/Images/Avatars/22.svg"), rgba(38, 33, 63, 1);
-  --x2d-avatar23: url("../public/Images/Avatars/23.svg"), rgba(49, 42, 80, 1);
-  --x2d-avatar24: url("../public/Images/Avatars/24.svg"), rgba(65, 56, 107, 1);
-  --x2d-avatar25: url("../public/Images/Avatars/25.svg"), rgba(81, 70, 134, 1);
-  --x2d-avatar26: url("../public/Images/Avatars/26.svg"), rgba(156, 118, 28, 1);
-  --x2d-avatar27: url("../public/Images/Avatars/27.svg"), rgba(173, 131, 31, 1);
-  --x2d-avatar28: url("../public/Images/Avatars/28.svg"), rgba(191, 144, 34, 1);
-  --x2d-avatar29: url("../public/Images/Avatars/29.svg"), rgba(221, 174, 60, 1);
-  --x2d-avatar30: url("../public/Images/Avatars/30.svg"), rgba(224, 182, 82, 1);
-}
-
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-
-html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-}
-
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers.
- */
-
-body {
-  margin: 0;
-}
-
-/**
- * Render the `main` element consistently in IE.
- */
-
-main {
-  display: block;
-}
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/* Grouping content
-   ========================================================================== */
-
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * Remove the gray background on active links in IE 10.
- */
-
-a {
-  background-color: transparent;
-}
-
-/**
- * 1. Remove the bottom border in Chrome 57-
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-
-abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
-}
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-code,
-kbd,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/**
- * Add the correct font size in all browsers.
- */
-
-small {
-  font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/* Embedded content
-   ========================================================================== */
-
-/**
- * Remove the border on images inside links in IE 10.
- */
-
-img {
-  border-style: none;
-}
-
-/* Forms
-   ========================================================================== */
-
-/**
- * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
-
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-
-button,
-input {
-  /* 1 */
-  overflow: visible;
-}
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
-button,
-select {
-  /* 1 */
-  text-transform: none;
-}
-
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  appearance: button;
-  -webkit-appearance: button;
-}
-
-/**
- * Remove the inner border and padding in Firefox.
- */
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-/**
- * Correct the padding in Firefox.
- */
-
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-
-legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
-}
-
-/**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-
-progress {
-  vertical-align: baseline;
-}
-
-/**
- * Remove the default vertical scrollbar in IE 10+.
- */
-
-textarea {
-  overflow: auto;
-}
-
-/**
- * 1. Add the correct box sizing in IE 10.
- * 2. Remove the padding in IE 10.
- */
-
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-}
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-
-[type="search"] {
-  appearance: textfield;
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
-
-/**
- * Remove the inner padding in Chrome and Safari on macOS.
- */
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
-}
-
-/* Interactive
-   ========================================================================== */
-
-/*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-
-details {
-  display: block;
-}
-
-/*
- * Add the correct display in all browsers.
- */
-
-summary {
-  display: list-item;
-}
-
-/* Misc
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 10+.
- */
-
-template {
-  display: none;
-}
-
-/**
- * Add the correct display in IE 10.
- */
-
-[hidden] {
-  display: none;
+  --label-large-font-size: 1.125rem;
+  --label-extra-large-font-size: 1.25rem;
 }
 
 /* reset */
@@ -681,40 +219,686 @@ template {
   padding: 0;
 }
 
-/* mobile first, so all the SMALL variables are set as a default*/
-body {
-  font-family: var(--body-small-font-family);
-  font-size: var(--body-small-font-size);
-  font-style: var(--body-small-font-style);
-  font-weight: var(--body-small-font-weight);
-  letter-spacing: var(--body-small-letter-spacing);
-  line-height: var(--body-small-line-height);
+body,
+html {
+  height: 100%;
 }
 
-/* gradient border */
+/*
+*NEW TYPOGRAPHY SETTINGS!!!
+*/
 
+body {
+  color: var(--neutral-50);
+  background-color: var(--neutral-900);
+}
+
+/* Heading */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: "Metal Mania", Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  background: var(--gradient-text-primary-04);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.75rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.375rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1.125rem;
+}
+
+/* Body */
+p {
+  font-family: "Syne", Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--neutral-50);
+}
+.p--high-emphasis {
+  font-size: 1rem;
+}
+.p--moderate-emphasis {
+  font-size: 0.875rem;
+}
+.p--low-emphasis {
+  font-size: 0.75rem;
+}
+
+/* Label */
+label,
+.label {
+  font-family: var(--label-font-family);
+  font-style: var(--label-font-style);
+  font-weight: var(--label-font-weight);
+  line-height: var(--label-line-height);
+  color: var(--neutral-50);
+}
+.label--high-emphasis {
+  font-size: 1rem;
+}
+.label--moderate-emphasis {
+  font-size: 0.875rem;
+}
+.label--low-emphasis {
+  font-size: 0.75rem;
+}
+
+/* Title */
+.title {
+  font-family: "Syne", Helvetica;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+}
+.title--high-emphasis {
+  font-size: 1.125rem;
+}
+.title--low-emphasis {
+  font-size: 1rem;
+}
+
+link,
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+svg {
+  width: 100%;
+}
+
+/*
+*LAYOUT
+*/
+
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  padding: var(--margin-2x-mobile) var(--margin-mobile);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--margin-2x-mobile);
+}
+
+section {
+  display: flex;
+  padding: var(--margin-mobile) 0rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--margin-mobile);
+  align-self: stretch;
+}
+
+article {
+  display: flex;
+  padding: var(--gutter-mobile) 0rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gutter-mobile);
+  align-self: stretch;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--gutter-mobile);
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gutter-mobile);
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.col > .btn {
+  align-self: stretch;
+}
+
+.tile {
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--surface-01);
+  backdrop-filter: blur(21px);
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: var(--gutter-mobile);
+}
+
+/*
+*Logo & Icons
+*/
+
+.logo {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  background: url("../public/Images/Logo/small.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fas,
+.icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.fas,
+.icon--small {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon--big {
+  width: 4rem;
+  height: 4rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon-tournament {
+  background-image: url("../public/Images/Icons/tabler_tournament.svg");
+}
+
+.icon-wand {
+  background-image: url("../public/Images/Icons/mdi_wand.svg");
+}
+
+.icon-wizard-hat {
+  background-image: url("../public/Images/Icons/mdi_wizard-hat.svg");
+}
+
+.icon-reward {
+  background-image: url("../public/Images/Icons/material-symbols_rewarded-ads.svg");
+}
+
+.icon-button {
+  display: inline-flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  transition: all 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+  background: var(--surface-03);
+  backdrop-filter: blur(21px);
+}
+
+.fas-01,
+.link-01,
+.link-secondary-01:hover {
+  color: var(--primary-01-50);
+}
+
+.fas-02,
+.link-02,
+.link-secondary-02:hover {
+  color: var(--primary-02-50);
+}
+
+.fas-03,
+.link-03,
+.link-secondary-03:hover {
+  color: var(--primary-03-50);
+}
+
+.fas-04,
+.link-04,
+.link-secondary-04:hover {
+  color: var(--primary-04-50);
+}
+
+.fas-01:hover,
+.link-01:hover,
+.link-secondary-01 {
+  color: var(--primary-01-400);
+}
+
+.fas-02:hover,
+.link-02:hover,
+.link-secondary-02 {
+  color: var(--primary-02-400);
+}
+
+.fas-03:hover,
+.link-03:hover,
+.link-secondary-03 {
+  color: var(--primary-03-400);
+}
+
+.fas-04:hover,
+.link-04:hover,
+.link-secondary-04 {
+  color: var(--primary-04-400);
+}
+
+/*
+*Media
+*/
+
+.video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: var(--border-radius-medium);
+}
+
+.event-image-01 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_01.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-02 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_02.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-03 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_03.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-04 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_04.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-05 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_05.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-06 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_06.jpeg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-07 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_07.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-08 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_08.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-09 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_09.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-image-10 {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 38, 45, 0.03) 0%,
+      rgba(20, 21, 25, 0.66) 91.77%
+    ),
+    url("../public/Images/Events/event_10.jpg"), lightgray 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.big-image-01 {
+  background-image: url("../public/Images/Backgrounds/bg-01.jpg");
+  min-height: 100%;
+}
+
+.big-image-02 {
+  background-image: url("../public/Images/Backgrounds/bg-02-darkened.svg");
+  min-height: 100%;
+}
+
+.big-image-03 {
+  background-image: url("../public/Images/Backgrounds/Home.svg");
+  min-height: 100%;
+}
+
+.big-image-04 {
+  background-image: url("../public/Images/Backgrounds/Hermione\ Granger-Teen-Action\ 02.png");
+  min-height: 100%;
+}
+
+.parallax {
+  opacity: 0.75;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* breakpoints (min-width) used throughout the website
+*tablet: 768px;
+*desktop: 992px;
+*desktop-large: 1200px;
+*/
+
+@media only screen and (min-width: 768px) {
+  .content-wrapper {
+    padding: var(--margin-2x-tablet) var(--margin-tablet);
+    gap: var(--margin-2x-tablet);
+  }
+
+  section {
+    padding: var(--margin-tablet) 0rem;
+    gap: var(--margin-tablet);
+  }
+
+  article {
+    padding: var(--gutter-tablet) 0rem;
+    gap: var(--gutter-tablet);
+  }
+
+  .row {
+    gap: var(--gutter-tablet);
+  }
+
+  .col {
+    gap: var(--gutter-tablet);
+  }
+
+  .col > .btn {
+    align-self: center;
+  }
+
+  .section-heading {
+    gap: var(--gutter-tablet);
+  }
+
+  .section-heading > h2 {
+    max-width: 50%;
+  }
+
+  .icon--big {
+    width: 5.5rem;
+    height: 5.5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  h1 {
+    font-size: 5.75rem;
+  }
+  h2 {
+    font-size: 3.75rem;
+  }
+  h3 {
+    font-size: 3rem;
+  }
+  h4 {
+    font-size: 2.25rem;
+  }
+  h5 {
+    font-size: 1.875rem;
+  }
+  h6 {
+    font-size: 1.25rem;
+  }
+  .p--high-emphasis {
+    font-size: 1.5rem;
+  }
+  .p--moderate-emphasis {
+    font-size: 1.25rem;
+  }
+  .p--low-emphasis {
+    font-size: 1.125rem;
+  }
+  .label--high-emphasis {
+    font-size: 1.5rem;
+  }
+  .label--moderate-emphasis {
+    font-size: 1.25rem;
+  }
+  .label--low-emphasis {
+    font-size: 1.125rem;
+  }
+  .title--high-emphasis {
+    font-size: 2.25rem;
+  }
+  .title--low-emphasis {
+    font-size: 1.875rem;
+  }
+
+  .content-wrapper {
+    padding: var(--margin-2x-desktop) var(--margin-desktop);
+    gap: var(--margin-2x-desktop);
+  }
+
+  section {
+    padding: var(--margin-desktop) 0rem;
+    gap: var(--margin-desktop);
+  }
+
+  article {
+    padding: var(--gutter-desktop) 0rem;
+    gap: var(--gutter-desktop);
+  }
+
+  .row {
+    gap: var(--gutter-desktop);
+  }
+
+  .col {
+    gap: var(--gutter-desktop);
+  }
+
+  .section-heading {
+    gap: var(--gutter-desktop);
+  }
+
+  .logo {
+    width: 12rem;
+    height: 2.5rem;
+    background: url("../public/Images/Logo/large.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .icon--big {
+    width: 7rem;
+    height: 7rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .content-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: var(--margin-2x-desktop-large) var(--margin-desktop-large);
+    gap: var(--margin-2x-desktop-large);
+  }
+
+  section {
+    padding: var(--margin-desktop-large) 0rem;
+    gap: var(--margin-desktop-large);
+  }
+
+  article {
+    padding: var(--gutter-desktop-large) 0rem;
+    gap: var(--gutter-desktop-large);
+  }
+
+  .row {
+    gap: var(--gutter-desktop-large);
+  }
+
+  .col {
+    gap: var(--gutter-desktop-large);
+  }
+
+  .section-heading {
+    gap: var(--gutter-desktop-large);
+  }
+
+  .logo {
+    width: 16rem;
+    height: 4rem;
+    background: url("../public/Images/Logo/extraLarge.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .icon--big {
+    width: 8.5rem;
+    height: 8.5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+/*
+*GRADIENT BORDER
+*/
+
+/* base */
 .border-gradient {
   border: 10px solid;
   border-image-slice: 1;
   border-width: 3px;
 }
 
+/* color neutral */
+.border-gradient--00 {
+  border-image-source: var(--gradient-text-neutral);
+}
+
+/* color 01 */
 .border-gradient--01 {
-  border-image-source: var(--gradient-01);
+  border-image-source: var(--gradient-text-primary-01);
 }
 
+/* color 02 */
 .border-gradient--02 {
-  border-image-source: var(--gradient-02);
+  border-image-source: var(--gradient-text-primary-02);
 }
 
+/* color 03 */
 .border-gradient--03 {
-  border-image-source: var(--gradient-03);
+  border-image-source: var(--gradient-text-primary-03);
 }
 
+/* color 04 */
 .border-gradient--04 {
-  border-image-source: var(--gradient-04);
+  border-image-source: var(--gradient-text-primary-04);
 }
 
+/* position bottom */
 .border-gradient--only-bottom {
   border-radius: none;
   border-left: 0;
@@ -722,6 +906,7 @@ body {
   border-top: 0;
 }
 
+/* position right */
 .border-gradient--only-right {
   border-radius: none;
   border-bottom: 0;
@@ -729,18 +914,24 @@ body {
   border-top: 0;
 }
 
+/* position left */
+.border-gradient--only-left {
+  border-radius: none;
+  border-bottom: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+/* position left and right */
 .border-gradient--left-and-right {
   border-radius: none;
   border-bottom: 0;
   border-top: 0;
 }
 
-.home,
-.tournaments {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
+.divider {
+  height: 0.0625rem;
+  align-self: stretch;
+  border-radius: var(--border-radius-base);
+  background: var(--gradient-text-primary-04);
 }
-
