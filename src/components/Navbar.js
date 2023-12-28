@@ -172,7 +172,7 @@ function Navbar({ pageTitle }) {
                   ? "medium"
                   : "large"
               }
-              onClick={fakeData} //change to handleloginclick later
+              onClick={handleLoginClick} //change to handleloginclick later
             >
               Log In
             </CustomButton>

@@ -12,10 +12,10 @@ function Tournaments() {
     fetch(tournamentsUrl)
       .then((res) => res.json())
       .then((data) => {
-        /*setTournamentsData(data); uncomment when live*/
+        setTournamentsData(data); /* uncomment when live*/
       })
       .catch((error) => console.log("Error:", error));
-      setTournamentsData([
+      /*setTournamentsData([
         {
           "tournamentName": "empty tournament",
           "tournamentId": "183305dc-2998-4079-61c4-08dbef47d028",
@@ -92,7 +92,7 @@ function Tournaments() {
             }
           ]
         }
-      ]);
+      ]);*/
   }, []);
 
   return (
